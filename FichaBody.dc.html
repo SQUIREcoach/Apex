@@ -40,7 +40,7 @@
 <span class="kick">{{f.cat}} · Ficha {{f.num}}</span>
 <h1 class="h1" style="font-size: clamp(44px, 5vw, 72px)">{{f.title}}</h1>
 <p style="margin: 0; font-size: 19px; line-height: 1.6">{{f.def}}</p>
-<div style="border: 1px solid #E6DFD2; background: #F7F4EE; padding: 24px 28px; display: flex; flex-direction: column; gap: 6px">
+<div hidden style="display: none; border: 1px solid #E6DFD2; background: #F7F4EE; padding: 24px 28px; flex-direction: column; gap: 6px">
 <span class="kick" style="font-size: 11px">Precio</span>
 <p class="h1" style="font-size: 36px">[Desde — € · por definir]</p>
 <p class="mu" style="margin: 0; font-size: 15px">{{f.price}} Lo confirmamos antes de intervenir.</p>
@@ -146,7 +146,7 @@
 <h2 class="h2" style="font-size: clamp(32px, 3.4vw, 44px)">Fichas relacionadas</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px">
 <sc-for list="{{rel}}" as="r" hint-placeholder-count="3">
-<a class="lnk" href="{{r.href}}"><img src="{{r.img}}" alt="{{r.title}}"><div style="padding: 22px; display: flex; flex-direction: column; gap: 6px"><span class="num" style="font-size: 11px">Ficha {{r.num}}</span><h3 class="h3">{{r.title}}</h3><span class="mu" style="font-size: 14px">{{r.price}}</span></div></a>
+<a class="lnk" href="{{r.href}}"><img src="{{r.img}}" alt="{{r.title}}"><div style="padding: 22px; display: flex; flex-direction: column; gap: 6px"><span class="num" style="font-size: 11px">Ficha {{r.num}}</span><h3 class="h3">{{r.title}}</h3><span hidden class="mu" style="display: none; font-size: 14px">{{r.price}}</span></div></a>
 </sc-for>
 </div>
 </div>
