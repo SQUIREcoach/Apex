@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Plantilla de ficha</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
+<style>body{margin:0}
+.pv-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.pv-g{grid-template-columns:minmax(0,1fr)}}
+.pv-f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pv-w{grid-column:1 / -1}
+.pv-opt{display:inline-block;margin-left:6px;padding:2px 10px;border-radius:999px;border:1px solid rgba(212,174,114,.6);font-size:11px !important;font-weight:600 !important;letter-spacing:.08em;text-transform:uppercase;color:#8A6A36 !important;vertical-align:middle}
+.pv-f label{font-size:13px;font-weight:600;color:#16191F}
+.pv-f label span{font-weight:400;color:#6B7280}
+.pv-in{width:100%;min-height:50px;border:1px solid #CFC4B0;border-radius:12px;padding:10px 14px;font-size:16px;font-family:Montserrat,sans-serif;background:#FFFFFF;color:#16191F}
+.pv-in::placeholder{color:#9AA3AE}
+.pv-in:focus{border-color:#D4AE72;outline:none;box-shadow:0 0 0 3px rgba(212,174,114,.25)}
+.pv-file{width:100%;padding:14px;border:1px dashed #CFC4B0;border-radius:12px;background:#FBF8F2;font-family:Montserrat,sans-serif;font-size:14px;color:#4A5260;cursor:pointer}
+.pv-file::file-selector-button{margin-right:14px;padding:10px 16px;border:1px solid #D4AE72;border-radius:10px;background:transparent;color:#8A6A36;font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;cursor:pointer}
+.pv-file:hover{border-color:#D4AE72}
+</style>
+</helmet>
+<div class="pg" style="font-family: Montserrat, system-ui, sans-serif; color: #16191F">
+
+<section style="padding: 56px 0 96px">
+<div class="w" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 56px; align-items: start">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<img src="{{f.img}}" alt="{{f.alt}}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: 4px">
+<figcaption class="mu" style="font-size: 13px">Imagen ilustrativa</figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 22px; position: sticky; top: 100px">
+<a href="{{f.backHref}}" style="font-size: 15px; font-weight: 500; text-decoration: none">← {{f.backT}}</a>
+<span class="kick">{{f.cat}} · Ficha {{f.num}}</span>
+<h1 class="h1" style="font-size: clamp(44px, 5vw, 72px)">{{f.title}}</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6">{{f.def}}</p>
+<div style="border: 1px solid #E6DFD2; background: #F7F4EE; padding: 24px 28px; display: flex; flex-direction: column; gap: 6px">
+<span class="kick" style="font-size: 11px">Precio</span>
+<p class="h1" style="font-size: 36px">[Desde — € · por definir]</p>
+<p class="mu" style="margin: 0; font-size: 15px">{{f.price}} Lo confirmamos antes de intervenir.</p>
+</div>
+<div id="valorar" style="display: flex; flex-direction: column; gap: 14px">
+<sc-if value="{{v.idle}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><button type="button" class="b" onClick="{{v.start}}">{{f.cta}}</button><a class="bo" style="color: #0A2A47" href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</sc-if>
+<sc-if value="{{v.zona}}" hint-placeholder-val="{{ false }}">
+<div style="border: 1px solid #D4AE72; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<span class="kick" style="font-size: 11px; ">Tu caso · {{f.title}}</span>
+<strong style="font-size: 18px">¿En qué zona está la piscina?</strong>
+<div role="group" aria-label="Zona" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{v.zones}}" as="z" hint-placeholder-count="7"><button type="button" class="chip" style="background: #FFFFFF; color: #0A2A47" onClick="{{z.pick}}">{{z.label}}</button></sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{v.fotos}}" hint-placeholder-val="{{ false }}">
+<form style="border: 1px solid #D4AE72; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 14px" onSubmit="{{v.toDatos}}" novalidate="">
+<span class="kick" style="font-size: 11px; ">Tu caso · {{f.title}} · {{v.zone}}</span>
+<strong style="font-size: 18px">¿Nos mandas unas fotos?</strong>
+<p style="margin: -6px 0 0; font-size: 14px; opacity: .8">Con fotos podemos orientarte antes de ir. Si ahora no puedes, déjalo para después.</p>
+<div class="pv-g">
+<div class="pv-f pv-w"><label for="fv-p">Fotos de la piscina, del problema o del cuarto técnico <span class="pv-opt">Opcional</span></label><input class="pv-file" id="fv-p" type="file" accept="image/*" multiple=""></div>
+<div class="pv-f pv-w"><label for="fv-m">Correo electrónico</label><input class="pv-in" id="fv-m" type="email" placeholder="Ej.: marc@gmail.com" autocomplete="email" onInput="{{v.setMail}}"></div>
+</div>
+<sc-if value="{{v.mailErr}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: -4px 0 0; font-size: 13px; color: #B4442A">Escribe un correo válido para poder enviarte la valoración.</p></sc-if>
+<button class="b" type="button" style="align-self: flex-start" onClick="{{v.toDatos}}">Siguiente →</button>
+</form>
+</sc-if>
+<sc-if value="{{v.datos}}" hint-placeholder-val="{{ false }}">
+<form style="border: 1px solid #D4AE72; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 14px" onSubmit="{{v.send}}">
+<span class="kick" style="font-size: 11px; ">Tu caso · {{f.title}} · {{v.zone}}</span>
+<strong style="font-size: 18px">¿A qué número te llamamos?</strong>
+<div class="pv-g">
+<div class="pv-f"><label for="fv-n">Nombre</label><input class="pv-in" id="fv-n" type="text" placeholder="Ej.: Marc Rovira" autocomplete="name"></div>
+<div class="pv-f"><label for="fv-t">Teléfono</label><input class="pv-in" id="fv-t" type="tel" inputmode="tel" placeholder="600 000 000" autocomplete="tel"></div>
+</div>
+<label style="display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: #4A5260"><input type="checkbox" style="margin-top: 3px; width: 16px; height: 16px; accent-color: #D4AE72"> Acepto que APEX me contacte por esta solicitud.</label>
+<button class="b" type="button" style="align-self: flex-start" onClick="{{v.send}}">Enviar</button>
+</form>
+</sc-if>
+<sc-if value="{{v.mas}}" hint-placeholder-val="{{ false }}">
+<div style="border: 1px solid #D4AE72; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<strong style="font-size: 18px">¿Algo más que debamos saber?</strong>
+<label for="pv-x" style="font-size: 14px; color: #4A5260">¿Algún detallito más que quieras comentar?</label>
+<textarea class="pv-in" id="pv-x" rows="4" style="min-height: 110px; resize: vertical; padding-top: 12px" onInput="{{v.setMore}}"></textarea>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-if value="{{v.mtOff}}" hint-placeholder-val="{{ true }}"><button type="button" class="bo" style="color: #0A2A47" onClick="{{v.moreNo}}">No, eso es todo</button><button type="button" class="b" disabled="">Sí</button></sc-if>
+<sc-if value="{{v.mtOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="bo" style="color: #0A2A47" disabled="">No, eso es todo</button><button type="button" class="b" onClick="{{v.moreYes}}">Sí</button></sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{v.ok}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="border: 1px solid #D4AE72; background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<strong style="font-size: 18px">Recibido. Te llamamos en breve.</strong>
+<span style="font-size: 14px; color: #4A5260">{{f.title}} · {{v.zone}}. No tendrás que volver a contárnoslo.</span>
+</div>
+</sc-if>
+</div>
+<p class="mu" style="margin: 0; font-size: 14px">Pedir una valoración no te compromete. Alcance y precio se confirman antes de empezar.</p>
+<div style="display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid #E6DFD2">
+<img src="img/2ec935b25bae3bcbcac3ab9b30bcb649.jpg" alt="Carlos Martínez" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none">
+<p style="margin: 0; font-size: 14px; line-height: 1.5"><strong>Lo revisa Carlos Martínez</strong><br><span class="mu">Dirección técnica · 36 años en el sector</span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 104px 0">
+<div class="w" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 56px 72px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span class="kick">Para valorar tu caso</span>
+<h2 class="h2">Qué necesitamos saber.</h2>
+<div>
+<sc-for list="{{f.need}}" as="n" hint-placeholder-count="4">
+<div class="row"><strong>{{n.k}}</strong><span class="mu">{{n.v}}</span></div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span class="kick">Alcance y exclusiones</span>
+<h2 class="h2">Las cosas claras antes de intervenir.</h2>
+<div class="soft" style="padding: 28px; display: flex; flex-direction: column; gap: 10px"><strong>Incluye</strong><p class="mu" style="margin: 0">{{f.incl}}</p></div>
+<div style="padding: 28px; border: 1px solid #E6DFD2; display: flex; flex-direction: column; gap: 10px"><strong>No incluye</strong><p class="mu" style="margin: 0">{{f.excl}}</p></div>
+</div>
+</div>
+</section>
+
+<section class="dk" style="padding: 104px 0">
+<div class="w" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px"><span class="kick">Qué incluye</span><h2 class="h2">Una intervención clara, de principio a fin.</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); border-top: 1px solid #1E4366">
+<sc-for list="{{f.steps}}" as="s" hint-placeholder-count="4">
+<li style="padding: 28px 24px 0 0; display: flex; flex-direction: column; gap: 10px"><span class="num">{{s.n}}</span><h3 class="h3">{{s.t}}</h3><p class="mu" style="margin: 0; font-size: 15px">{{s.d}}</p></li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<section class="soft" style="padding: 96px 0">
+<div class="w" style="display: flex; flex-direction: column; gap: 36px">
+<h2 class="h2" style="font-size: clamp(32px, 3.4vw, 44px)">Fichas relacionadas</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px">
+<sc-for list="{{rel}}" as="r" hint-placeholder-count="3">
+<a class="lnk" href="{{r.href}}"><img src="{{r.img}}" alt="{{r.title}}"><div style="padding: 22px; display: flex; flex-direction: column; gap: 6px"><span class="num" style="font-size: 11px">Ficha {{r.num}}</span><h3 class="h3">{{r.title}}</h3><span class="mu" style="font-size: 14px">{{r.price}}</span></div></a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="dk" style="padding: 96px 0">
+<div class="w" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px"><h2 class="h2">Tu piscina. Nuestra responsabilidad.</h2><p class="mu" style="margin: 0">Primero entendemos tu caso. Después te explicamos qué recomendamos y cuánto cuesta.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="b" href="#valorar" onClick="{{v.start}}">{{f.cta}}</a><a class="bo" href="tel:+34711740427">711 740 427</a></div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"fid":{"editor":"enum","options":["diag-perdidas","perdidas-accesibles","bomba","filtro","arena-vidrio","selectora","valvulas","celula","sondas","foco","accesorios","electricos","diag-filtracion","gresite","revestimiento","coronacion","cuarto","electrolisis","agua-verde"],"default":"bomba"},"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { ask: 'idle', zone: '' }; }
+  renderVals() {
+    const R = 'Reparaciones y servicio técnico', F = 'Reformas y rehabilitación', A = 'Tratamientos de agua';
+    const bR = { backT: 'A mi piscina le pasa algo', backHref: 'MiPiscina.dc.html' };
+    const bF = { backT: 'Quiero modernizar o mejorar el estado de mi piscina', backHref: 'Reformas.dc.html' };
+    const bA = { backT: 'El agua de mi piscina está rara', backHref: 'Agua.dc.html' };
+    const S = (a, b, c, d) => [a, b, c, d].map((x, i) => ({ n: '0' + (i + 1), t: x[0], d: x[1] }));
+    const N = (a) => a.map(x => ({ k: x[0], v: x[1] }));
+    const D = {
+      'diag-perdidas': Object.assign({ cat: R, num: '13', title: 'Diagnóstico de pérdidas de agua', def: 'Pruebas para ubicar la pérdida en el vaso, en las piezas empotradas o en el circuito.', price: 'Presupuesto según piscina y pruebas.', img: 'img/378ff0fadfc8ef7a13b0fc0f3b6e9849.jpg', alt: 'Piscina revisada por pérdida de agua', need: N([['Cuánto baja', 'Milímetros o centímetros al día, y desde cuándo.'], ['Prueba del cubo', 'Si la has hecho, el resultado.'], ['Tipo de piscina', 'Skimmer o desbordante, revestimiento y antigüedad.'], ['Fotos', 'Del vaso, las piezas empotradas y el cuarto técnico.']]), incl: 'Descarte de evaporación, revisión de piezas empotradas, prueba de circuitos por separado e informe con el origen.', excl: 'La reparación. Se presupuesta aparte, con la pérdida ya localizada.', steps: S(['Descartar evaporación', 'Comparamos con la evaporación real de tu piscina.'], ['Piezas empotradas', 'Skimmers, boquillas, focos y sumidero.'], ['Circuitos por separado', 'Aislamos y probamos cada tramo.'], ['Informe', 'Origen localizado y alternativas de reparación.']), rel: ['perdidas-accesibles', 'selectora', 'valvulas'] }, bR),
+      'perdidas-accesibles': Object.assign({ cat: R, num: '09', title: 'Reparación de pérdidas accesibles', def: 'Reparación de fugas localizadas en puntos a los que se puede acceder sin obra mayor.', price: 'Presupuesto tras revisar el punto de pérdida.', img: 'img/1b4a23ec9db8d304ea44df3bcadad3d2.jpg', alt: 'Técnico en la sala de depuración', need: N([['Dónde pierde', 'Si se ve el punto o la zona húmeda.'], ['Diagnóstico previo', 'Si ya se hizo una localización.'], ['Acceso', 'Cuarto técnico, arqueta o pieza del vaso.'], ['Fotos', 'Del punto de pérdida y su entorno.']]), incl: 'Reparación del punto localizado con materiales compatibles y comprobación posterior.', excl: 'Pérdidas en tuberías enterradas o en el vaso que requieran obra. Se valoran aparte.', steps: S(['Confirmación', 'Comprobamos el punto localizado.'], ['Preparación', 'Vaciado parcial o aislamiento del tramo si hace falta.'], ['Reparación', 'Sellado, junta o sustitución de la pieza.'], ['Comprobación', 'Verificamos que el nivel se mantiene.']), rel: ['diag-perdidas', 'valvulas', 'accesorios'] }, bR),
+      'bomba': Object.assign({ cat: R, num: '05', title: 'Cambio de bomba', def: 'Selección y sustitución profesional de la bomba adecuada para tu instalación.', price: 'Presupuesto según equipo e instalación.', img: 'img/1b4a23ec9db8d304ea44df3bcadad3d2.jpg', alt: 'Bomba en la sala de depuración', need: N([['Modelo actual', 'Marca y potencia de la bomba, o foto de su placa.'], ['Filtro', 'Tipo y diámetro.'], ['Conexiones', 'Diámetro de tubería y tipo de uniones.'], ['Fotos', 'De la bomba y del cuarto técnico.']]), incl: 'Revisión de dimensionado, selección de bomba, sustitución y prueba de funcionamiento.', excl: 'Adaptaciones hidráulicas o eléctricas no acordadas. Si hacen falta, se valoran antes.', steps: S(['Dimensionado', 'Caudal según volumen, filtro y circuito.'], ['Selección', 'Bomba compatible y eficiente.'], ['Sustitución', 'Desmontaje, montaje y conexiones.'], ['Prueba', 'Cebado, caudal, ruido y estanqueidad.']), rel: ['filtro', 'selectora', 'electricos'] }, bR),
+      'filtro': Object.assign({ cat: R, num: '07', title: 'Sustitución de filtro', def: 'Cambio por un filtro compatible y bien dimensionado para tu piscina.', price: 'Presupuesto según equipo, carga y conexiones.', img: 'img/a9566adcbcd97db559adb63acbc8418a.jpg', alt: 'Cuarto técnico de una piscina', need: N([['Filtro actual', 'Diámetro y estado, o foto.'], ['Volumen', 'Medidas aproximadas de la piscina.'], ['Válvula', 'Superior o lateral.'], ['Fotos', 'Del filtro y sus conexiones.']]), incl: 'Dimensionado, filtro nuevo, carga filtrante, montaje y prueba.', excl: 'Cambios de bomba o de hidráulica no acordados.', steps: S(['Dimensionado', 'Filtro adecuado al caudal y al volumen.'], ['Retirada', 'Vaciado y desmontaje del filtro antiguo.'], ['Montaje', 'Filtro, carga y válvula conectados.'], ['Prueba', 'Lavado, enjuague y filtración.']), rel: ['arena-vidrio', 'selectora', 'bomba'] }, bR),
+      'arena-vidrio': Object.assign({ cat: R, num: '06', title: 'Cambio de arena por vidrio', def: 'Sustitución del medio filtrante para mejorar la calidad de filtración.', price: 'Presupuesto según filtro, carga y acceso.', img: 'img/3376ab80701d5d2ba4c145304bbc7fb4.jpg', alt: 'Revisión del agua de una piscina', need: N([['Filtro', 'Diámetro y modelo.'], ['Última carga', 'Cuándo se cambió la arena, si lo sabes.'], ['Síntoma', 'Agua turbia, presión alta o lavados frecuentes.'], ['Fotos', 'Del filtro y su etiqueta.']]), incl: 'Vaciado del medio antiguo, revisión interna del filtro, carga de vidrio y prueba.', excl: 'Sustitución del filtro o de la válvula si están dañados. Te avisamos antes.', steps: S(['Revisión', 'Estado interno del filtro y crepinas.'], ['Vaciado', 'Retirada de la arena usada.'], ['Carga', 'Vidrio filtrante en la cantidad adecuada.'], ['Prueba', 'Lavado inicial y presión de trabajo.']), rel: ['filtro', 'selectora', 'agua-verde'] }, bR),
+      'selectora': Object.assign({ cat: R, num: '08', title: 'Sustitución de válvula selectora', def: 'Cambio de la válvula para recuperar filtración, lavado y vaciado.', price: 'Presupuesto según válvula y conexiones.', img: 'img/a2dd1f068a6ff689188406679df9b7de.jpg', alt: 'Válvula selectora sobre el filtro', need: N([['Modelo de filtro', 'Marca y diámetro, o foto de la etiqueta.'], ['Tipo de válvula', 'Superior o lateral, y cuántas vías tiene.'], ['Síntoma', 'Pierde agua por el desagüe, la maneta no gira o no cambia de posición.'], ['Fotos', 'Del filtro, la válvula y sus conexiones.']]), incl: 'Comprobación, válvula compatible, montaje y prueba de todas las posiciones.', excl: 'Reparaciones del filtro ni cambios en la hidráulica no acordados.', steps: S(['Comprobación', 'Que el fallo es de la válvula y no del filtro.'], ['Identificación', 'Modelo, diámetro y conexiones.'], ['Sustitución', 'Montaje con juntas y uniones revisadas.'], ['Prueba de posiciones', 'Filtración, lavado, enjuague y vaciado.']), rel: ['bomba', 'filtro', 'arena-vidrio'] }, bR),
+      'valvulas': Object.assign({ cat: R, num: '10', title: 'Sustitución de válvulas y uniones', def: 'Renovación de válvulas y uniones deterioradas por presión, uso y productos químicos.', price: 'Presupuesto según elementos y accesibilidad.', img: 'img/04d81bdab66691e06e4fa1712a30f6ed.jpg', alt: 'Válvulas y uniones en un cuarto técnico', need: N([['Diámetro', 'De las tuberías, si lo sabes.'], ['Material', 'PVC u otro.'], ['Acceso', 'Fácil, limitado o enterrado.'], ['Fotos', 'De las válvulas y uniones.']]), incl: 'Compatibilidad, sustitución, pequeñas adaptaciones acordadas y prueba.', excl: 'Actuaciones no indicadas en la valoración.', steps: S(['Compatibilidad', 'Piezas existentes y repuestos.'], ['Sustitución', 'Desmontaje y montaje.'], ['Adaptación', 'Solo si se ha acordado.'], ['Prueba', 'Funcionamiento y estanqueidad.']), rel: ['selectora', 'perdidas-accesibles', 'bomba'] }, bR),
+      'celula': Object.assign({ cat: R, num: '02', title: 'Sustitución de célula salina', def: 'Cambio por una célula compatible tras confirmar que es la causa del fallo.', price: 'Presupuesto según célula y compatibilidad.', img: 'img/141e12523210a985e06e08d9e19b956a.jpg', alt: 'Célula de electrólisis salina', need: N([['Equipo', 'Marca y modelo del clorador salino.'], ['Error', 'Mensaje o luz que muestra.'], ['Antigüedad', 'Años de la célula actual.'], ['Fotos', 'Del equipo y la célula.']]), incl: 'Diagnóstico de célula, sal y caudal; célula compatible; puesta en marcha y ajuste.', excl: 'Reparación de la fuente de alimentación o del cuadro, si fallan.', steps: S(['Diagnóstico', 'Célula, sal, caudal y sondas.'], ['Compatibilidad', 'Célula adecuada a tu equipo.'], ['Sustitución', 'Montaje y conexiones.'], ['Ajuste', 'Producción y comprobación del agua.']), rel: ['electrolisis', 'sondas', 'agua-verde'] }, bR),
+      'sondas': Object.assign({ cat: R, num: '04', title: 'Sustitución y calibración de sonda', def: 'Cambio de sonda deteriorada y calibración para que el equipo mida bien.', price: 'Presupuesto según sonda e instalación.', img: 'img/769a4b35d77e30a6e44c96ad472d5aeb.jpg', alt: 'Sonda de pH', need: N([['Equipo', 'Marca y modelo del regulador.'], ['Sonda', 'pH, redox o cloro libre.'], ['Síntoma', 'Lecturas raras, dosifica de más o de menos.'], ['Fotos', 'Del equipo y la sonda.']]), incl: 'Comprobación, sonda compatible, calibración y verificación de lecturas.', excl: 'Sustitución del regulador completo, si está averiado.', steps: S(['Comprobación', 'Lectura frente a medición manual.'], ['Sustitución', 'Sonda compatible.'], ['Calibración', 'Con soluciones patrón.'], ['Verificación', 'Dosificación correcta.']), rel: ['celula', 'electrolisis', 'agua-verde'] }, bR),
+      'foco': Object.assign({ cat: R, num: '11', title: 'Sustitución de foco', def: 'Cambio por un foco compatible, con revisión del nicho y de la parte eléctrica.', price: 'Presupuesto según foco, nicho y acceso.', img: 'img/c83f278e3744ba8224f9698b3a3a9024.jpg', alt: 'Foco de piscina', need: N([['Foco actual', 'Tipo y medida, o foto.'], ['Nicho', 'Si sabes la marca.'], ['Síntoma', 'No enciende, parpadea o salta la protección.'], ['Fotos', 'Del foco y del cuadro.']]), incl: 'Revisión eléctrica, foco compatible, montaje estanco y prueba.', excl: 'Sustitución del transformador o del cableado si están dañados. Te avisamos antes.', steps: S(['Seguridad', 'Corte y revisión eléctrica.'], ['Nicho', 'Estado y estanqueidad.'], ['Sustitución', 'Foco compatible bien sellado.'], ['Prueba', 'Encendido y protecciones.']), rel: ['electricos', 'accesorios', 'cuarto'] }, bR),
+      'accesorios': Object.assign({ cat: R, num: '12', title: 'Sustitución de accesorios del skimmer', def: 'Cambio de cestas, compuertas, tapas y otros recambios del skimmer.', price: 'Presupuesto según pieza y montaje.', img: 'img/a12fd72d14376c84589478e650fabc59.jpg', alt: 'Accesorios del skimmer', need: N([['Pieza', 'Cesta, compuerta, tapa o collarín.'], ['Skimmer', 'Marca o foto.'], ['Cantidad', 'Cuántos skimmers tiene la piscina.'], ['Fotos', 'De la pieza rota.']]), incl: 'Identificación del recambio, pieza compatible y montaje.', excl: 'Sustitución del cuerpo del skimmer empotrado.', steps: S(['Identificación', 'Modelo y recambio.'], ['Pedido', 'Pieza compatible.'], ['Montaje', 'Sustitución en el momento.'], ['Comprobación', 'Funcionamiento correcto.']), rel: ['perdidas-accesibles', 'foco', 'bomba'] }, bR),
+      'electricos': Object.assign({ cat: R, num: '14', title: 'Diagnóstico de fallos eléctricos', def: 'Revisión de por qué un equipo no arranca o funciona a intervalos.', price: 'Presupuesto según instalación.', img: 'img/a9566adcbcd97db559adb63acbc8418a.jpg', alt: 'Cuadro eléctrico de un cuarto técnico', need: N([['Síntoma', 'No arranca, salta la protección o se para.'], ['Equipo', 'Qué equipo falla.'], ['Cuadro', 'Foto del cuadro eléctrico.'], ['Desde cuándo', 'Si coincidió con lluvia o una obra.']]), incl: 'Revisión del cuadro, protecciones y equipos, y localización del fallo.', excl: 'La reparación o sustitución, que se presupuesta con el fallo localizado.', steps: S(['Seguridad', 'Corte y medición.'], ['Cuadro', 'Protecciones y conexiones.'], ['Equipos', 'Uno a uno, hasta encontrar el fallo.'], ['Informe', 'Causa y alternativas.']), rel: ['bomba', 'foco', 'cuarto'] }, bR),
+      'diag-filtracion': Object.assign({ cat: R, num: '15', title: 'Diagnóstico del sistema de filtración', def: 'Revisión conjunta de bomba, filtro, válvulas y circulación.', price: 'Presupuesto según equipos y acceso.', img: 'img/1b4a23ec9db8d304ea44df3bcadad3d2.jpg', alt: 'Sala de depuración', need: N([['Qué notas', 'Agua que no se aclara, presión, ruidos.'], ['Equipos', 'Bomba, filtro y válvula.'], ['Uso', 'Horas de depuración.'], ['Fotos', 'Del cuarto técnico.']]), incl: 'Revisión de todo el circuito e informe con el componente que falla.', excl: 'Reparaciones, que se presupuestan aparte.', steps: S(['Escucha', 'Qué notas y desde cuándo.'], ['Revisión', 'Bomba, filtro y válvulas.'], ['Circulación', 'Caudales y retornos.'], ['Informe', 'Qué falla y qué recomendamos.']), rel: ['bomba', 'filtro', 'selectora'] }, bR),
+      'gresite': Object.assign({ cat: F, num: '04', title: 'Reposición de gresite', def: 'Reposición de teselas sueltas o dañadas, con revisión del soporte.', price: 'Presupuesto según superficie y estado del soporte.', img: 'img/9fa1fe101e3f7eba31d9db378773aa20.jpg', alt: 'Reposición de gresite', need: N([['Superficie', 'Zona afectada aproximada.'], ['Gresite', 'Color o referencia, si la tienes.'], ['Antigüedad', 'Años del revestimiento.'], ['Fotos', 'De cerca y de lejos.']]), incl: 'Revisión del soporte, retirada de piezas sueltas, reposición y rejuntado.', excl: 'Renovación completa del revestimiento o impermeabilización.', steps: S(['Revisión', 'Por qué se ha soltado.'], ['Preparación', 'Soporte limpio y sano.'], ['Reposición', 'Teselas y adhesivo adecuados.'], ['Rejuntado', 'Juntas selladas.']), rel: ['revestimiento', 'coronacion', 'perdidas-accesibles'] }, bF),
+      'revestimiento': Object.assign({ cat: F, num: '02', title: 'Renovación de revestimiento', def: 'Renovación completa del revestimiento del vaso, tras evaluar el soporte.', price: 'Presupuesto por partidas según superficie y materiales.', img: 'img/a1599c7817e60b4e0ee104b176c63329.jpg', alt: 'Renovación de revestimiento', need: N([['Medidas', 'Largo, ancho y profundidades.'], ['Revestimiento actual', 'Gresite, pintura o lámina.'], ['Problemas', 'Grietas, desprendimientos o pérdidas.'], ['Fotos', 'Del vaso vacío o lleno.']]), incl: 'Evaluación del soporte, preparación, impermeabilización si procede y nuevo revestimiento.', excl: 'Reparaciones estructurales o hidráulicas no acordadas.', steps: S(['Evaluación', 'Estado real del vaso.'], ['Preparación', 'Retirada y saneado.'], ['Impermeabilización', 'Si el soporte lo necesita.'], ['Revestimiento', 'Colocación y acabado.']), rel: ['gresite', 'coronacion', 'cuarto'] }, bF),
+      'coronacion': Object.assign({ cat: F, num: '01', title: 'Renovación de coronación', def: 'Sustitución del remate perimetral del borde de la piscina.', price: 'Presupuesto según perímetro, material y preparación.', img: 'img/ebf2fc4bf7514b99a063dfe329bbb322.jpg', alt: 'Coronación de una piscina', need: N([['Perímetro', 'Metros lineales aproximados.'], ['Material actual', 'Piedra, cerámica u otro.'], ['Problema', 'Piezas sueltas, rotas o resbaladizas.'], ['Fotos', 'Del borde.']]), incl: 'Retirada, revisión del soporte, nuevas piezas y sellado.', excl: 'Reformas del pavimento exterior no acordadas.', steps: S(['Revisión', 'Soporte y juntas.'], ['Retirada', 'Piezas antiguas.'], ['Colocación', 'Material elegido por uso y sol.'], ['Sellado', 'Juntas estancas.']), rel: ['gresite', 'revestimiento', 'cuarto'] }, bF),
+      'cuarto': Object.assign({ cat: F, num: '03', title: 'Renovación del cuarto técnico', def: 'Rediseño de la sala: equipos bien dimensionados, hidráulica ordenada e instalación eléctrica segura.', price: 'Presupuesto según equipos, hidráulica y trabajos.', img: 'img/a9566adcbcd97db559adb63acbc8418a.jpg', alt: 'Cuarto técnico renovado', need: N([['Equipos', 'Qué tienes y qué antigüedad.'], ['Espacio', 'Medidas del cuarto.'], ['Problemas', 'Fugas, ruidos o averías repetidas.'], ['Fotos', 'Del cuarto completo.']]), incl: 'Proyecto de la sala, equipos nuevos, hidráulica, cuadro y puesta en marcha.', excl: 'Obra civil del cuarto, si hace falta ampliarlo.', steps: S(['Revisión', 'Equipos e instalación.'], ['Propuesta', 'Qué cambiar y en qué orden.'], ['Ejecución', 'Montaje ordenado y seguro.'], ['Puesta en marcha', 'Prueba y explicación de uso.']), rel: ['bomba', 'filtro', 'electrolisis'] }, bF),
+      'electrolisis': Object.assign({ cat: F, num: '05', title: 'Electrólisis salina', def: 'Instalación de cloración salina dimensionada para tu piscina.', price: 'Presupuesto según equipo, volumen e instalación.', img: 'img/141e12523210a985e06e08d9e19b956a.jpg', alt: 'Equipo de electrólisis salina', need: N([['Volumen', 'Medidas de la piscina.'], ['Desinfección actual', 'Cloro manual u otro sistema.'], ['Cuarto técnico', 'Espacio y toma eléctrica.'], ['Fotos', 'Del cuarto técnico.']]), incl: 'Dimensionado, equipo, instalación, ajuste de sal y puesta en marcha.', excl: 'Regulación automática de pH, que se valora aparte si conviene.', steps: S(['Dimensionado', 'Producción según volumen y uso.'], ['Instalación', 'Célula y equipo.'], ['Sal', 'Ajuste de la concentración.'], ['Puesta en marcha', 'Producción y comprobación.']), rel: ['celula', 'sondas', 'cuarto'] }, bF),
+      'agua-verde': Object.assign({ cat: A, num: '01', title: 'Recuperación de agua verde', def: 'Tratamiento para recuperar el agua y revisión de por qué se perdió.', price: 'Presupuesto según estado, volumen y tratamiento.', img: 'img/977ea388031f84939f7b483a64bc6a47.jpg', alt: 'Agua verde en una piscina', need: N([['Volumen', 'Medidas de la piscina.'], ['Estado', 'Verde claro, oscuro o se ve el fondo.'], ['Desde cuándo', 'Días o semanas.'], ['Fotos', 'Del agua y del cuarto técnico.']]), incl: 'Tratamiento de choque, limpieza, revisión de filtración y corrección de parámetros.', excl: 'Reparación de equipos averiados. Se valora aparte.', steps: S(['Valoración', 'Estado del agua y equipos.'], ['Choque', 'Tratamiento adecuado.'], ['Limpieza', 'Fondo, paredes y filtro.'], ['Ajuste', 'Parámetros y pautas.']), rel: ['arena-vidrio', 'celula', 'sondas'] }, bA),
+      'temporada-inicio': Object.assign({ cat: A, num: '02', title: 'Preparación de temporada', def: 'Puesta en marcha de la piscina después del invierno: agua, filtración y equipos revisados antes del primer baño.', price: 'Presupuesto según estado del agua, volumen y equipos.', img: 'img/3376ab80701d5d2ba4c145304bbc7fb4.jpg', alt: 'Técnico revisando el agua de una piscina al empezar la temporada', need: N([['Volumen', 'Medidas aproximadas de la piscina.'], ['Cómo pasó el invierno', 'Invernada, con cubierta, sin tratamiento o vaciada.'], ['Equipos', 'Bomba, filtro y sistema de desinfección o electrólisis.'], ['Fotos', 'Del agua y del cuarto técnico.']]), incl: 'Limpieza de fondo, paredes y línea de agua; arranque y revisión de bomba, filtro y válvulas; revisión del medio filtrante; ajuste de pH, desinfección y sal si hay electrólisis; y lo que conviene cambiar antes del verano.', excl: 'Reparación o sustitución de equipos averiados. Si aparece algo, te lo explicamos y se valora aparte antes de tocarlo.', steps: S(['Revisión', 'Estado del agua, la cubierta y el cuarto técnico.'], ['Limpieza', 'Fondo, paredes, skimmers y prefiltro.'], ['Arranque', 'Bomba, filtro, válvulas y desinfección en marcha.'], ['Ajuste', 'pH, desinfección y pautas para el verano.']), rel: ['agua-verde', 'temporada-cierre', 'arena-vidrio'] }, bA),
+      'temporada-cierre': Object.assign({ cat: A, num: '03', title: 'Cierre de temporada', def: 'Invernación de la piscina: agua tratada e instalación ajustada para que el periodo sin uso no la estropee.', price: 'Presupuesto según volumen, equipos y uso en invierno.', img: 'img/378ff0fadfc8ef7a13b0fc0f3b6e9849.jpg', alt: 'Piscina preparada para el invierno', need: N([['Volumen', 'Medidas aproximadas de la piscina.'], ['Uso en invierno', 'No se usará, alguna vez o climatizada.'], ['Cubierta', 'Si tienes y de qué tipo.'], ['Fotos', 'Del agua y del cuarto técnico.']]), incl: 'Limpieza, ajuste de pH, tratamiento de invernación, nivel de agua adecuado, protección de skimmers y equipos si hay riesgo de heladas, programación de la depuración de invierno y revisión del estado de los equipos.', excl: 'El vaciado completo, que normalmente no se recomienda. Solo se valora si hay una obra prevista.', steps: S(['Limpieza', 'Fondo, paredes y filtro.'], ['Tratamiento', 'pH y producto de invernación.'], ['Instalación', 'Nivel, skimmers y equipos protegidos.'], ['Programación', 'Depuración de invierno y próxima revisión.']), rel: ['temporada-inicio', 'agua-verde', 'electrolisis'] }, bA)
+    };
+    const fid = this.props.fid && D[this.props.fid] ? this.props.fid : 'bomba';
+    const f = D[fid]; f.cta = 'Quiero presupuesto de ' + f.title.charAt(0).toLowerCase() + f.title.slice(1) + ' →';
+    const href = (id) => id === 'selectora' ? 'Ficha-Selectora.dc.html' : 'Ficha-' + id + '.dc.html';
+    const rel = f.rel.map(id => ({ href: href(id), img: D[id].img, title: D[id].title, num: D[id].num, price: D[id].price }));
+    const ask = this.state.ask || 'idle';
+    const v = { idle: ask === 'idle', zona: ask === 'zona', datos: ask === 'datos', ok: ask === 'ok', fotos: ask === 'fotos', zone: this.state.zone || '',
+      start: () => this.setState({ ask: 'zona' }),
+      zones: ['Barcelonès', 'Vallès Occidental', 'Vallès Oriental', 'Maresme', 'Baix Llobregat', 'Garraf · Sitges', 'Otra zona'].map(k => ({ label: k, pick: () => this.setState({ zone: k, ask: 'fotos' }) })),
+      toDatos: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        let mail = this.mailTyped || '';
+        try { const root = e && e.target ? (e.target.closest ? e.target.closest('form') : null) : null; const inp = root ? root.querySelector('input[type=email]') : null; if (inp && inp.value) mail = inp.value.trim(); } catch (x) {}
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { this.setState({ mailErr: true }); return; }
+        this.mail = mail; this.setState({ ask: 'datos', mailErr: false });
+      },
+      mailErr: !!this.state.mailErr,
+      setMail: (e) => { this.mailTyped = e && e.target ? String(e.target.value || '').trim() : ''; },
+      send: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ ask: 'mas', mt: false }); },
+      mas: ask === 'mas', mtOn: !!this.state.mt, mtOff: !this.state.mt,
+      setMore: (e) => { this.more = String(e.target.value || ''); const h = /(?:[A-Za-zÀ-ÿ0-9]{2,})/.test(this.more); if (h !== !!this.state.mt) this.setState({ mt: h }); },
+      moreNo: () => { if (this.state.mt) return; this.setState({ ask: 'ok' }); },
+      moreYes: () => { if (!this.state.mt) return; this.masInfo = this.more.trim(); this.setState({ ask: 'ok' }); } };
+    return { f, rel, v };
+  }
+}
+</script>
+</body>
+</html>

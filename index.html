@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Inicio</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;family=Caveat:wght@500&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+*{box-sizing:border-box}
+a{color:#8A6A36}a:hover{color:#0A2A47}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid #D4AE72;outline-offset:3px}
+.pg{font-family:Montserrat,system-ui,sans-serif;color:#16191F;background:#FFFFFF;font-size:16px;line-height:1.7}
+.w{max-width:1240px;margin:0 auto;padding:0 32px}
+.tb{background:#061E35;color:#B8C5D2;font-size:13px}
+.tb a{color:#B8C5D2;text-decoration:none}.tb a:hover{color:#FFFFFF}
+.lng{background:transparent;border:0;color:#8FA3B6;font-family:Montserrat,sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;padding:6px 6px;min-height:32px;cursor:pointer}
+.hd{background:#0A2A47;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(212,174,114,.25)}
+.nv a{color:#C6D1DC;text-decoration:none;font-size:14px;letter-spacing:.02em;padding:10px 0;font-weight:500}
+.nv a:hover{color:#FFFFFF}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;background:#D4AE72;color:#0A2A47;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:0;cursor:pointer;font-family:Montserrat,sans-serif}
+.b:hover{background:#E3C493;color:#0A2A47}
+.bo{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:1px solid currentColor;color:inherit;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;background:transparent;cursor:pointer;font-family:Montserrat,sans-serif}
+.bo:hover{color:#8A6A36}
+.dk .bo:hover{color:#D4AE72}
+.hd .b,.hd .bo{min-height:42px;padding:0 16px;font-size:11px}
+.hd .bo{color:#D4AE72}
+.hd .bo:hover{color:#FFFFFF}
+.kick{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:#8A6A36}
+.dk .kick{color:#D4AE72}
+.h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.02;margin:0}
+.h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.06;margin:0;font-size:clamp(38px,4.6vw,60px)}
+.h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;line-height:1.15;margin:0;font-size:26px}
+.lead{font-size:18px;line-height:1.7;max-width:620px;margin:0}
+.dk{background:#0A2A47;color:#FFFFFF}
+.mu{color:#4A5260}
+.dk .mu{color:#B8C5D2}
+.soft{background:#F7F4EE}
+.svc{display:flex;flex-direction:column;text-decoration:none;color:#16191F;background:#FFFFFF;border:1px solid #E6DFD2;transition:border-color .2s}
+.svc img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.svc:hover{color:#16191F;border-color:#D4AE72}
+.go{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#8A6A36}
+.cat{display:flex;flex-direction:column;text-decoration:none;color:#16191F;background:#FFFFFF;border:1px solid #E6DFD2;box-shadow:0 18px 40px -24px rgba(10,25,45,.35);transition:border-color .2s,transform .2s}
+.cat{padding:0;font-family:inherit;text-align:left;cursor:pointer;width:100%}
+.cat img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.cat:hover{color:#16191F;border-color:#D4AE72;transform:translateY(-3px)}
+.mant{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;padding:36px 40px;background:#E9D8B4;border:1px solid #D4AE72;text-decoration:none;border-radius:2px}
+.mant:hover{background:#E3C493}
+.mbtn:hover{background:#123557;color:#FFFFFF}
+.mbtn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:#0A2A47;color:#FFFFFF;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border-radius:2px}
+.hand{font-family:Caveat,cursive;font-weight:500}
+.wa-min{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;flex:none;border:1px solid rgba(212,174,114,.45);border-radius:2px;color:#D4AE72;transition:color .2s,border-color .2s}
+.wa-min:hover{color:#FFFFFF;border-color:#FFFFFF}
+.es-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 40px;align-items:end}
+.es-carlos{align-self:end;display:flex;justify-content:flex-start;margin-bottom:-96px;margin-left:-48px;position:relative;z-index:1}
+.es-carlos img{display:block;width:auto;height:clamp(620px,64vw,980px);max-width:none}
+@media (max-width:960px){.es-wrap{grid-template-columns:minmax(0,1fr)}.es-carlos{display:none}}
+.sc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:72px 56px;padding-bottom:30px}
+@media (max-width:560px){.sc-grid{grid-template-columns:minmax(0,1fr);gap:64px}}
+.sc{position:relative;display:flex;flex-direction:column;text-decoration:none;color:#16191F;background:#FFFFFF;border:1px solid #D4AE72;box-shadow:0 0 0 6px #FFFFFF,0 0 0 7px rgba(212,174,114,.55),0 24px 48px -28px rgba(10,42,71,.35);transition:transform .25s ease;z-index:2}
+.sc:hover{transform:translateY(-4px)}
+.sc-ph{position:relative;display:block;overflow:hidden}
+.sc-ph img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s ease}
+.sc-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,30,53,.92) 0%,rgba(6,30,53,.6) 38%,rgba(6,30,53,0) 70%);pointer-events:none}
+.sc:hover .sc-ph img{transform:scale(1.04)}
+.sc-n{position:absolute;left:0;bottom:0;z-index:1;background:#0A2A47;color:#E3C493;font-size:12px;font-weight:600;padding:6px 12px;letter-spacing:.06em}
+.sc-t{position:absolute;left:0;right:0;top:0;z-index:1;font-size:clamp(32px,3.2vw,46px) !important;line-height:1.05;color:#FFFFFF;padding:24px 26px 0;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.sc-go{position:absolute;left:18%;right:-22px;bottom:-26px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:54px;padding:0 20px;background:#0A2A47;color:#FFFFFF;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid #D4AE72;box-shadow:0 14px 28px -14px rgba(10,42,71,.55);transition:background .2s}
+.sc-go span[aria-hidden]{color:#E3C493;font-size:18px}
+.sc:hover .sc-go{background:#123557}
+
+.sit{min-height:84px;padding:18px 24px;text-align:left;font-family:Montserrat,sans-serif;font-size:18px;font-weight:500;border:1px solid #E0D3B8;border-radius:2px;cursor:pointer;line-height:1.35}
+.pol{display:block;background:#FFFFFF;padding:12px 12px 0;border:0;cursor:pointer;transition:transform .3s ease,box-shadow .3s ease;font-family:inherit;text-align:left;width:200px}
+.pol img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+.pol .cap{display:block;font-family:Caveat,cursive;font-size:24px;line-height:1.15;padding:12px 4px 16px;color:#1F232A}
+.fq{border-top:1px solid #E0D8C9}
+.fq:last-child{border-bottom:1px solid #E0D8C9}
+.fq summary{cursor:pointer;padding:18px 0;font-weight:600;font-size:16px}
+.fq p{margin:0 0 20px}
+.in{min-height:52px;border:1px solid rgba(255,255,255,.35);border-radius:2px;padding:10px 14px;font-size:15px;font-family:Montserrat,sans-serif;background:rgba(255,255,255,.08);color:#FFFFFF;flex:1 1 240px;min-width:0}
+.in::placeholder{color:#B8C5D2}
+.ft{background:#061E35;color:#C6D1DC;font-size:15px}
+.ft a{color:#C6D1DC;text-decoration:none}.ft a:hover{color:#FFFFFF}
+.fh{color:#D4AE72;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.zn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(212,174,114,.55);color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:500;border-radius:2px}
+.zn:hover{border-color:#E3C493;color:#E3C493}
+.fm{background:#FFFFFF;color:#16191F;padding:40px;display:flex;flex-direction:column;gap:20px;border:1px solid #D4AE72;box-shadow:0 0 0 6px #0A2A47,0 0 0 7px rgba(212,174,114,.55)}
+.fop{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:62px;padding:14px 20px;background:#FFFFFF;border:1px solid #E0D3B8;border-radius:2px;font-family:Montserrat,sans-serif;font-size:17px;font-weight:500;color:#16191F;text-align:left;cursor:pointer;transition:border-color .2s,background .2s}
+.fop span[aria-hidden]{color:#8A6A36;font-size:18px}
+.fop:hover{border-color:#D4AE72;background:#FBF8F2}
+.fbk{background:none;border:0;font-family:Montserrat,sans-serif;font-size:14px;color:#4A5260;cursor:pointer;min-height:44px}
+.fl{font-size:14px;font-weight:600;color:#16191F}
+.fi{width:100%;min-height:54px;border:1px solid #CFC4B0;border-radius:2px;padding:10px 14px;font-size:16px;font-family:Montserrat,sans-serif;background:#FFFFFF;color:#16191F}
+.fi:focus{border-color:#0A2A47}
+@media (max-width:720px){.fm{padding:26px 20px}}
+.pq-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:stretch}
+@media (max-width:1000px){.pq-wrap{grid-template-columns:minmax(0,1fr)}}
+.pq-box{padding:40px;display:flex;flex-direction:column;gap:18px;border:1px solid rgba(212,174,114,.35)}
+.pq-ms{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.pq-ms{grid-template-columns:minmax(0,1fr)}.pq-box{padding:26px 20px}}
+.pq-m{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid rgba(255,255,255,.45);border-radius:14px;background:rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12px;line-height:1.45;color:#FFFFFF;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.pq-m strong{color:#FFFFFF;font-size:13px}
+.pq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:560px){.pq-grid{grid-template-columns:minmax(0,1fr)}}
+.pq-c{background:#FFFFFF;border:1px solid #E0D3B8;padding:26px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s}
+.pq-c:hover{border-color:#D4AE72}
+.pq-ic{width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:#F3EEE6;color:#8A6A36}
+.pq-st{margin-top:auto;padding-top:14px;border-top:1px solid #EFE7D8;display:flex;flex-direction:column;gap:2px}
+.pq-st strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;line-height:1;color:#0A2A47}
+.pq-st span{font-size:12px;color:#4A5260}
+.fq2{background:#FFFFFF;border:1px solid #ECE5D8;border-radius:20px;box-shadow:0 1px 2px rgba(10,42,71,.04),0 12px 32px -20px rgba(10,42,71,.22);overflow:hidden;transition:border-color .2s}
+.fq2[open]{border-color:rgba(212,174,114,.6)}
+.fq2 summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 32px;cursor:pointer;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2vw,27px);font-weight:700;line-height:1.25;color:#0A2A47}
+.fq2 summary::-webkit-details-marker{display:none}
+.fq2 summary:hover{color:#8A6A36}
+.fq2-ch{width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#F3EEE6;color:#0A2A47;transition:transform .25s ease,background .2s}
+.fq2[open] .fq2-ch{transform:rotate(180deg);background:#0A2A47;color:#E3C493}
+.fq2 p{margin:0;padding:20px 32px 28px;border-top:1px solid #EFE7D8;font-size:16px;line-height:1.75;color:#4A5260}
+@media (max-width:560px){.fq2 summary{padding:20px}.fq2 p{padding:16px 20px 22px}}
+.fq2-cta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 32px;padding:32px 36px;border-radius:24px;background:#0A2A47;border:1px solid rgba(212,174,114,.35)}
+.f-opt{display:inline-block;margin-left:6px;padding:2px 10px;border-radius:999px;border:1px solid rgba(212,174,114,.7);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8A6A36;vertical-align:middle}
+.f-file{width:100%;padding:12px;border:1px dashed #CFC4B0;border-radius:12px;background:#FBF8F2;font-family:Montserrat,sans-serif;font-size:14px;color:#4A5260;cursor:pointer}
+.f-file::file-selector-button{margin-right:14px;padding:9px 14px;border:1px solid #D4AE72;border-radius:10px;background:#FFFFFF;color:#8A6A36;font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.pol{transition:none}}
+@media (max-width:1100px){.nv{display:none !important}}
+@media (max-width:720px){.w{padding:0 20px}.tbx{display:none !important}.hd .bo{display:none}}
+</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<a href="mailto:apex@apexpiscinas.com" class="tbx" style="color: #D4AE72">apex@apexpiscinas.com</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex; width: 176px; height: 63px"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 26px; flex: 1; width: 527px"><a href="Construir.dc.html">Construir</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamiento</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Empresa.dc.html">Empresa</a></nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="position: relative; min-height: 700px; display: flex; align-items: center; color: #FFFFFF; overflow: hidden; background: #0A2A47">
+<img src="img/99a63660ccfcbc83eb625e7bedbdf996.jpg" alt="Piscina desbordante en una villa mediterránea frente al mar" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5, 20, 36, 0.9) 0%, rgba(5, 20, 36, 0.66) 42%, rgba(5, 20, 36, 0.08) 80%)"></div>
+<div class="w" style="position: relative; width: 100%; padding-top: 104px; padding-bottom: 104px">
+<div style="max-width: 680px; display: flex; flex-direction: column; gap: 26px">
+<span class="kick" style="color: #D4AE72">Empresa de piscinas · Barcelona y toda Cataluña</span>
+<h1 class="h1" style="font-size: clamp(50px, 6.6vw, 96px)">Una piscina es para toda la vida. <em style="color: #E3C493">Nuestro compromiso también.</em></h1>
+<p style="font-size: 19px; line-height: 1.6; margin: 0; color: #E6ECF2">Construirla, renovarla o conseguir que vuelva a funcionar. Lo importante es saber a quién se la confías.</p>
+<form id="contacto" style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px" onSubmit="{{send}}">
+<label for="hero-email" style="font-weight: 600; font-size: 15px">Hablemos de tu piscina</label>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<input class="in" id="hero-email" type="email" placeholder="Tu correo electrónico" autocomplete="email">
+<button class="b" type="button" onClick="{{send}}">Quiero orientación →</button>
+</div>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<p role="status" style="margin: 0; color: #E3C493; font-size: 15px">Recibido. Te escribimos para entender tu caso.</p>
+</sc-if>
+<p style="margin: 0; font-size: 13px; color: #B8C5D2">Sin compromiso de contratación. Respondemos en horario laboral.</p>
+</form>
+</div>
+
+</div>
+</section>
+
+<section id="empieza" style="padding: 96px 0; background: #F3EEE6">
+<div class="w es-wrap">
+<div style="display: flex; flex-direction: column; gap: 40px; min-width: 0">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span class="kick">Empieza aquí</span>
+<h2 class="h2">¿En qué punto estás?</h2>
+</div>
+<nav aria-label="Tu situación" class="sc-grid">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="4">
+<a class="sc" href="{{c.href}}">
+<span class="sc-ph"><img src="{{c.img}}" alt="{{c.alt}}"><span class="sc-n">{{c.n}}</span><span class="h3 sc-t">{{c.t}}</span></span>
+<span class="sc-go"><span>{{c.cta}}</span><span aria-hidden="true">↗</span></span>
+</a>
+</sc-for>
+</nav>
+</div>
+<div class="es-carlos"><img src="img/ad06e92fe84fbbbe9e6387e44a40561c.png" alt="Carlos Martínez, director técnico de APEX, señalando las opciones"></div>
+</div>
+</section>
+
+<section style="background: #E9D8B4">
+<div class="w" style="padding-top: 88px; padding-bottom: 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); align-items: end; gap: 32px 56px">
+<div style="display: flex; flex-direction: column; gap: 20px; color: #0A2A47">
+<span class="kick" style="color: #0A2A47">Mantenimiento</span>
+<h2 class="h1" style="font-size: clamp(46px, 5.8vw, 84px)">Quiero olvidarme del mantenimiento.</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 18px; color: #2B3340">Tu piscina lista cuando la quieras usar. Un único servicio, con la frecuencia que necesita tu instalación y la misma gente que la conoce, visita tras visita.</p>
+<a class="mbtn" href="Mantenimiento.dc.html#planes" style="align-self: flex-start; text-decoration: none">Ver los tres planes ↓</a>
+</div>
+</div>
+</section>
+
+<section style="position: relative; overflow: hidden; background: #061E35; color: #FFFFFF; min-height: 620px; display: flex; align-items: flex-end">
+<img src="img/5f5b4e7afc2cb5e435ee387e27106208.jpg" alt="Personas disfrutando de una piscina frente al mar al atardecer" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(4, 18, 32, 0.95) 0%, rgba(4, 18, 32, 0.55) 45%, rgba(4, 18, 32, 0.05) 80%)"></div>
+<div class="w" style="position: relative; width: 100%; padding-top: 120px; padding-bottom: 80px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px">
+<span style="display: flex; align-items: center; gap: 14px; color: #E3C493; font-size: 13px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase"><span aria-hidden="true" style="width: 40px; height: 1px; background: #E3C493"></span>Wellness y spa<span aria-hidden="true" style="width: 40px; height: 1px; background: #E3C493"></span></span>
+<h2 class="h1" style="font-size: clamp(46px, 7vw, 104px); line-height: .98; max-width: 980px; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45)">Tu piscina también puede ser <em style="color: #E3C493">tu spa.</em></h2>
+<p style="margin: 0; font-size: 18px; color: #E6ECF2; max-width: 620px; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5)">Hidromasaje, spa integrado en el jardín y agua templada fuera de temporada. Con la misma dirección técnica que tu piscina.</p>
+<ul style="list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px">
+<li style="padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255, 255, 255, 0.06)">Hidromasaje</li>
+<li style="padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255, 255, 255, 0.06)">Spa en el jardín</li>
+<li style="padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255, 255, 255, 0.06)">Climatización</li>
+<li style="padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 999px; font-size: 14px; font-weight: 500; background: rgba(255, 255, 255, 0.06)">Iluminación</li>
+</ul>
+<a class="b" href="Wellness.dc.html" style="margin-top: 10px; min-height: 58px; padding: 0 34px; font-size: 14px">Quiero un spa en casa →</a>
+</div>
+</section>
+
+<section id="por-que" style="padding: 104px 0; background: #F7F4EE">
+<div class="w" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px">
+<span class="kick" style="padding: 8px 16px; border: 1px solid #D4AE72; border-radius: 999px; background: #FFFFFF">Confianza y excelencia</span>
+<h2 class="h2">¿Por qué elegirnos?</h2>
+<p class="mu" style="margin: 0; font-size: 18px; max-width: 720px">Experiencia comprobada en Cataluña, materiales de alta gama y atención cercana en cada detalle.</p>
+</div>
+<div class="pq-wrap">
+<div class="dk pq-box">
+<span class="kick">Sostenibilidad y confort</span>
+<h3 class="h2" style="font-size: clamp(32px, 3vw, 44px)">Calidad, diseño y bienestar</h3>
+<p style="margin: 0; font-size: 17px; color: #FFFFFF">Nuestro objetivo es crear piscinas duraderas, eficientes y fáciles de mantener.</p>
+<p class="mu" style="margin: 0; font-size: 15px">Utilizamos materiales de calidad y las últimas soluciones en tratamiento del agua, climatización y ahorro energético. El resultado es una piscina que se integra perfectamente en tu vivienda y transforma el jardín en un auténtico espacio de bienestar.</p>
+<figure style="margin: 4px 0 0; position: relative; flex: 1 1 auto; min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; border: 1px solid rgba(212,174,114,.45); overflow: hidden">
+<img src="img/694ea44bd5256f16a5621d5e855ea255.jpg" alt="Piscina integrada en una vivienda mediterránea" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,30,53,.75) 0%, rgba(6,30,53,0) 45%)"></div>
+<div class="pq-ms"><div class="pq-m"><span aria-hidden="true" style="color: #4ADE80"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"></path><path d="M5 19c3-4 6-7 10-9"></path></svg></span><strong>Ahorro de agua</strong><span>Filtración por vidrio ecológico y recuperación de agua pluvial.</span></div><div class="pq-m"><span aria-hidden="true" style="color: #FACC15"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"></path></svg></span><strong>Eficiencia energética</strong><span>Bombas de velocidad variable con −80 % de consumo eléctrico.</span></div><div class="pq-m"><span aria-hidden="true" style="color: #38BDF8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4 0 7-3 7-7 0-5-7-11-7-11S5 9 5 14c0 4 3 7 7 7z"></path><path d="M9 14a3 3 0 0 0 3 3"></path></svg></span><strong>Salud y piel suave</strong><span>Electrólisis salina con autorregulación continua de pH.</span></div></div>
+</figure>
+</div>
+<div class="pq-grid">
+<div class="pq-c"><span class="pq-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14 7 22l5-3 5 3-1.5-8"></path></svg></span><h3 class="h3" style="font-size: 24px; color: #0A2A47">Experiencia</h3><p class="mu" style="margin: 0; font-size: 14px; line-height: 1.6">Contamos con una amplia trayectoria en el diseño, construcción y mantenimiento de piscinas en toda Cataluña.</p><div class="pq-st"><strong>+36</strong><span>Años de experiencia</span></div></div>
+<div class="pq-c"><span class="pq-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><h3 class="h3" style="font-size: 24px; color: #0A2A47">Calidad</h3><p class="mu" style="margin: 0; font-size: 14px; line-height: 1.6">Trabajamos con materiales de primeras marcas y sistemas constructivos de máxima calidad homologados por la UE.</p><div class="pq-st"><strong>10</strong><span>Años de garantía estructural</span></div></div>
+<div class="pq-c"><span class="pq-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.6-3.5 3.2-5.5 6.5-5.5s5.9 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.7.8 2.8 2.6 3 5.2"></path></svg></span><h3 class="h3" style="font-size: 24px; color: #0A2A47">Profesionalidad</h3><p class="mu" style="margin: 0; font-size: 14px; line-height: 1.6">Nuestro equipo está formado por profesionales especializados que cuidan cada detalle técnico y estético del proyecto.</p><div class="pq-st"><strong>100%</strong><span>Personal técnico cualificado</span></div></div>
+<div class="pq-c"><span class="pq-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.5-7.5-10A4.5 4.5 0 0 1 12 7.5 4.5 4.5 0 0 1 19.5 10C19.5 15.5 12 20 12 20z"></path></svg></span><h3 class="h3" style="font-size: 24px; color: #0A2A47">Atención personalizada</h3><p class="mu" style="margin: 0; font-size: 14px; line-height: 1.6">Escuchamos tus ideas y te asesoramos para encontrar la solución que mejor se adapte a tus necesidades y presupuesto.</p><div class="pq-st"><strong>+450</strong><span>Piscinas construidas</span></div></div>
+<div class="pq-c"><span class="pq-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 13 4 4L17 7"></path><path d="m11 17 1 0L22 7"></path></svg></span><h3 class="h3" style="font-size: 24px; color: #0A2A47">Servicio integral</h3><p class="mu" style="margin: 0; font-size: 14px; line-height: 1.6">Nos ocupamos de todas las fases: diseño, tramitación de licencias, construcción, instalación y puesta en marcha.</p><div class="pq-st"><strong>360°</strong><span>Gestión llave en mano</span></div></div>
+<div class="pq-c"><span class="pq-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"></circle><circle cx="5" cy="18" r="2.5"></circle><circle cx="19" cy="18" r="2.5"></circle><path d="M10.8 7.2 6.3 15.8M13.2 7.2l4.5 8.6M7.5 18h9"></path></svg></span><h3 class="h3" style="font-size: 24px; color: #0A2A47">Red profesional</h3><p class="mu" style="margin: 0; font-size: 14px; line-height: 1.6">En 36 años tocando todas las fases de la vida de una piscina hemos conocido a los mejores de cada especialidad. Al contratarnos, tienes acceso a la red de profesionales más top de Cataluña.</p><div class="pq-st"><strong>1</strong><span>Interlocutor para todo el equipo</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="carlos" style="padding: 112px 0; background: #F7F4EE">
+<div class="w" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 64px; align-items: center">
+<figure style="margin: 0; position: relative; border: 1px solid #D4AE72; box-shadow: 0 0 0 8px #F7F4EE, 0 0 0 9px rgba(212,174,114,.55), 0 30px 60px -30px rgba(10,42,71,.4)">
+<img src="img/2ec935b25bae3bcbcac3ab9b30bcb649.jpg" alt="Carlos Martínez, director técnico de APEX Piscinas" style="display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 20%">
+<figcaption style="position: absolute; left: 0; bottom: 0; background: #0A2A47; color: #FFFFFF; padding: 16px 22px; display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 600">Carlos Martínez</strong><span style="font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #E3C493">Director técnico</span></figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span class="kick">Quién dirige tu obra</span>
+<h2 class="h2" style="font-size: clamp(36px, 4vw, 56px)">Detrás de cada piscina hay alguien que responde de ella.</h2>
+<p class="mu" style="margin: 0; font-size: 17px">Carlos lleva 36 años construyendo y reparando piscinas. [Cómo empezó en el oficio, en una o dos frases: dónde, con quién, qué aprendió a pie de obra.]</p>
+<p class="mu" style="margin: 0; font-size: 17px">Hoy dirige todas las obras de APEX. Visita el terreno, decide la solución técnica y la sigue hasta el final. Es la capacidad técnica de la empresa: cuando hablas con nosotros, el criterio es el suyo.</p>
+<p class="hand" style="margin: 4px 0 0; font-size: 30px; line-height: 1.2; color: #0A2A47">«[Una frase de Carlos sobre su forma de trabajar]»</p>
+<div style="display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid #E0D3B8; border-bottom: 1px solid #E0D3B8; margin-top: 4px">
+<div style="flex: 1 1 140px; padding: 18px 20px 18px 0"><strong style="display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; line-height: 1; color: #0A2A47">36</strong><span class="mu" style="font-size: 14px">años de oficio</span></div>
+<div style="flex: 1 1 140px; padding: 18px 20px; border-left: 1px solid #E0D3B8"><strong style="display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; line-height: 1; color: #0A2A47">[—]</strong><span class="mu" style="font-size: 14px">piscinas construidas</span></div>
+<div style="flex: 1 1 140px; padding: 18px 20px; border-left: 1px solid #E0D3B8"><strong style="display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; line-height: 1; color: #0A2A47">1</strong><span class="mu" style="font-size: 14px">responsable en cada obra</span></div>
+</div>
+<a href="Empresa.dc.html" class="go" style="text-decoration: none; font-size: 13px; align-self: flex-start">Conocer al equipo →</a>
+</div>
+</div>
+</section>
+
+<section id="trabajos" style="padding: 112px 0 64px">
+<div class="w" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span class="kick">Trabajos realizados · {{st.n}} de 5</span>
+<h2 class="h2" style="font-size: clamp(36px, 4vw, 54px)">{{st.title}}</h2>
+<p class="mu" style="margin: 0; font-size: 17px">{{st.text}}</p>
+<a class="b" href="{{st.href}}" style="align-self: flex-start; margin-top: 8px">{{st.cta}}</a>
+<p class="mu" style="margin: 8px 0 0; font-size: 14px">↗ Pulsa una foto para ver el trabajo</p>
+</div>
+<div role="group" aria-label="Trabajos" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 20px; padding: 24px 0">
+<sc-for list="{{pols}}" as="p" hint-placeholder-count="5">
+<button type="button" class="pol" aria-pressed="{{p.on}}" style="{{p.st}}" onClick="{{p.pick}}"><img src="{{p.img}}" alt="{{p.alt}}"><span class="cap">{{p.cap}}</span></button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="resenas-t" style="padding: 0 0 112px">
+<div class="w" style="display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 32px; border-top: 1px solid #E0D3B8; padding-top: 48px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="kick">Opiniones de clientes</span><h2 id="resenas-t" class="h3" style="font-size: clamp(30px, 3vw, 40px); color: #0A2A47">Lo que dicen quienes ya confiaron su piscina.</h2></div>
+<div style="display: flex; align-items: center; gap: 14px"><span aria-hidden="true" style="color: #D4AE72; font-size: 22px; letter-spacing: 2px">★★★★★</span><span style="font-weight: 600">[—] en Google · [—] reseñas</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px">
+<sc-for list="{{revs}}" as="r" hint-placeholder-count="3">
+<figure style="margin: 0; background: #FFFFFF; border: 1px solid #E0D3B8; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<span aria-hidden="true" style="color: #D4AE72; font-size: 18px; letter-spacing: 2px">★★★★★</span>
+<blockquote style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.35; color: #4A5260; font-style: italic">{{r.q}}</blockquote>
+<figcaption style="margin-top: auto; font-size: 14px"><strong>{{r.who}}</strong><span class="mu"> · {{r.where}}</span></figcaption>
+</figure>
+</sc-for>
+</div>
+<a href="#" class="go" style="text-decoration: none; font-size: 13px; align-self: flex-start">Ver todas las reseñas en Google →</a>
+</div>
+</section>
+
+<section id="faq" style="padding: 104px 0; background: #F7F4EE">
+<div class="w" style="display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px">
+<span class="kick">Preguntas frecuentes</span>
+<h2 class="h2">FAQs. Las dudas sobre la mesa</h2>
+<p class="mu" style="margin: 0; font-size: 18px; max-width: 720px">Todo lo que necesitas saber sobre normativas, plazos, garantías y mantenimiento de piscinas en Cataluña.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<details class="fq2" open=""><summary><span>¿Qué tipo de piscina es más recomendable para mi jardín?</span><span class="fq2-ch" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p>La elección depende del espacio, el tipo de terreno, el presupuesto y tus preferencias estéticas. Las piscinas de hormigón gunitado ofrecen total libertad de diseño y máxima durabilidad. Las de poliéster son ideales si buscas rapidez de instalación. Las desbordantes o infinitas son perfectas para parcelas con vistas panorámicas.</p></details>
+<details class="fq2"><summary><span>¿Cuánto tiempo se tarda en construir una piscina?</span><span class="fq2-ch" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p>Depende del sistema constructivo y del terreno. Una piscina de obra suele llevar de 3 a 5 semanas de ejecución, a las que se suma el plazo de la licencia municipal. En la propuesta te damos un calendario por fases.</p></details>
+<details class="fq2"><summary><span>¿Se encargan de tramitar la licencia de obras en mi ayuntamiento?</span><span class="fq2-ch" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p>Sí. Revisamos la normativa de tu municipio y tramitamos por ti la licencia o la comunicación de obras que corresponda, antes de empezar.</p></details>
+<details class="fq2"><summary><span>¿Por qué es mejor la cloración salina frente al cloro tradicional?</span><span class="fq2-ch" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p>El equipo genera el cloro a partir de la sal disuelta en el agua: manipulas menos productos, el agua es más suave para la piel y los ojos y apenas huele a cloro. Aun así, el pH y el mantenimiento se siguen controlando.</p></details>
+<details class="fq2"><summary><span>¿Qué garantía tienen las piscinas que construyen?</span><span class="fq2-ch" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p>[Pendiente de confirmar: años de garantía estructural y de equipos.] Siempre te la detallamos por escrito en la propuesta.</p></details>
+<details class="fq2"><summary><span>¿Puedo reformar o reducir la profundidad de mi piscina antigua?</span><span class="fq2-ch" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span></summary><p>Sí. Se puede elevar el fondo para reducir la profundidad, cambiar el revestimiento o renovar los equipos. Primero revisamos el estado real del vaso para no sustituir lo que todavía funciona. <a href="Reformas.dc.html">Ver reformas →</a></p></details>
+</div>
+<div class="fq2-cta">
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 20px; color: #FFFFFF">¿Tienes alguna pregunta específica sobre tu terreno?</strong><span style="font-size: 15px; color: #E3C493">Escríbenos directamente o envíanos una foto de tu jardín por WhatsApp.</span></div>
+<a class="b" href="https://wa.me/34711740427?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20mi%20terreno." style="flex: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Consultar por WhatsApp</a>
+</div>
+</div>
+</section>
+
+<section id="escribenos" class="dk" style="padding: 112px 0">
+<div class="w" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px 72px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<span class="kick">Zonas de actuación</span>
+<h2 class="h2" style="font-size: clamp(36px, 4vw, 56px)">Trabajamos en toda Cataluña.</h2>
+<p class="mu" style="margin: 0; font-size: 17px">Estas son nuestras zonas principales. Si tu municipio no aparece, escríbelo en el formulario: también vamos.</p>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<li><a class="zn" href="Zona-Barcelones.dc.html">Barcelonès</a></li>
+<li><a class="zn" href="Zona-Valles-Occidental.dc.html">Vallès Occidental</a></li>
+<li><a class="zn" href="Zona-Valles-Oriental.dc.html">Vallès Oriental</a></li>
+<li><a class="zn" href="Zona-Maresme.dc.html">Maresme</a></li>
+<li><a class="zn" href="Zona-Baix-Llobregat.dc.html">Baix Llobregat</a></li>
+<li><a class="zn" href="Zona-Garraf.dc.html">Garraf · Sitges</a></li>
+</ul>
+<div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px; padding-top: 24px; border-top: 1px solid #1E4366">
+<span style="font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: #B8C5D2; font-weight: 600">¿Prefieres hablar directamente?</span>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 24px; font-weight: 600"><a href="tel:+34711740427" style="color: #E3C493; text-decoration: none">711 740 427</a><a href="https://wa.me/34711740427" style="color: #E3C493; text-decoration: none">WhatsApp</a><a href="Contacto.dc.html#agendar" style="color: #E3C493; text-decoration: none">Agendar visita</a></div>
+</div>
+</div>
+
+<div class="fm">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px">
+<span class="kick">{{f.label}}</span>
+<sc-if value="{{f.canBack}}" hint-placeholder-val="{{ false }}"><button type="button" class="fbk" onClick="{{f.back}}">← Atrás</button></sc-if>
+</div>
+<div aria-hidden="true" style="height: 4px; background: #E6DFD2"><div style="height: 4px; background: #D4AE72; width: {{f.progress}}; transition: width .3s ease"></div></div>
+<sc-if value="{{f.saved}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; font-size: 13px; color: #2F6B4F">✓ Guardado. Si lo dejas aquí, no pierdes lo que ya nos has contado.</p></sc-if>
+
+<sc-if value="{{f.s1}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<h3 class="h3" style="font-size: 34px; color: #0A2A47">¿Qué te trae por aquí?</h3>
+<div role="group" aria-label="Qué te trae por aquí" style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{needs}}" as="n" hint-placeholder-count="6">
+<button type="button" class="fop" onClick="{{n.pick}}"><span>{{n.label}}</span><span aria-hidden="true">→</span></button>
+</sc-for>
+</div>
+<p class="mu" style="margin: 0; font-size: 14px">Un clic. Sin compromiso.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{f.s2}}" hint-placeholder-val="{{ false }}">
+<form style="display: flex; flex-direction: column; gap: 16px" onSubmit="{{f.next}}">
+<h3 class="h3" style="font-size: 34px; color: #0A2A47">¿Dónde está la piscina?</h3>
+<label for="f-muni" class="fl">Solo el municipio</label>
+<input class="fi" id="f-muni" type="text" placeholder="Ej.: Sitges" autocomplete="address-level2" onInput="{{f.setMuni}}">
+<button class="b" type="button" style="align-self: flex-start" onClick="{{f.next}}">Siguiente →</button>
+</form>
+</sc-if>
+
+<sc-if value="{{f.s3}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 class="h3" style="font-size: 34px; color: #0A2A47">¿Nos mandas unas fotos?</h3>
+<p class="mu" style="margin: -6px 0 0; font-size: 14px">Con fotos podemos orientarte antes de ir. Si ahora no puedes, déjalo para después.</p>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="f-fotos" class="fl">Fotos de la piscina, del problema o del cuarto técnico <span class="f-opt">Opcional</span></label><input class="f-file" id="f-fotos" type="file" accept="image/*" multiple=""></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="f-mail" class="fl">Correo electrónico</label><input class="fi" id="f-mail" type="email" autocomplete="email" placeholder="Ej.: marc@gmail.com" onInput="{{f.setMail}}"></div>
+<sc-if value="{{f.mailErr}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: -4px 0 0; font-size: 13px; color: #B4442A">Escribe un correo válido para poder enviarte la valoración.</p></sc-if>
+<button class="b" type="button" style="align-self: flex-start" onClick="{{f.next}}">Siguiente →</button>
+</div>
+</sc-if>
+
+<sc-if value="{{f.s4}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 class="h3" style="font-size: 34px; color: #0A2A47">Y para terminar, ¿a qué número te llamamos?</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="f-name" class="fl">Nombre</label><input class="fi" id="f-name" type="text" autocomplete="name" placeholder="Ej.: Marc Rovira" onInput="{{f.setName}}"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="f-tel" class="fl">Teléfono</label><input class="fi" id="f-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="600 000 000" onInput="{{f.setTel}}"></div>
+</div>
+<label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: #4A5260"><input type="checkbox" style="margin-top: 4px; width: 18px; height: 18px; accent-color: #0A2A47; flex: none"> Acepto que APEX me contacte para atender esta solicitud. <a href="#">Información sobre tus datos</a></label>
+<button class="b" type="button" style="align-self: flex-start" onClick="{{f.send}}">Quiero que me llaméis →</button>
+</div>
+</sc-if>
+
+<sc-if value="{{f.mas}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 class="h3" style="font-size: 34px; color: #0A2A47">¿Algo más que debamos saber?</h3>
+<label for="x-more" class="fl">¿Algún detallito más que quieras comentar?</label>
+<textarea class="fi" id="x-more" rows="4" style="min-height: 120px; resize: vertical; padding-top: 12px" placeholder="Escribe aquí" onInput="{{f.setMore}}"></textarea>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-if value="{{f.mtOff}}" hint-placeholder-val="{{ true }}"><button type="button" class="bo" style="color: #0A2A47" onClick="{{f.moreNo}}">No, eso es todo</button><button type="button" class="b" disabled="">Sí</button></sc-if>
+<sc-if value="{{f.mtOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="bo" style="color: #0A2A47" disabled="">No, eso es todo</button><button type="button" class="b" onClick="{{f.moreYes}}">Sí</button></sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{f.s6}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; flex-direction: column; gap: 14px">
+<h3 class="h3" style="font-size: 34px; color: #0A2A47">Hecho. Te llamamos para confirmar la visita.</h3>
+<p class="mu" style="margin: 0">{{f.summary}}</p>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 80px 0 56px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px">
+<img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 110px; width: auto; display: block; align-self: flex-start">
+<p style="margin: 12px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong><br>Construcción, reforma, reparación y mantenimiento de piscinas en toda Cataluña.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Zonas</span><a href="Zona-Barcelones.dc.html">Barcelonès</a><a href="Zona-Valles-Occidental.dc.html">Vallès Occidental</a><a href="Zona-Valles-Oriental.dc.html">Vallès Oriental</a><a href="Zona-Maresme.dc.html">Maresme</a><a href="Zona-Baix-Llobregat.dc.html">Baix Llobregat</a><a href="Zona-Garraf.dc.html">Garraf · Sitges</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="mailto:carloscallealta@apexpiscinas.com">carloscallealta@apexpiscinas.com</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5000}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES', h: 0, sent: false, e: 0, step: 1, need: '' }; this.v = { muni: '', date: '', tel: '', name: '', mail: '' }; }
+  // HubSpot (en producción): save() se llama al terminar CADA paso y envía lo recogido hasta ese momento.
+  // Pasos 1-2 quedan ligados a la cookie de visitante (hutk); desde el paso 3 (teléfono) se crea el contacto
+  // y los pasos siguientes lo actualizan. Así, si alguien abandona en el paso 3 de 4, no se pierde nada.
+  save(step, data) { this.lead = Object.assign({}, this.lead || {}, data, { pasoCompletado: step }); }
+  renderVals() {
+    const L = ['ES', 'CA', 'EN'];
+    const langs = L.map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    const E = [
+      { n: '01', short: 'Una piscina pensada contigo, para tu espacio y tu manera de vivir. Terreno, permisos y presupuesto antes que acabados.', cta2: 'Diseñar mi piscina', k: 'Construcción', t: 'Quiero hacerme una piscina', img: 'img/694ea44bd5256f16a5621d5e855ea255.jpg', alt: 'Piscina terminada junto a una vivienda mediterránea', title: 'Construir: antes de la forma, el terreno.', desc: 'Revisamos lo que decide qué piscina es posible en tu casa y cuánto cuesta de verdad, antes de hablar de acabados.', first: ['Visita al terreno y los accesos', 'Permisos de tu municipio', 'Propuesta técnica con presupuesto por partidas'], cta: 'Empezar mi proyecto', href: 'Construir.dc.html' },
+      { n: '02', short: 'Revestimiento gastado, bordes sueltos o equipos antiguos. Cambiamos solo lo que hace falta.', cta2: 'Renovar mi piscina', k: 'Reformas', t: 'Quiero modernizar o mejorar el estado de mi piscina', img: 'img/e560d7838b18965d07fe04d47f2b3039.jpg', alt: 'Renovación del revestimiento de una piscina', title: 'Reformar: cambiar solo lo que hace falta.', desc: 'Revestimiento gastado, bordes sueltos o equipos antiguos. Primero revisamos qué está bien, para no sustituir lo que todavía funciona.', first: ['Revisión del estado real del vaso', 'Qué conservar y qué cambiar', 'Propuesta por fases si conviene'], cta: 'Ver qué se puede hacer', href: 'Reformas.dc.html' },
+      { n: '03', short: 'Pierde agua, la depuradora falla o algo no enciende. Primero encontramos el origen.', cta2: 'Resolver una avería', k: 'Reparaciones', t: 'A mi piscina le pasa algo', img: 'img/1b4a23ec9db8d304ea44df3bcadad3d2.jpg', alt: 'Técnico revisando la sala de depuración de una piscina', title: 'Reparar: primero la causa, luego la solución.', desc: 'Pierde agua, la depuradora falla o algo no enciende. Localizamos el origen antes de cambiar ninguna pieza.', first: ['Diagnóstico del origen', 'Reparar o sustituir, con la diferencia explicada', 'Presupuesto con el problema ya localizado'], cta: 'Elegir qué le pasa', href: 'MiPiscina.dc.html' },
+      { n: '04', short: 'Verde, turbia, irrita u huele. La recuperamos y te explicamos por qué se desajustó.', cta2: 'Recuperar mi agua', k: 'Tratamientos de agua', t: 'El agua de mi piscina está rara', img: 'img/977ea388031f84939f7b483a64bc6a47.jpg', alt: 'Recuperación de agua verde en una piscina', title: 'Agua: tiene causa y tiene solución.', desc: 'Verde, turbia, irrita u huele. Recuperamos el agua y te explicamos por qué se había desajustado.', first: ['Medición de parámetros', 'Tratamiento adecuado, muchas veces sin vaciar', 'Revisión de filtración y desinfección'], cta: 'Recuperar mi agua', href: 'Agua.dc.html' }
+    ];
+    const cats = E.map(x => ({ n: x.n, t: x.t, img: x.img, alt: x.alt, href: x.href, cta: x.cta2 }));
+    const P = [
+      { img: 'img/1b4a23ec9db8d304ea44df3bcadad3d2.jpg', alt: 'Técnico revisando la sala de depuración', cap: 'El sábado era para bañarse.', title: 'La depuradora que nadie conseguía arreglar', text: 'Cambiaron piezas dos veces y el problema volvía. Antes de sustituir nada más, revisamos la instalación completa y localizamos el origen. Una sola reparación, bien hecha.', cta: 'Mi depuradora falla', href: 'MiPiscina.dc.html', rot: -5 },
+      { img: 'img/694ea44bd5256f16a5621d5e855ea255.jpg', alt: 'Piscina terminada junto a una vivienda mediterránea', cap: 'El jardín que imaginas.', title: 'Una piscina que encaja con la casa', text: 'Antes de hablar de formas y acabados miramos el terreno, los accesos, la orientación y los permisos. Así la piscina que se dibuja es la que de verdad se puede construir.', cta: 'Quiero hacerme una piscina', href: 'Construir.dc.html', rot: 4 },
+      { img: 'img/e560d7838b18965d07fe04d47f2b3039.jpg', alt: 'Renovación del revestimiento de una piscina', cap: 'Volver a disfrutarla.', title: 'Un vaso cansado, no un vaso perdido', text: 'El revestimiento se desprendía y pensaban que había que hacerla nueva. Tras evaluar el estado real, bastó con rehabilitar: impermeabilización y revestimiento renovados.', cta: 'Quiero reformarla', href: 'MiPiscina.dc.html', rot: -3 },
+      { img: 'img/378ff0fadfc8ef7a13b0fc0f3b6e9849.jpg', alt: 'Piscina en el Garraf', cap: 'Saber dónde mirar.', title: 'Una fuga que no estaba donde parecía', text: 'Habían revisado el vaso sin encontrar nada. Aislando circuitos, la pérdida apareció en una tubería enterrada. Primero el diagnóstico, después una reparación con el alcance exacto.', cta: 'Mi piscina pierde agua', href: 'MiPiscina.dc.html', rot: 5 },
+      { img: 'img/3376ab80701d5d2ba4c145304bbc7fb4.jpg', alt: 'Revisión del agua de una piscina', cap: 'Y seguir cuidándola.', title: 'De vigilar el agua a disfrutarla', text: 'Cada verano empezaba con agua verde. Con un mantenimiento periódico, los pequeños problemas se detectan antes de convertirse en averías.', cta: 'Ver mantenimiento', href: 'Mantenimiento.dc.html', rot: -4 }
+    ];
+    const REVS = [
+      { q: '[Reseña real de Google · cliente de construcción]', who: '[Nombre]', where: '[Municipio]' },
+      { q: '[Reseña real de Google · cliente de reparación]', who: '[Nombre]', where: '[Municipio]' },
+      { q: '[Reseña real de Google · cliente de mantenimiento]', who: '[Nombre]', where: '[Municipio]' }
+    ];
+    const step = this.state.step;
+    const go = (n, data) => { this.save(n - 1, data || {}); this.setState({ step: n }); };
+    const pd = (e) => { if (e && e.preventDefault) e.preventDefault(); };
+    const NEEDS = ['Quiero hacerme una piscina', 'Quiero modernizar o mejorar el estado de mi piscina', 'A mi piscina le pasa algo', 'El agua de mi piscina está rara', 'Quiero olvidarme del mantenimiento', 'Quiero un spa en casa'];
+    const needs = NEEDS.map(k => ({ label: k, pick: () => { this.setState({ need: k }); go(2, { necesidad: k }); } }));
+    const v = this.v;
+    const fd = v.date ? new Date(v.date + 'T12:00:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'long' }) : '';
+    const f = {
+      s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, mas: step === 5 && !this.state.done, s6: step === 5 && !!this.state.done,
+      mtOn: !!this.state.mt, mtOff: !this.state.mt,
+      setMore: (e) => { v.more = String(e.target.value || ''); const h = /(?:[A-Za-zÀ-ÿ0-9]{2,})/.test(v.more); if (h !== !!this.state.mt) this.setState({ mt: h }); },
+      moreNo: () => { if (this.state.mt) return; this.save(5, { masInfo: '' }); this.setState({ done: true }); },
+      moreYes: () => { if (!this.state.mt) return; this.save(5, { masInfo: v.more.trim() }); this.setState({ done: true }); },
+      label: step === 5 && !this.state.done ? 'Último detalle' : step < 5 ? 'Paso ' + step + ' de 4' : 'Listo',
+      progress: (step < 5 ? step * 25 : 100) + '%',
+      saved: step > 1 && step < 5,
+      canBack: step > 1 && step < 5,
+      back: () => this.setState({ step: Math.max(1, step - 1) }),
+      setMuni: (e) => { v.muni = e.target.value; }, setDate: (e) => { v.date = e.target.value; }, setTel: (e) => { v.tel = e.target.value; },
+      setName: (e) => { v.name = e.target.value; }, setMail: (e) => { v.mail = String(e.target.value || '').trim(); },
+      next: (e) => { pd(e); if (step === 2) go(3, { municipio: v.muni });
+        else if (step === 3) { if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.mail || '')) { this.setState({ mailErr: true }); return; } this.setState({ mailErr: false }); go(4, { correo: v.mail }); } },
+      mailErr: !!this.state.mailErr,
+      send: (e) => { pd(e); go(5, { nombre: v.name, telefono: v.tel }); },
+      summary: [this.state.need, v.muni].filter(Boolean).join(' · ') + '. Carlos o David te llaman' + (v.tel ? ' al ' + v.tel : '') + '.'
+    };
+    const hi = this.state.h;
+    const pols = P.map((x, i) => ({ img: x.img, alt: x.alt, cap: x.cap, on: i === hi ? 'true' : 'false',
+      st: i === hi
+        ? 'transform: rotate(0deg) scale(1.1); z-index: 5; position: relative; box-shadow: 0 30px 60px rgba(10,25,45,.32)'
+        : 'transform: rotate(' + x.rot + 'deg); box-shadow: 0 14px 30px rgba(10,25,45,.16); opacity: .88',
+      pick: () => this.setState({ h: i }) }));
+    return { menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }), 
+      langs, pols, cats, revs: REVS, needs, f,
+      st: Object.assign({ n: hi + 1 }, P[hi]),
+      sent: this.state.sent,
+      send: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

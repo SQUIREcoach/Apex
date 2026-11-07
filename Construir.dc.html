@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Quiero hacerme una piscina</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;family=Caveat:wght@500&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}
+.ct-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.ct-tabs{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+.ct-tab{display:flex;flex-direction:column;gap:8px;text-align:left;padding:20px;background:#FFFFFF;border:1px solid #E0D8C9;border-radius:2px;cursor:pointer;font-family:Montserrat,sans-serif;color:#16191F;transition:border-color .2s,box-shadow .2s}
+.ct-tab:hover{border-color:#D4AE72}
+.ct-tab[aria-selected="true"]{border-color:#D4AE72;box-shadow:0 0 0 1px #D4AE72,0 18px 36px -22px rgba(10,42,71,.45)}
+.ct-n{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#F3EEE6;font-weight:600;font-size:14px;color:#0A2A47}
+.ct-tab[aria-selected="true"] .ct-n{background:#0A2A47;color:#E3C493}
+.ct-d{font-size:12px;font-weight:600;color:#8A6A36;letter-spacing:.04em}
+.ct-t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;line-height:1.15;color:#0A2A47}
+.ct-s{font-size:13px;color:#4A5260;line-height:1.4}
+.ct-panel{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:40px;padding:48px;background:#FFFFFF;border:1px solid #E0D8C9;box-shadow:0 30px 60px -40px rgba(10,42,71,.35)}
+@media (max-width:900px){.ct-panel{grid-template-columns:minmax(0,1fr);padding:28px 22px}}
+.cf-cond{display:flex;flex-direction:column;gap:14px;padding:24px 28px;background:#FFFFFF;border:1px solid #ECE5D8;border-radius:20px}
+.cf-cond-t{font-size:14px;font-weight:600;color:#0A2A47}
+.cf-cond ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+@media (max-width:1100px){.cf-cond ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.cf-cond ul{grid-template-columns:minmax(0,1fr)}}
+.cf-cond li{display:flex;flex-direction:column;gap:2px;font-size:13px;line-height:1.45;color:#4A5260;padding-left:12px;border-left:2px solid #D4AE72}
+.cf-cond li strong{color:#0A2A47;font-size:14px}
+.cf-gs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.cf-gs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cf-g{display:flex;align-items:center;gap:14px;padding:16px 18px;background:#FFFFFF;border:1px solid #ECE5D8;border-radius:16px;cursor:pointer;text-align:left;font-family:Montserrat,sans-serif;color:#16191F;transition:border-color .2s,box-shadow .2s}
+.cf-g:hover{border-color:#D4AE72}
+.cf-g[aria-selected="true"]{border-color:#D4AE72;box-shadow:0 0 0 1px #D4AE72,0 16px 32px -20px rgba(10,42,71,.45)}
+.cf-g strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;color:#0A2A47;line-height:1.1}
+.cf-g small{font-size:12px;color:#8A6A36;font-weight:600}
+.cf-gn{width:38px;height:38px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#F3EEE6;color:#0A2A47;font-weight:600;font-size:14px}
+.cf-g[aria-selected="true"] .cf-gn{background:#0A2A47;color:#E3C493}
+.cf-grid{display:grid;grid-template-columns:minmax(0,270px) minmax(0,1fr) minmax(0,300px);gap:20px;align-items:start}
+@media (max-width:1100px){.cf-grid{grid-template-columns:minmax(0,240px) minmax(0,1fr)}.cf-s{grid-column:1 / -1}}
+@media (max-width:720px){.cf-grid{grid-template-columns:minmax(0,1fr)}}
+.cf-nav{display:flex;flex-direction:column;gap:8px}
+.cf-c{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:transparent;border:1px solid transparent;border-radius:12px;cursor:pointer;text-align:left;font-family:Montserrat,sans-serif;color:#16191F;transition:background .2s,border-color .2s}
+.cf-c:hover{background:#FFFFFF}
+.cf-c[aria-current="true"]{background:#FFFFFF;border-color:#D4AE72}
+.cf-c strong{font-size:14px;font-weight:600;line-height:1.3}
+.cf-c small{font-size:12px;color:#8FA3B6;line-height:1.35}
+.cf-cn{font-size:12px;font-weight:600;color:#8A6A36;padding-top:2px;flex:none;width:20px}
+.cf-p{display:flex;flex-direction:column;gap:18px;padding:36px;background:#FFFFFF;border:1px solid #ECE5D8;border-radius:24px;box-shadow:0 30px 60px -40px rgba(10,42,71,.35);min-height:100%}
+@media (max-width:560px){.cf-p{padding:24px 20px}}
+.cf-os{display:flex;flex-wrap:wrap;gap:10px}
+.cf-o{min-height:46px;padding:10px 18px;border:1px solid #E0D3B8;border-radius:999px;background:#FFFFFF;font-family:Montserrat,sans-serif;font-size:15px;font-weight:500;color:#16191F;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.cf-o:hover{border-color:#D4AE72;background:#FBF8F2}
+.cf-o[aria-pressed="true"]{background:#0A2A47;border-color:#0A2A47;color:#FFFFFF}
+.cf-info{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border-radius:16px;background:#F7F4EE;border-left:3px solid #D4AE72;font-size:15px;line-height:1.6;color:#4A5260}
+.cf-info strong{color:#0A2A47;font-size:15px}
+.cf-skip{background:none;border:0;padding:0;font-family:Montserrat,sans-serif;font-size:14px;color:#8A6A36;text-decoration:underline;cursor:pointer;min-height:44px}
+.cf-s{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px;padding:28px;background:#0A2A47;color:#FFFFFF;border:1px solid rgba(212,174,114,.35);border-radius:24px}
+.cf-sl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;max-height:420px;overflow:auto}
+.cf-sl li{display:flex;flex-direction:column;gap:1px;padding-bottom:10px;border-bottom:1px solid #1E4366}
+.cf-sl small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8FA3B6}
+.cf-sl span{font-size:14px;font-weight:600;color:#FFFFFF}
+</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html" class="on" aria-current="page">Construir</a>
+<a href="Reformas.dc.html">Reformas</a>
+<a href="MiPiscina.dc.html">Reparaciones</a>
+<a href="Agua.dc.html">Agua</a>
+<a href="Mantenimiento.dc.html">Mantenimiento</a>
+<a href="Empresa.dc.html">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="padding: 40px 0 88px">
+<div class="w" style="display: flex; flex-direction: column; gap: 26px">
+<nav aria-label="Ruta" class="mu" style="font-size: 14px"><a href="Main.dc.html">Inicio</a>   /   Construcción de piscinas</nav>
+<img src="img/67b8771a717b7168acdf8f5bcf003541.jpg" alt="Piscina de obra con tarima de madera y muro de piedra en un jardín mediterráneo" style="width: 100%; aspect-ratio: 1210 / 488; object-fit: cover; display: block; border-radius: 18px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 32px 64px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="align-self: flex-start; background: #E9D8B4; color: #0A2A47; font-size: 13px; font-weight: 700; letter-spacing: .1em; padding: 8px 14px; border-radius: 4px">MÁS SOLICITADA</span>
+<h1 class="h1" style="font-size: clamp(40px, 4.6vw, 64px); color: #0A2A47">Piscinas de obra</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #3A4250">La técnica del hormigón gunitado por vía húmeda, proyectado a alta presión, crea un vaso monolítico y estanco, sin juntas ni fisuras. Es el sistema constructivo de referencia en Cataluña por su longevidad, superior a 50 años, y su adaptabilidad a cualquier terreno rocoso o con desnivel.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="border: 1px solid #E0D8C9; border-radius: 14px; background: #F7F4EE; padding: 22px 26px; display: flex; flex-direction: column; gap: 6px">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; letter-spacing: .12em; color: #0A2A47"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99A5B" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>IDEAL PARA:</span>
+<span class="mu" style="font-size: 16px">Jardines de viviendas unifamiliares, parcelas con desniveles y diseños a medida.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 14px; font-weight: 700; letter-spacing: .12em; color: #0A2A47">CARACTERÍSTICAS CLAVE:</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px; font-size: 16px; color: #16191F">
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99A5B" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 12.5 L9.5 18 L20 6"></path></svg>Garantía estructural 10 años</li><li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99A5B" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 12.5 L9.5 18 L20 6"></path></svg>Libertad absoluta de formas y profundidades</li><li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99A5B" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 12.5 L9.5 18 L20 6"></path></svg>Compatible con gres porcelánico gran formato</li><li style="display: flex; gap: 12px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C99A5B" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 4px"><path d="M4 12.5 L9.5 18 L20 6"></path></svg>Integración de playas secas y bancos de relax</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="configura" class="soft" style="padding: 104px 0">
+<div class="w" style="display: flex; flex-direction: column; gap: 40px">
+<div class="g2" style="align-items: end; gap: 24px 56px">
+<div style="display: flex; flex-direction: column; gap: 16px"><span class="kick">Tipologías · Configura tu piscina</span><h2 class="h2">Elige cómo la quieres y entiende qué implica cada decisión.</h2></div>
+<p class="mu" style="margin: 0">Estructura, forma, sistemas y uso se deciden juntos: cambiar uno a mitad de obra arrastra a los demás. Ve eligiendo y te explicamos qué condiciona y qué conlleva cada opción. Al final tendrás la configuración de tu piscina.</p>
+</div>
+
+<div class="cf-cond">
+<span class="cf-cond-t">Antes de elegir, esto decide la piscina posible. Lo revisamos en la primera visita:</span>
+<ul>
+<li><strong>Espacio y orientación</strong>Superficie útil, sol, sombras y vistas.</li>
+<li><strong>Terreno</strong>Tipo de suelo, pendiente y nivel freático.</li>
+<li><strong>Accesos</strong>Por dónde entra la maquinaria y sale la tierra.</li>
+<li><strong>Permisos</strong>Licencia o comunicación según el municipio.</li>
+<li><strong>Uso previsto</strong>Nadar, niños, reuniones, todo el año.</li>
+<li><strong>Presupuesto</strong>Desde el principio, para proponer lo que tiene sentido.</li>
+</ul>
+</div>
+
+<div role="tablist" aria-label="Bloques de la configuración" class="cf-gs">
+<sc-for list="{{cf.groups}}" as="g" hint-placeholder-count="4">
+<button type="button" role="tab" class="cf-g" aria-selected="{{g.on}}" onClick="{{g.pick}}"><span class="cf-gn">{{g.n}}</span><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><strong>{{g.t}}</strong><small>{{g.done}}</small></span></button>
+</sc-for>
+</div>
+
+<div class="cf-grid">
+<nav class="cf-nav" aria-label="Criterios">
+<p class="mu" style="margin: 0 0 6px; font-size: 14px">{{cf.gd}}</p>
+<sc-for list="{{cf.crits}}" as="c" hint-placeholder-count="5">
+<button type="button" class="cf-c" aria-current="{{c.on}}" onClick="{{c.pick}}"><span class="cf-cn">{{c.n}}</span><span style="display: flex; flex-direction: column; min-width: 0"><strong>{{c.t}}</strong><small style="{{c.vst}}">{{c.v}}</small></span></button>
+</sc-for>
+</nav>
+
+<div class="cf-p">
+<span class="kick">Criterio {{cur.n}}</span>
+<h3 class="h3" style="font-size: clamp(28px, 2.6vw, 36px); color: #0A2A47">{{cur.t}}</h3>
+<p class="mu" style="margin: 0; font-size: 16px">{{cur.d}}</p>
+<div role="group" aria-label="{{cur.t}}" class="cf-os">
+<sc-for list="{{cur.opts}}" as="o" hint-placeholder-count="6">
+<button type="button" class="cf-o" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.t}}</button>
+</sc-for>
+</div>
+<div class="cf-info">
+<strong>{{cur.it}}</strong>
+<p style="margin: 0">{{cur.id}}</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: auto; padding-top: 8px">
+<button type="button" class="b" onClick="{{cur.next}}">{{cur.nextL}}</button>
+<button type="button" class="cf-skip" onClick="{{cur.next}}">Aún no lo sé, lo vemos en la visita</button>
+</div>
+</div>
+
+<aside class="cf-s">
+<span class="kick">Tu piscina</span>
+<strong style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; line-height: 1.1">{{sum.count}} de {{sum.total}} decisiones</strong>
+<div aria-hidden="true" style="height: 4px; background: #1E4366; border-radius: 4px"><div style="height: 4px; border-radius: 4px; background: #D4AE72; width: {{sum.pct}}; transition: width .3s ease"></div></div>
+<sc-if value="{{sum.empty}}" hint-placeholder-val="{{ true }}"><p style="margin: 0; font-size: 14px; color: #B8C5D2">Aún no has elegido nada. Empieza por la estructura o salta a lo que tengas más claro.</p></sc-if>
+<ul class="cf-sl">
+<sc-for list="{{sum.items}}" as="s" hint-placeholder-count="4">
+<li><small>{{s.t}}</small><span>{{s.v}}</span></li>
+</sc-for>
+</ul>
+<a class="b" href="Contacto.dc.html#construir-cfg" onClick="{{sum.go}}" style="width: 100%">Quiero valorar esta piscina →</a>
+<p style="margin: 0; font-size: 12px; color: #8FA3B6">Te llega con todo lo que has elegido; no te volvemos a preguntar nada de esto.</p>
+<sc-if value="{{sum.any}}" hint-placeholder-val="{{ false }}"><button type="button" class="cf-skip" style="color: #B8C5D2; align-self: flex-start" onClick="{{sum.reset}}">Empezar de nuevo</button></sc-if>
+</aside>
+</div>
+</div>
+</section>
+
+<section id="como-trabajamos" style="padding: 96px 0">
+<div class="w" style="display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px">
+<span class="kick" style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid #D4AE72; border-radius: 999px; background: #F7F4EE">Metodología y proceso</span>
+<h2 class="h2">Cómo trabajamos</h2>
+<p class="mu" style="margin: 0; font-size: 18px; max-width: 720px">Un proceso transparente, organizado y coordinado paso a paso para que disfrutes de la experiencia sin preocupaciones.</p>
+</div>
+<div role="tablist" aria-label="Fases del proceso" class="ct-tabs">
+<sc-for list="{{fases}}" as="f" hint-placeholder-count="5">
+<button type="button" role="tab" class="ct-tab" aria-selected="{{f.on}}" onClick="{{f.pick}}">
+<span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="ct-n">{{f.n}}</span><span class="ct-d">{{f.d}}</span></span>
+<strong class="ct-t">{{f.t}}</strong>
+<span class="ct-s">{{f.s}}</span>
+</button>
+</sc-for>
+</div>
+<div role="tabpanel" class="ct-panel">
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 18px">
+<span aria-hidden="true" style="width: 64px; height: 64px; flex: none; display: flex; align-items: center; justify-content: center; background: #0A2A47; color: #E3C493; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 700">{{fa.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="kick">Paso {{fa.n}} de 05</span><h3 class="h3" style="font-size: clamp(28px, 2.8vw, 38px); color: #0A2A47">{{fa.t}}</h3></div>
+</div>
+<p style="margin: 0; font-size: 19px; line-height: 1.6">{{fa.desc}}</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">Acciones clave en esta fase:</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{fa.acc}}" as="a" hint-placeholder-count="3">
+<li style="display: flex; gap: 12px; align-items: baseline; font-size: 17px; color: #4A5260"><span aria-hidden="true" style="color: #8A6A36; font-weight: 700">✓</span>{{a.x}}</li>
+</sc-for>
+</ul>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-top: 22px; border-top: 1px solid #E0D8C9; margin-top: auto">
+<span style="font-size: 15px; font-weight: 600">◷ Plazo aproximado: {{fa.d}}</span>
+<a class="b" href="Contacto.dc.html#construir">Comenzar mi proyecto →</a>
+</div>
+</div>
+<aside class="dk" style="padding: 36px; display: flex; flex-direction: column; gap: 16px">
+<span class="kick">Compromiso Cataluña</span>
+<h3 class="h3" style="font-size: 30px">Garantía y tranquilidad</h3>
+<p class="mu" style="margin: 0; font-size: 15px">Supervisión técnica continua por jefe de obra colegiado. Tramitamos el proyecto y licencias municipales en tu ayuntamiento.</p>
+<div style="margin-top: auto; padding-top: 20px; border-top: 1px solid #1E4366; display: flex; justify-content: space-between; color: #E3C493; font-size: 15px; font-weight: 600"><span>100% coordinado</span><span>Paso {{fa.k}}/5</span></div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="soft" style="padding: 88px 0">
+<div class="w" style="display: flex; flex-direction: column; gap: 36px">
+<div class="g2" style="align-items: end; gap: 16px 56px">
+<div style="display: flex; flex-direction: column; gap: 14px"><span class="kick">Precios orientativos</span><h2 class="h2">Tres medidas, con lo básico.</h2></div>
+<p class="mu" style="margin: 0">Vaso de hormigón gunitado, depuración, revestimiento y coronación estándar. El precio final se cierra tras ver el terreno y los accesos.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px">
+<a href="Contacto.dc.html#construir-3x6" class="lnk" style="padding: 32px; gap: 14px"><span class="kick" style="font-size: 11px">Compacta</span><span class="h1" style="font-size: 54px; color: #0A2A47">3 × 6 m</span><span style="font-size: 15px; color: #4A5260">desde</span><span class="h1" style="font-size: 40px; color: #8A6A36; margin-top: -10px">[— €]</span><span class="mu" style="font-size: 14px">Patios y jardines pequeños.</span><span class="go" style="margin-top: 6px">Quiero esta medida →</span></a>
+<a href="Contacto.dc.html#construir-8x4" class="lnk" style="padding: 32px; gap: 14px; border-color: #0A2A47; box-shadow: 0 0 0 1px #0A2A47"><span class="kick" style="font-size: 11px">Familiar</span><span class="h1" style="font-size: 54px; color: #0A2A47">8 × 4 m</span><span style="font-size: 15px; color: #4A5260">desde</span><span class="h1" style="font-size: 40px; color: #8A6A36; margin-top: -10px">[— €]</span><span class="mu" style="font-size: 14px">La medida habitual en vivienda unifamiliar.</span><span class="go" style="margin-top: 6px">Quiero esta medida →</span></a>
+<a href="Contacto.dc.html#construir-10x5" class="lnk" style="padding: 32px; gap: 14px"><span class="kick" style="font-size: 11px">Amplia</span><span class="h1" style="font-size: 54px; color: #0A2A47">10 × 5 m</span><span style="font-size: 15px; color: #4A5260">desde</span><span class="h1" style="font-size: 40px; color: #8A6A36; margin-top: -10px">[— €]</span><span class="mu" style="font-size: 14px">Para nadar de verdad y recibir.</span><span class="go" style="margin-top: 6px">Quiero esta medida →</span></a>
+</div>
+<p class="mu" style="margin: 0; font-size: 13px">[Precios y alcance de "lo básico" por confirmar por APEX.] IVA, licencias y obra civil extraordinaria aparte.</p>
+</div>
+</section>
+
+
+<section style="position: relative; overflow: hidden; background: #061E35; color: #FFFFFF">
+<img src="img/5f5b4e7afc2cb5e435ee387e27106208.jpg" alt="Personas disfrutando de una piscina frente al mar" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6, 30, 53, 0.92) 0%, rgba(6, 30, 53, 0.55) 55%, rgba(6, 30, 53, 0.1) 100%)"></div>
+<div class="w" style="position: relative; padding-top: 72px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px"><span class="kick" style="color: #D4AE72">Wellness y spa</span><h2 class="h2" style="font-size: clamp(34px, 3.8vw, 52px)">Si vas a construir, piensa también en el spa.</h2><p style="margin: 0; color: #E6ECF2">Hidromasaje, spa integrado o zona de bienestar: se proyectan mejor desde el principio que añadidos después.</p></div>
+<a class="b" href="Wellness.dc.html">Ver wellness y spa →</a>
+</div>
+</section>
+
+<section class="sec">
+<div class="w g2" style="align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px"><span class="kick">Preguntas frecuentes</span><h2 class="h2" style="font-size: clamp(34px, 3.8vw, 52px)">Antes de pedir presupuesto.</h2><a class="b" href="Contacto.dc.html#agendar" style="align-self: flex-start">Agendar la primera visita</a></div>
+<div>
+<details class="fq"><summary>¿Cuánto cuesta construir una piscina?</summary><p class="mu">Depende de dimensiones, terreno, accesos, tipología y acabados. Tras la visita te presentamos un presupuesto por partidas, con el alcance definido.</p></details>
+<details class="fq"><summary>¿Necesito licencia?</summary><p class="mu">Depende del municipio y de la obra: licencia o comunicación previa. Lo revisamos en la visita y te decimos qué hace falta.</p></details>
+<details class="fq"><summary>¿Cuánto dura la obra?</summary><p class="mu">Varía con el tamaño, el terreno, los permisos y la época del año. Te damos un calendario concreto en la propuesta técnica.</p></details>
+<details class="fq"><summary>¿Hacéis también el mantenimiento después?</summary><p class="mu">Sí. Quien ha construido la piscina es quien mejor conoce su instalación. <a href="Mantenimiento.dc.html">Ver mantenimiento</a>.</p></details>
+</div>
+</div>
+</section>
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 72px 0 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px"><img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 96px; width: auto; display: block; align-self: flex-start"><p style="margin: 8px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong></p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES', t: 0, sel: {}, cg: 0, cc: null, last: null }; }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    const T = [
+      { name: 'Con skimmer', desc: 'El agua queda unos centímetros por debajo de la coronación y los skimmers recogen la lámina superficial. Es la solución más extendida en vivienda.', fit: 'Buscas una instalación probada y de mantenimiento sencillo.', imp: 'Menos complejidad hidráulica y de nivelación.' },
+      { name: 'Desbordante', desc: 'El agua llega al borde y rebosa a una canaleta perimetral. La lámina queda a ras de la coronación.', fit: 'Quieres una superficie de agua continua y limpia visualmente.', imp: 'Vaso de compensación, nivelación precisa y control de niveles.' },
+      { name: 'Efecto infinito', desc: 'Uno o varios bordes desbordan sin coronación visible, de modo que el agua parece continuar hacia el paisaje.', fit: 'Tienes una vista que merece protagonismo y un terreno que lo permite.', imp: 'Estructura y nivelación exigentes, canal oculto y vaso de compensación.' },
+      { name: 'A medida', desc: 'Formas, profundidades, bancos, playas o zonas de spa diseñadas para un espacio o un uso concreto.', fit: 'Tu espacio o tu forma de usar la piscina no encajan en un estándar.', imp: 'Más definición técnica en proyecto y en obra.' }
+    ];
+    const ti = this.state.t;
+    const tipos = T.map((x, i) => ({ n: '0' + (i + 1), name: x.name, on: i === ti ? 'true' : 'false',
+      st: i === ti ? 'background:#0A2A47;color:#FFFFFF;border-color:#0A2A47' : 'background:#FFFFFF;color:#16191F',
+      pick: () => this.setState({ t: i }) }));
+    const F = [
+      { n: '01', d: 'Día 1 – 2', t: 'Escuchamos tu idea', s: 'Toma de contacto y asesoramiento', desc: 'Nos explicas qué piscina tienes en mente, el uso previsto, tu presupuesto y las expectativas estéticas de tu familia.', acc: ['Entrevista personalizada presencial o telemática', 'Definición de necesidades (relax, deporte, niños, diseño)', 'Asesoramiento inicial sobre tipologías y sistemas recomendados'] },
+      { n: '02', d: 'Día 3 – 5', t: 'Estudiamos el espacio', s: 'Visita técnica sobre el terreno', desc: 'Vamos a tu casa a ver el terreno, los accesos y la orientación antes de dibujar nada.', acc: ['Medición del espacio y accesos para la maquinaria', 'Revisión del terreno y de los servicios enterrados', 'Consulta de la normativa de tu municipio'] },
+      { n: '03', d: 'Día 6 – 10', t: 'Diseñamos tu piscina', s: 'Propuesta 3D y presupuesto cerrado', desc: 'Te presentamos tu piscina en 3D y un presupuesto cerrado por partidas, para que decidas sabiendo exactamente qué incluye.', acc: ['Diseño 3D de la piscina en su entorno', 'Presupuesto cerrado por partidas', 'Calendario de obra y tramitación de la licencia'] },
+      { n: '04', d: '3 a 5 semanas', t: 'Construimos el proyecto', s: 'Ejecución con equipo propio', desc: 'Ejecutamos la obra con dirección técnica en cada fase y te informamos de cada avance.', acc: ['Excavación, armado y estructura del vaso', 'Instalación hidráulica y equipos de depuración', 'Revestimiento, coronación y acabados'] },
+      { n: '05', d: 'Entrega final', t: 'Entregamos la piscina', s: 'Puesta en marcha y formación', desc: 'Llenamos la piscina, ponemos en marcha los equipos y te explicamos cómo funciona todo.', acc: ['Llenado y arranque de la depuración', 'Explicación del uso y del mantenimiento básico', 'Opción de plan de mantenimiento con el mismo equipo'] }
+    ];
+    const fi = this.state.fase || 0;
+    const fases = F.map((x, i) => ({ n: x.n, d: x.d, t: x.t, s: x.s, on: i === fi ? 'true' : 'false', pick: () => this.setState({ fase: i }) }));
+    const fa = Object.assign({}, F[fi], { k: fi + 1, acc: F[fi].acc.map(x => ({ x })) });
+    const CFG = [
+      { id: 'material', n: '01', g: 0, t: 'Material estructural del vaso', d: 'De qué está hecho el vaso. Decide la durabilidad, la libertad de forma y el plazo de obra.', o: [
+        ['Hormigón armado', 'Máxima durabilidad y libertad total de forma y medida. Exige obra y algo más de plazo.'],
+        ['Poliéster con fibra de vidrio', 'Vaso prefabricado: instalación rápida, pero forma y medida de catálogo y acceso para grúa.'],
+        ['Acero', 'Paneles de acero con lámina interior; montaje rápido, habitual en piscinas elevadas o semienterradas.'],
+        ['Aluminio', 'Ligero y resistente a la corrosión; indicado sobre cubiertas o estructuras con límite de carga.'],
+        ['Madera estructural', 'Estética natural para piscinas elevadas; pide tratamiento y mantenimiento de la madera.'],
+        ['Sistema mixto', 'Combina materiales para resolver casos concretos: desniveles, cubiertas o reformas.']] },
+      { id: 'sistema', n: '02', g: 0, t: 'Sistema constructivo', d: 'Cómo se levanta el vaso. Condiciona las juntas, la forma posible y el tiempo de obra.', o: [
+        ['Hormigón gunitado', 'Hormigón proyectado sobre la armadura: vaso de una pieza, sin juntas y adaptable a cualquier forma.'],
+        ['Hormigón vertido en encofrado', 'Vaso muy robusto; exige encofrar, más mano de obra y formas sencillas.'],
+        ['Bloques de hormigón armado', 'Muros de bloque armados y rellenos; económico en formas rectas, con impermeabilización muy cuidada.'],
+        ['Bloques EPS rellenos de hormigón', 'Encofrado perdido aislante: mejor aislamiento térmico, interesante si se va a climatizar.'],
+        ['Paneles modulares', 'Montaje rápido; limita formas y medidas.'],
+        ['Vaso prefabricado monobloque', 'Llega entero en camión: instalación en pocos días, pero exige acceso para grúa.']] },
+      { id: 'imper', n: '03', g: 0, t: 'Sistema de impermeabilización', d: 'Lo que garantiza que el vaso no pierda agua con los años.', o: [
+        ['Membrana de PVC (liner o lámina armada)', 'La lámina impermeabiliza y reviste a la vez; se puede renovar con los años.'],
+        ['Impermeabilización cementosa', 'Mortero impermeable bajo el revestimiento; la base habitual para gresite y porcelánico.'],
+        ['Membranas líquidas', 'Capa continua sin juntas que se adapta a geometrías complejas y reparaciones.'],
+        ['Sistema integral de estanqueidad', 'Impermeabilización, juntas y piezas empotradas resueltas como un solo sistema.']] },
+      { id: 'implant', n: '08', g: 0, t: 'Implantación respecto al terreno', d: 'Cómo se asienta en tu parcela. Decide la excavación, la gestión de tierras y la estructura.', o: [
+        ['Enterrada', 'La más habitual; exige excavación y retirada de tierras.'],
+        ['Semienterrada', 'Aprovecha desniveles y reduce la excavación.'],
+        ['Elevada', 'Apenas hay que excavar; los muros quedan a la vista y se revisten.'],
+        ['Sobre cubierta', 'En terraza o azotea; requiere cálculo estructural del forjado.'],
+        ['Suspendida', 'Vaso en voladizo o con paredes vistas; ingeniería estructural a medida.']] },
+      { id: 'forma', n: '07', g: 1, t: 'Forma geométrica', d: 'Condiciona el uso, el coste de construcción y la posibilidad de cubrirla.', o: [
+        ['Rectangular', 'La más versátil: nadar, cubrirla y mantenerla es más sencillo.'],
+        ['Cuadrada', 'Para espacios compactos y zonas de relax.'],
+        ['Circular', 'Mucho protagonismo estético; poco práctica para nadar.'],
+        ['Ovalada', 'Suaviza el jardín y favorece la circulación del agua.'],
+        ['En L', 'Separa la zona de nado de la de juego o descanso.'],
+        ['Riñón', 'Clásica y orgánica; se adapta a jardines irregulares.'],
+        ['Orgánica', 'Formas libres que imitan la naturaleza; solo viables en hormigón.'],
+        ['Irregular', 'Se adapta a parcelas difíciles con un diseño a medida.']] },
+      { id: 'tam', n: '18', g: 1, t: 'Dimensiones', d: 'El tamaño decide el volumen de agua, los equipos y el presupuesto.', o: [
+        ['Pequeña', 'Patios y jardines compactos, en torno a 3 × 6 m.'],
+        ['Mediana', 'La medida habitual en vivienda unifamiliar, en torno a 8 × 4 m.'],
+        ['Grande', 'Para nadar de verdad y recibir: 10 × 5 m o más.']] },
+      { id: 'prof', n: '18', g: 1, t: 'Profundidad', d: 'Define quién la usa y cómo, y cuánta agua hay que tratar y calentar.', o: [
+        ['Constante', 'La misma profundidad en toda la piscina; cómoda para jugar o nadar.'],
+        ['Variable', 'Zona baja y zona honda; la más versátil para familias.'],
+        ['Poco profunda', 'Se hace pie en toda la piscina; segura para niños y para estar.'],
+        ['Gran profundidad', 'Para saltar o bucear; más volumen de agua y más equipo.']] },
+      { id: 'estilo', n: '17', g: 1, t: 'Estilo arquitectónico', d: 'Cómo dialoga la piscina con tu casa y tu jardín.', o: [
+        ['Minimalista', 'Líneas rectas, pocos materiales y nada superfluo.'],
+        ['Contemporáneo', 'Grandes formatos, desbordantes y materiales actuales.'],
+        ['Clásico', 'Formas regulares y coronación tradicional.'],
+        ['Mediterráneo', 'Tonos claros, piedra y agua azul.'],
+        ['Naturalista', 'Piedra, vegetación y formas libres.'],
+        ['Orgánico', 'Formas fluidas integradas en el paisaje.']] },
+      { id: 'entorno', n: '09', g: 1, t: 'Entorno de instalación', d: 'Dónde está la piscina. Decide la temporada de baño y las instalaciones del recinto.', o: [
+        ['Exterior', 'La opción estándar; la temporada depende del clima o de la climatización.'],
+        ['Interior', 'Baño todo el año; exige deshumectación y ventilación del recinto.'],
+        ['Cubierta retráctil', 'Temporada más larga y menos suciedad, con una cubierta que se abre en verano.'],
+        ['Integrada en edificación', 'Se proyecta junto con la vivienda, en coordinación con el arquitecto.']] },
+      { id: 'reves', n: '04', g: 1, t: 'Revestimiento interior', d: 'Lo que ves y tocas. Define el color del agua, el tacto y el mantenimiento.', o: [
+        ['Gresite', 'Teselas de vidrio: clásico, muy duradero y con infinidad de colores.'],
+        ['Gres porcelánico', 'Piezas grandes de aspecto contemporáneo y pocas juntas.'],
+        ['Cerámica', 'Gran variedad de formatos y acabados, con buena relación calidad-precio.'],
+        ['Piedra natural', 'Aspecto exclusivo; pide una piedra apta para inmersión y tratada.'],
+        ['Pebble (áridos vistos)', 'Áridos con tacto y color naturales, muy resistente.'],
+        ['Revestimiento continuo', 'Sin juntas, de estética minimalista.'],
+        ['Pintura específica', 'Opción económica para renovar; hay que repintar cada pocos años.'],
+        ['Liner', 'Lámina de PVC económica y rápida, con vida útil limitada.'],
+        ['Lámina armada', 'PVC reforzado y más grueso; impermeabiliza y reviste a la vez.'],
+        ['Gelcoat', 'El acabado propio de los vasos de poliéster.']] },
+      { id: 'recog', n: '05', g: 2, t: 'Recogida superficial del agua', d: 'Cómo se limpia la superficie. Cambia por completo la hidráulica de la piscina.', o: [
+        ['Skimmers', 'Bocas en la pared que aspiran la superficie. Sencillo y económico; el agua queda unos centímetros bajo el borde.'],
+        ['Desbordamiento', 'El agua rebosa a una rejilla y va a un vaso de compensación: lámina a ras del borde, más obra y más equipos.'],
+        ['Sistema mixto', 'Combina skimmers y desbordamiento según zonas o usos.']] },
+      { id: 'desb', n: '06', g: 2, t: 'Configuración del desbordamiento', d: 'Por dónde y cómo rebosa el agua. Solo aplica si eliges desbordamiento.', only: 'recog', o: [
+        ['Perimetral', 'Rebosa por todo el borde: efecto de lámina completa.'],
+        ['Parcial', 'Rebosa solo por uno o varios lados.'],
+        ['Infinity (borde infinito)', 'El agua cae por un borde hacia el paisaje; necesita desnivel y un canal oculto inferior.'],
+        ['Tipo Múnich', 'Rejilla rebajada respecto a la playa; el agua queda al nivel de la rejilla.'],
+        ['Tipo finlandés', 'El agua queda a ras de la playa, que hace de superficie de rebose.'],
+        ['Oculto', 'Ranura perimetral discreta, sin rejilla a la vista.'],
+        ['Efecto espejo', 'Lámina de agua sin borde visible que refleja el entorno.']] },
+      { id: 'filtro', n: '10', g: 2, t: 'Sistema de filtración', d: 'Lo que deja el agua cristalina. Afecta al consumo de agua y al mantenimiento.', o: [
+        ['Arena de sílice', 'El más extendido; económico, con contralavados periódicos.'],
+        ['Vidrio filtrante', 'Filtra más fino y dura más que la arena; gasta menos agua en los lavados.'],
+        ['Cartucho', 'Sin contralavados, ahorra agua; habitual en piscinas pequeñas y spas.'],
+        ['Diatomeas', 'La filtración más fina, con más mantenimiento.'],
+        ['Otro sistema homologado', 'Soluciones específicas según el caso.']] },
+      { id: 'trat', n: '11', g: 2, t: 'Tratamiento y desinfección del agua', d: 'Cómo se mantiene el agua sana. Decide cuánto tendrás que tocar productos.', o: [
+        ['Cloración convencional', 'Cloro dosificado a mano o con dosificador; sencillo y barato.'],
+        ['Electrólisis salina', 'Genera cloro a partir de sal; agua más suave y menos manipulación de productos.'],
+        ['Dosificación automatizada', 'Sondas que miden y dosifican pH y cloro solas.'],
+        ['Bromo', 'Más estable con agua caliente; habitual en spas e interiores.'],
+        ['UV u ozono (complemento)', 'Reducen la necesidad de cloro; se combinan con otro sistema.'],
+        ['Depuración biológica', 'Plantas y filtros naturales, sin químicos; necesita zona de regeneración.']] },
+      { id: 'agua', n: '12', g: 2, t: 'Tipo de agua', d: 'Condiciona los materiales y los equipos que se pueden usar.', o: [
+        ['Dulce', 'La estándar, compatible con cualquier tratamiento.'],
+        ['Salina', 'Baja salinidad para electrólisis; materiales resistentes a la sal.'],
+        ['Marina', 'Agua de mar; exige materiales y equipos específicos.'],
+        ['Mineral o termal', 'Aguas con propiedades propias; instalación singular.']] },
+      { id: 'clima', n: '13', g: 2, t: 'Climatización', d: 'Cuántos meses te bañas. Afecta al consumo y a la instalación técnica.', o: [
+        ['Sin climatización', 'Temporada natural de baño.'],
+        ['Bomba de calor', 'La forma más eficiente de alargar la temporada.'],
+        ['Intercambiador térmico', 'Aprovecha la caldera o el sistema de la vivienda.'],
+        ['Solar térmica', 'Energía gratuita; depende de la superficie y la orientación disponibles.'],
+        ['Sistema combinado', 'Combina fuentes para bañarse todo el año.']] },
+      { id: 'uso', n: '14', g: 3, t: 'Finalidad o uso principal', d: 'Para qué la quieres. Es lo que más condiciona la forma y la profundidad.', o: [
+        ['Recreativa', 'Disfrute y familia: profundidades suaves y zonas de estar.'],
+        ['Deportiva', 'Para nadar: largo útil suficiente y forma rectangular.'],
+        ['Terapéutica', 'Agua templada, accesos cómodos e hidromasaje.'],
+        ['Entrenamiento', 'Contracorriente o calle para nado continuo.'],
+        ['Rehabilitación', 'Accesibilidad, escaleras amplias y agua caliente.'],
+        ['Ornamental', 'La lámina de agua como elemento arquitectónico.'],
+        ['Natural de baño', 'Depuración biológica y estética naturalista.']] },
+      { id: 'regimen', n: '15', g: 3, t: 'Régimen de utilización', d: 'Quién la usa. Determina la normativa que hay que cumplir.', o: [
+        ['Privada unifamiliar', 'La normativa más sencilla; el diseño es a tu gusto.'],
+        ['Comunitaria', 'Normativa de uso colectivo: requisitos sanitarios y de seguridad según el aforo.'],
+        ['Hotelera', 'Normativa de uso público, accesibilidad y equipos de alta exigencia.'],
+        ['Pública', 'Requisitos sanitarios y de seguridad completos.'],
+        ['Deportiva', 'Medidas reglamentarias si va a haber competición.'],
+        ['Terapéutica', 'Requisitos específicos de temperatura y accesos.']] },
+      { id: 'equipo', n: '16', g: 3, t: 'Equipamiento y elementos integrados', d: 'Lo que añade confort y uso. Puedes elegir varios.', multi: true, o: [
+        ['Escalera', 'Acceso cómodo, de obra o metálica.'],
+        ['Banco sumergido', 'Zona de estar dentro del agua.'],
+        ['Playa húmeda', 'Zona de poca profundidad para niños o para tumbarse.'],
+        ['Hidromasaje', 'Jets en bancos o paredes, con bomba propia.'],
+        ['Contracorriente', 'Nadar sin moverse del sitio; ideal en piscinas cortas.'],
+        ['Cascada', 'Elemento visual y sonoro.'],
+        ['Iluminación', 'Focos LED: ambiente y seguridad de noche.'],
+        ['Cubierta automática', 'Seguridad, menos evaporación y menos suciedad.'],
+        ['Fondo móvil', 'Profundidad regulable; el fondo puede subir hasta convertirse en terraza.']] }
+    ];
+    const GR = [
+      { t: 'Estructura', d: 'El vaso: de qué está hecho, cómo se levanta y cómo se asienta en tu terreno.' },
+      { t: 'Forma y diseño', d: 'Lo que se ve: forma, medida, estilo y acabados.' },
+      { t: 'Agua y sistemas', d: 'Lo que no se ve también se construye: hidráulica, filtración, tratamiento y climatización.' },
+      { t: 'Uso y equipamiento', d: 'Para qué y para quién: uso, normativa y elementos integrados.' }
+    ];
+    const sel = this.state.sel || {};
+    const isOn = (c) => !c.only || ['Desbordamiento', 'Sistema mixto'].includes(sel[c.only]);
+    const vis = CFG.filter(isOn);
+    const valOf = (c) => { const v = sel[c.id]; return Array.isArray(v) ? (v.length ? v.join(', ') : '') : (v || ''); };
+    const cg = this.state.cg || 0;
+    const ccId = this.state.cc && vis.find(c => c.id === this.state.cc && c.g === cg) ? this.state.cc : vis.find(c => c.g === cg).id;
+    const curC = vis.find(c => c.id === ccId);
+    const groups = GR.map((g, i) => { const cs = vis.filter(c => c.g === i); const dn = cs.filter(c => valOf(c)).length;
+      return { n: i + 1, t: g.t, done: dn + ' de ' + cs.length + ' elegidos', on: i === cg ? 'true' : 'false', pick: () => this.setState({ cg: i, cc: null, last: null }) }; });
+    const crits = vis.filter(c => c.g === cg).map(c => ({ n: c.n, t: c.t, v: valOf(c) || 'Sin elegir', vst: valOf(c) ? 'color:#8A6A36;font-weight:600' : '',
+      on: c.id === ccId ? 'true' : 'false', pick: () => this.setState({ cc: c.id, last: null }) }));
+    const pickOpt = (c, name) => {
+      const ns = Object.assign({}, sel);
+      if (c.multi) { const a = Array.isArray(ns[c.id]) ? ns[c.id].slice() : []; const i = a.indexOf(name); if (i >= 0) a.splice(i, 1); else a.push(name); ns[c.id] = a; }
+      else ns[c.id] = ns[c.id] === name ? '' : name;
+      if (c.id === 'recog' && !['Desbordamiento', 'Sistema mixto'].includes(ns.recog)) ns.desb = '';
+      this.setState({ sel: ns, last: name });
+    };
+    const curV = sel[curC.id];
+    const opts = curC.o.map(([t]) => ({ t, on: (Array.isArray(curV) ? curV.includes(t) : curV === t) ? 'true' : 'false', pick: () => pickOpt(curC, t) }));
+    const shown = this.state.last && curC.o.find(o => o[0] === this.state.last) ? this.state.last : (Array.isArray(curV) ? curV[curV.length - 1] : curV);
+    const info = shown ? curC.o.find(o => o[0] === shown) : null;
+    const idx = vis.indexOf(curC), nx = vis[idx + 1];
+    const cur = { n: curC.n, t: curC.t, d: curC.d, opts,
+      it: info ? info[0] : 'Elige una opción',
+      id: info ? info[1] : 'Pulsa cualquier opción y te explicamos qué condiciona y qué conlleva. Puedes cambiarla cuando quieras.',
+      nextL: nx ? 'Siguiente: ' + nx.t + ' →' : 'Revisar mi piscina →',
+      next: () => nx ? this.setState({ cg: nx.g, cc: nx.id, last: null }) : this.setState({ cg: 0, cc: null, last: null }) };
+    const items = vis.filter(c => valOf(c)).map(c => ({ t: c.t, v: valOf(c) }));
+    const sum = { count: items.length, total: vis.length, pct: Math.round(items.length / vis.length * 100) + '%', items, empty: !items.length, any: !!items.length,
+      reset: () => this.setState({ sel: {}, cg: 0, cc: null, last: null }),
+      go: () => { try { window.sessionStorage.setItem('apexCfg', JSON.stringify(items)); } catch (e) {} } };
+    const cf = { groups, crits, gd: GR[cg].d };
+    return { menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs, fases, fa, cf, cur, sum };
+  }
+}
+</script>
+</body>
+</html>

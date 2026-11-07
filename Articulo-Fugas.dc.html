@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · ¿Evaporación o fuga?</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}
+.art p{margin:0 0 18px;font-size:17px;line-height:1.8}
+.art h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:36px;line-height:1.1;margin:48px 0 16px}
+.toc a{display:block;padding:8px 0 8px 14px;border-left:2px solid #E6DFD2;text-decoration:none;color:#4A5260;font-size:14px}
+.toc a:hover{color:#0A2A47;border-left-color:#D4AE72}
+input[type=range]{width:100%;accent-color:#D4AE72;min-height:32px}
+</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html">Construir</a>
+<a href="Reformas.dc.html">Reformas</a>
+<a href="MiPiscina.dc.html">Reparaciones</a>
+<a href="Agua.dc.html">Agua</a>
+<a href="Mantenimiento.dc.html">Mantenimiento</a>
+<a href="Empresa.dc.html">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="padding: 64px 0 48px">
+<div class="w" style="display: flex; flex-direction: column; gap: 20px; max-width: 980px">
+<nav aria-label="Ruta" class="mu" style="font-size: 15px"><a href="Main.dc.html">Inicio</a>   /   <a href="Criterio.dc.html">Maestría APEX</a>   /   Pérdidas de agua</nav>
+<span class="kick">Pérdidas de agua · Guía</span>
+<h1 class="h1" style="font-size: clamp(42px, 5.4vw, 76px)">¿Evaporación o fuga? La prueba que puedes hacer tú.</h1>
+<div style="display: flex; align-items: center; gap: 14px">
+<img src="img/2ec935b25bae3bcbcac3ab9b30bcb649.jpg" alt="Carlos Martínez" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover">
+<p style="margin: 0; font-size: 14px; line-height: 1.5"><strong>Carlos Martínez</strong><br><span class="mu">Dirección técnica · Lectura de 5 minutos</span></p>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 0 104px">
+<div class="w" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<nav class="toc" aria-label="En este artículo" style="flex: 0 1 220px; position: sticky; top: 100px; display: flex; flex-direction: column">
+<span class="kick" style="font-size: 11px; margin-bottom: 8px">En este artículo</span>
+<a href="#normal">Cuánto baja una piscina normal</a>
+<a href="#prueba">La prueba del cubo</a>
+<a href="#calc">Compara tus resultados</a>
+<a href="#donde">Dónde suelen estar las fugas</a>
+<a href="#llamar">Cuándo llamar</a>
+</nav>
+<article class="art" style="flex: 999 1 560px; min-width: 0; max-width: 760px">
+<p style="font-size: 20px; line-height: 1.7">Rellenar la piscina cada semana no significa necesariamente que tenga una fuga. Antes de abrir nada, conviene separar lo que se va por evaporación de lo que se va por una pérdida.</p>
+<h2 id="normal">Cuánto baja una piscina normal</h2>
+<p>Una piscina descubierta pierde agua cada día por evaporación. Cuánto depende del sol, el viento, la temperatura del agua y del aire, y la humedad. En pleno verano, la diferencia entre un día tranquilo y uno de viento es notable.</p>
+<p>Por eso comparar con «lo que bajaba el año pasado» no sirve: hay que comparar con lo que se evapora hoy, en tu piscina, con tu clima.</p>
+<h2 id="prueba">La prueba del cubo</h2>
+<p>Un cubo con agua puesto en la misma piscina se evapora en las mismas condiciones. Si la piscina baja bastante más que el cubo, el resto no es evaporación.</p>
+<ol style="margin: 0 0 18px; padding-left: 22px; font-size: 17px; line-height: 1.8">
+<li>Llena un cubo de agua y colócalo en el primer peldaño de la escalera, sumergido en parte.</li>
+<li>Marca el nivel del agua dentro del cubo y el de la piscina en su pared exterior.</li>
+<li>Deja la depuradora con su horario habitual y espera 24 horas.</li>
+<li>Mide cuántos milímetros ha bajado cada uno.</li>
+</ol>
+<div id="calc" class="dk pad" style="padding: 36px; border-radius: 4px; margin: 32px 0; display: flex; flex-direction: column; gap: 18px">
+<span class="kick">Compara tus resultados</span>
+<div class="fld"><label for="cubo">El cubo ha bajado: <span style="color: #E3C493">{{cubo}} mm</span></label><input id="cubo" type="range" min="0" max="30" step="1" value="{{cubo}}" onInput="{{onCubo}}"></div>
+<div class="fld"><label for="pisc">La piscina ha bajado: <span style="color: #E3C493">{{pisc}} mm</span></label><input id="pisc" type="range" min="0" max="30" step="1" value="{{pisc}}" onInput="{{onPisc}}"></div>
+<div style="padding: 20px; border: 1px solid #1E4366; background: rgba(255, 255, 255, 0.05)">
+<strong style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; color: #FFFFFF">{{verdict.t}}</strong>
+<p class="mu" style="margin: 8px 0 0; font-size: 16px">{{verdict.d}}</p>
+</div>
+<a class="b" href="{{verdict.href}}" style="align-self: flex-start">{{verdict.cta}}</a>
+</div>
+<h2 id="donde">Dónde suelen estar las fugas</h2>
+<p>Las revisamos en este orden porque va de lo más frecuente y accesible a lo que exige más pruebas:</p>
+<p><strong>Piezas empotradas.</strong> Skimmers, boquillas, focos y sumidero atraviesan el vaso. Sus juntas envejecen y son el primer sospechoso.</p>
+<p><strong>Cuarto técnico.</strong> Válvulas, uniones y la válvula selectora. Una pérdida por el desagüe del filtro puede pasar desapercibida durante meses.</p>
+<p><strong>Tuberías enterradas.</strong> Se localizan aislando circuitos y probándolos por separado.</p>
+<p><strong>Revestimiento y vaso.</strong> Grietas o una impermeabilización que ya no cumple.</p>
+<h2 id="llamar">Cuándo llamar</h2>
+<p>Si la piscina baja claramente más que el cubo, o si ves humedades alrededor del vaso o en el cuarto técnico, conviene un diagnóstico. Localizar la fuga y repararla son dos trabajos distintos: primero sabes dónde está y qué implica, después decides.</p>
+<div class="soft" style="padding: 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin-top: 24px">
+<p style="margin: 0; font-size: 16px"><strong>Diagnóstico de pérdidas de agua</strong><br><span class="mu">Ficha con lo que incluye y lo que necesitamos saber.</span></p>
+<a class="bn" href="Ficha-diag-perdidas.dc.html">Ver ficha →</a>
+</div>
+</article>
+</div>
+</section>
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 72px 0 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px"><img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 96px; width: auto; display: block; align-self: flex-start"><p style="margin: 8px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong></p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES', cubo: 6, pisc: 6 }; }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    const cubo = this.state.cubo, pisc = this.state.pisc, diff = pisc - cubo;
+    let verdict;
+    if (diff > 3) verdict = { t: 'Conviene revisarla.', d: 'La piscina ha bajado ' + diff + ' mm más que el cubo. Esa diferencia no es evaporación: probablemente hay una pérdida.', cta: 'Ver ficha de diagnóstico de fugas', href: 'Ficha-diag-perdidas.dc.html' };
+    else if (diff >= 0) verdict = { t: 'Parece evaporación.', d: 'La piscina y el cubo bajan casi lo mismo. Repite la prueba un día sin viento para confirmarlo.', cta: 'Ver mantenimiento', href: 'Mantenimiento.dc.html' };
+    else verdict = { t: 'Revisa la medición.', d: 'El cubo no debería bajar más que la piscina. Comprueba que estaba bien colocado y repite la prueba.', cta: 'Preguntar a Carlos', href: 'Contacto.dc.html' };
+    return { menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs, cubo, pisc, verdict,
+      onCubo: (e) => this.setState({ cubo: Number(e.target.value) }),
+      onPisc: (e) => this.setState({ pisc: Number(e.target.value) }) };
+  }
+}
+</script>
+</body>
+</html>

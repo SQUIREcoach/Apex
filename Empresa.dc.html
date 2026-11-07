@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Empresa y equipo</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;family=Caveat:wght@500&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}
+.pol{background:#FFFFFF;padding:12px 12px 0;box-shadow:0 18px 40px rgba(10,25,45,.18)}
+.pol .cap{display:block;font-family:Caveat,cursive;font-size:24px;line-height:1.15;padding:12px 4px 16px;color:#1F232A}
+.em-idx{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.em-idx a{display:flex;flex-direction:column;gap:4px;padding:20px 22px;border:1px solid #ECE5D8;border-radius:16px;text-decoration:none;color:#0A2A47;transition:border-color .2s}
+.em-idx a:hover{border-color:#D4AE72}
+.em-idx span{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;color:#8A6A36;line-height:1}
+.em-idx strong{font-size:16px}.em-idx em{font-style:normal;font-size:14px;color:#6B7380}
+.em-hd{display:flex;gap:28px;align-items:flex-start}
+.em-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(56px,6vw,96px);line-height:.8;color:#D4AE72}
+.em-cx{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.em-cx figure{border-radius:20px;overflow:hidden}
+.em-st{margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#8A6A36}
+.em-tl{list-style:none;margin:0;padding:0;border-left:2px solid #E9D8B4}
+.em-tl li{display:flex;gap:18px;padding:0 0 18px 20px;position:relative}
+.em-tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:#D4AE72}
+.em-tl b{flex:none;width:64px;font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;color:#0A2A47;line-height:1.1}
+.em-tl div{display:flex;flex-direction:column;gap:2px;font-size:15px}
+.em-sg{display:grid;gap:10px}
+.em-sg div{display:flex;flex-direction:column;gap:4px;padding:16px 18px;background:#FFFFFF;border:1px solid #ECE5D8;border-radius:14px;font-size:15px}
+.em-tabs{display:flex;flex-wrap:wrap;gap:10px}
+.em-tabs button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:14px 20px;border:1px solid #D9CDB8;border-radius:14px;background:#FFFFFF;color:#0A2A47;font-family:Montserrat,sans-serif;font-size:15px;font-weight:600;cursor:pointer;min-height:44px}
+.em-tabs button small{font-size:12px;font-weight:400;color:#6B7380}
+.em-tabs button[aria-selected="true"]{background:#0A2A47;border-color:#0A2A47;color:#FFFFFF}
+.em-tabs button[aria-selected="true"] small{color:#C6D1DC}
+.em-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px}
+.em-p{border:1px solid #ECE5D8;border-radius:20px;overflow:hidden;background:#FFFFFF;box-shadow:0 12px 32px -18px rgba(10,42,71,.22)}
+.em-ph{display:block}
+.em-ph figure{margin:0;position:relative;border-radius:0}
+.em-ph .ph{aspect-ratio:16/10;border-radius:0;min-height:0}
+.em-ph img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.em-ph .ph{font-size:13px;padding:12px;text-align:center}
+.em-cr{display:block;padding:8px 24px 0;font-size:11px;color:#8A8F99}
+.em-ph figcaption{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:999px;background:rgba(10,42,71,.85);color:#FFFFFF;font-size:12px;font-weight:600}
+.em-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:14px}
+.em-dl dt{color:#8A6A36;font-weight:600}.em-dl dd{margin:0;color:#2B3340}
+.em-q{margin:0;padding:24px;border:1px solid #1E4366;border-radius:18px;background:rgba(255,255,255,.04)}
+.em-q p{margin:0 0 14px;font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;line-height:1.35;color:#FFFFFF}
+.em-q footer{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:14px;color:#C6D1DC}
+.em-ok{margin-left:auto;padding:4px 10px;border-radius:999px;border:1px solid rgba(143,211,168,.5);color:#8FD3A8;font-size:12px}
+@media (max-width:820px){.em-cx{grid-template-columns:1fr}.em-hd{flex-direction:column;gap:8px}}
+.em-side{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px}
+.em-fig{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.em-fig div{display:flex;flex-direction:column;gap:2px;padding:14px 16px;background:#FFFFFF;border:1px solid #ECE5D8;border-radius:14px}
+.em-fig b{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1;color:#0A2A47}
+.em-fig span{font-size:13px;color:#4A5260;line-height:1.35}
+.em-story{max-width:680px}
+.em-story p{margin:0 0 14px;font-size:17px;line-height:1.75;color:#2B3340}
+.em-story p.em-brand{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:700;letter-spacing:.06em;color:#0A2A47;margin:28px 0}
+.em-cta{display:flex;flex-direction:column;gap:12px;margin-top:32px;padding:28px;border-radius:20px;background:#0A2A47;color:#FFFFFF}
+.em-cta strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;line-height:1.15;font-weight:600}
+.em-cta p{margin:0;color:#C6D1DC;font-size:16px;line-height:1.6}
+.em-story ul{margin:0 0 18px;padding-left:22px;font-size:17px;line-height:1.75;color:#2B3340}
+.em-story ul li{margin-bottom:6px}
+.em-story p.em-voz{font-style:italic;color:#8A6A36}
+@media (max-width:820px){.em-side{position:static}}
+.em-tw{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:12px;container-type:inline-size}
+.em-t{display:flex;flex-direction:column;gap:10px;max-width:none}
+.em-t1{max-width:900px}
+.em-t2{display:block;white-space:nowrap;font-size:min(calc(100cqi / 25.5), 36px);font-weight:500;font-style:italic;line-height:1.2;color:#8A6A36}
+.em-more{margin:8px 0 0}
+.em-more>summary{list-style:none;display:inline-flex;cursor:pointer;margin:8px 0 28px}
+.em-more>summary::-webkit-details-marker{display:none}
+.em-more[open]>summary{display:none}
+</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html">Construir</a>
+<a href="Reformas.dc.html">Reformas</a>
+<a href="MiPiscina.dc.html">Reparaciones</a>
+<a href="Agua.dc.html">Agua</a>
+<a href="Mantenimiento.dc.html">Mantenimiento</a>
+<a href="Empresa.dc.html" class="on" aria-current="page">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="padding: 40px 0 24px">
+<div class="w"><nav aria-label="Ruta" class="mu" style="font-size: 15px"><a href="Main.dc.html">Inicio</a>   /   Empresa</nav></div>
+</section>
+
+<section style="padding: 0 0 56px">
+<div class="w em-idx">
+<a href="#experiencia"><span>01</span><strong>Carlos Martínez</strong><em>La experiencia</em></a>
+<a href="#proyectos"><span>02</span><strong>Proyectos</strong><em>Obras destacadas</em></a>
+</div>
+</section>
+
+<section id="experiencia" class="soft sec">
+<div class="w" style="display: flex; flex-direction: column; gap: 48px">
+<div class="em-hd"><span class="em-n">01</span><div class="em-tw"><span class="kick">Carlos Martínez · La experiencia</span><h2 class="h2 em-t"><span class="em-t1">El «médico de coches» que levantó un Mundial de 36 horas seguidas</span><span class="em-t2">(y por qué te interesa si no quieres líos raros en tu piscina)</span></h2></div></div>
+<div class="em-cx">
+<aside class="em-side">
+<figure style="margin: 0"><img src="img/2ec935b25bae3bcbcac3ab9b30bcb649.jpg" alt="Carlos Martínez, director técnico de APEX Piscinas" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block"></figure>
+</aside>
+<article class="em-story">
+<p>Año 2003. Palau Sant Jordi.</p>
+<p>Carlos lleva 36 horas seguidas sin dormir.</p>
+<p>Está levantando la estructura de acero del vaso de las piscinas del Mundial de Natación.</p>
+<p>No está cambiando un filtro ni apretando un tubo.</p>
+<p>Está construyendo, al pie del cañón y sin descanso, la estructura exacta donde van a competir los mejores atletas del planeta.</p>
+<p>Y no se va a casa hasta que la instalación queda montada.</p>
+<p>¿Y por qué me cuentas esto?</p>
+<p>A eso voy.</p>
+<p>Porque cuando vas a gastarte decenas de miles de euros en la piscina de tu jardín, tu mayor miedo es que el constructor te deje tirado a medias.</p>
+<p>O peor.</p>
+<p>Que dos veranos después la piscina pierda agua por un tubo mal sellado y nadie te coja el teléfono.</p>
+<p>Si este hombre garantizó una estructura olímpica que no podía fallar ante los ojos de medio mundo...</p>
+<p>¿crees que va a permitir que tu piscina tenga un solo fallo?</p>
+<p class="em-voz">— Yo qué sé, no lo conozco.</p>
+<p>Tienes razón. No lo conoces todavía.</p>
+<p>Y para que entiendas qué hacía Carlos ese día en el Palau Sant Jordi, hay que irse mucho más atrás...</p>
+<details class="em-more">
+<summary class="b">Quiero conocer la historia completa</summary>
+<p>A los 8 años, Carlos tiene dos planes de vida:</p>
+<ul><li>Ser Futbolista.</li><li>Ser Doctor.</li></ul>
+<p>Con el fútbol, la bofetada es inmediata.</p>
+<p>Es el peor jugador de su barrio.</p>
+<p>Llora de frustración porque la pelota siempre le lleva la contraria.</p>
+<p>Su padre, ex portero en el Espanyol, le enseña la única lección que sirve para todo en esta vida.</p>
+<p>Le enseña a repetir.</p>
+<p>A entrenar solo contra la pared.</p>
+<p>A volver al día siguiente aunque el anterior hubiera hecho el ridículo.</p>
+<p>Carlos se obsesiona.</p>
+<p>A base de repetir durante horas, pasa de ser el peor del barrio al mejor extremo derecha de la escuela.</p>
+<p>Tanto, que se presenta a las pruebas de una filial del FC Barcelona y las supera.</p>
+<p>No jodas, ¿y lo ficharon?</p>
+<p>No.</p>
+<p>Pero la lección se le queda grabada a fuego en el cerebro.</p>
+<p>La excelencia no es talento. Es pura insistencia.</p>
+<p>¿Y lo de ser médico?</p>
+<p>La carrera de medicina dura lo que tarda su madre en sentarlo y darle un baño de realidad.</p>
+<p>En casa no hay dinero para la universidad.</p>
+<p>Fin de la discusión.</p>
+<p>El chaval recalibra sobre la marcha.</p>
+<p>Si no podía ser médico de personas, sería médico de coches, como su padre.</p>
+<p>Pero cerca de donde vive no puede estudiar nada de coches, estudia delineación. Son 5 años.</p>
+<p>En segundo año se saca la primera titulación y no puede continuar porque cierran el programa por falta de alumnos.</p>
+<p>¿Qué hace entonces?</p>
+<p>Casualmente ya existe uno de automoción en su zona y, como ya tenía el título de delineante, le convalidan los 2 primeros años.</p>
+<p>Entra directamente en el tercer curso de automoción que coincide con ser:</p>
+<p>Electricidad del automóvil.</p>
+<p>Y eso le cambia la vida... Saltan chispas y se enamora.</p>
+<p>¿De una compañera?</p>
+<p class="em-voz">— No.</p>
+<p>¿De la maestra?</p>
+<p class="em-voz">— No.</p>
+<p>¿De un compañero?</p>
+<p class="em-voz">— No hombre, no.</p>
+<p>De la electricidad.</p>
+<p>Tanto así, que deja la mecánica y entra a trabajar en la compañía de luz FECSA.</p>
+<p>Es solo un niñato, pero desde el primer día lo ponen a trabajar como oficial de primera.</p>
+<p>Y allí gana muchísimo dinero, pero un dineral.</p>
+<p>Casi dos sueldos de persona adulta con buen puesto de la época.</p>
+<p>Porque para hacer ese trabajo hacen falta agallas.</p>
+<p>Su labor consiste en ir a cortar la luz a las peores calles.</p>
+<p>A zonas conflictivas.</p>
+<p>Barrios chungos, vaya...</p>
+<p>Donde nadie, ningún otro trabajador se quiere acercar.</p>
+<p>Carlos lo hace sin pestañear.</p>
+<p>Pero hay un problema.</p>
+<p>La política de FECSA consiste en rotar a la plantilla cada cinco años.</p>
+<p>Y nunca te hacen fijo.</p>
+<p>Y él quiere comprarse una casa y formar una familia.</p>
+<p>Un hogar.</p>
+<p>En aquella época, si querías casa necesitabas contrato fijo.</p>
+<p>¿Contrato fijo?</p>
+<p class="em-voz">— Sí, sí... antes existían.</p>
+<p>Y un amigo le da un chivatazo: en Astral hacen contratos indefinidos desde el primer día.</p>
+<p>Carlos toma una decisión incomprensible para la mayoría.</p>
+<p>Renuncia a la adrenalina de que le den una paliza en un contador de luz cualquiera.</p>
+<p>¿Qué me dices?</p>
+<p>Sí, estaba muy loco.</p>
+<p>Así que se pone ropa de faena y entra a cargar y descargar camiones en Astral.</p>
+<p>Le da exactamente igual el puesto. Lo hace por el contrato fijo.</p>
+<p>¿Solo dura una semana moviendo cajas?</p>
+<p class="em-voz">— Sí, pero no por lo que te crees.</p>
+<p>No lo echan.</p>
+<p>Pasa que en las oficinas abren su expediente técnico y se llevan las manos a la cabeza.</p>
+<p>Descubren que el chaval que tienen cargando palés es un Oficial de Primera de alta tensión. Un talento brutal tirado en el barro.</p>
+<p>Lo sacan del almacén de un plumazo.</p>
+<p>En solo siete días lo suben directo al Servicio Técnico.</p>
+<p>La joya de la corona.</p>
+<p>El departamento donde todo el mundo mataba por entrar y donde operarios veteranos con quince años de antigüedad seguían esperando turno.</p>
+<p>A Carlos lo meten ahí con una semana en la empresa.</p>
+<p>Y no se queda ahí la cosa.</p>
+<p>A las dos semanas de pisar ese taller, Astral contrata a un ingeniero extranjero para diseñar desde cero su nueva línea de bombas de calor.</p>
+<p>Como Carlos es el que más entiende de circuitos, lo ponen mano a mano con él.</p>
+<p>El tipo termina el diseño, le explica a Carlos cómo funciona el bicho hasta el último cable... y se pira de vuelta a su país.</p>
+<p>¿Resultado?</p>
+<p>Carlos se queda como el único tío en todo Astral que sabe montar, arrancar y fabricar esas máquinas.</p>
+<p>En cuestión de meses ya está al frente del Servicio Técnico.</p>
+<p>Y poco después, le entregan las llaves del mantenimiento de toda la fábrica. Si algo se para, lo arregla él.</p>
+<p>Pasa catorce años allí.</p>
+<p>¿Haciendo qué?</p>
+<p>Cruzándose España entera de punta a punta.</p>
+<p>Astral suministraba material a los instaladores más potentes del país.</p>
+<p>Y cuando un cliente grande en Almería, en Galicia o en Madrid compraba una máquina puntera, fallaba, y los técnicos locales no tenían ni puta idea de cómo meterle mano... ¿a quién mandaba la multinacional en un avión para apagar el fuego?</p>
+<p>A mi padre.</p>
+<p>Catorce años siendo el apagafuegos oficial. El tipo al que llamaban cuando el resto de profesionales tiraba la toalla.</p>
+<p>Manchándose las manos de grasa, pegamento de PVC y cloro.</p>
+<p>Entendiendo la hidráulica, la filtración y la climatización de las piscinas desde las tripas.</p>
+<p>Y es precisamente ese dominio brutal lo que le lleva a que en 2003 lo seleccionen para montar las piscinas del Mundial.</p>
+<p>Y ahí volvemos al principio.</p>
+<p>Al Palau Sant Jordi.</p>
+<p>A esas 36 horas seguidas sin dormir.</p>
+<p>Imagínate el escenario.</p>
+<p>Medio planeta mirando. Una estructura de acero milimétrica dentro de un pabellón que tiene que soportar toneladas de agua sin ceder.</p>
+<p>La presión es absoluta. No hay margen de error. No puedes decir «mañana seguimos».</p>
+<p>Carlos no se va a dormir. Se queda hasta que el vaso queda perfecto, sellado y listo para que naden los mejores del mundo.</p>
+<p>Cuando termina el campeonato olímpico, la competencia toma nota.</p>
+<p>Piscinas Condal le pone una oferta irrechazable sobre la mesa y la acepta.</p>
+<p>Pero lo importante no es la empresa.</p>
+<p>Es quién lo contrata: el señor Juárez.</p>
+<p>Para Carlos, Juárez es, sin discusión, el mejor.</p>
+<p>El tío que más sabe de este oficio y el mejor jefe que ha conocido.</p>
+<p>Y es precisamente él, esa máxima autoridad del sector, quien lo presenta el primer día ante toda la plantilla.</p>
+<p>Literalmente, como un «fichaje galáctico».</p>
+<p>El chaval que lloraba de frustración por ser el peor con la pelota, validado por el mejor profesional del mercado como la contratación estrella.</p>
+<p>Con todo este bagaje, Carlos da el salto y se establece como autónomo bajo el nombre comercial de SUITEC.</p>
+<p>Despierta el interés de los ayuntamientos y empieza a construir piscinas municipales.</p>
+<p>La cosa marcha.</p>
+<p>Hasta que revienta la crisis económica de 2008.</p>
+<p>Los impagos de la administración y de clientes ahogan la caja.</p>
+<p>En lugar de huir hacia adelante, endeudarse o hacer chapuzas para sobrevivir, toma la decisión de un hombre con principios.</p>
+<p>Cierra el negocio a tiempo para proteger el patrimonio de su familia.</p>
+<p>Y sin caérsele los anillos, vuelve:</p>
+<p>A la zanja.</p>
+<p>Al tajo.</p>
+<p>Al ebro.</p>
+<p>¿Al ebro?</p>
+<p>Al barro, perdón.</p>
+<p>Se calza las botas otra vez.</p>
+<p>Durante los siguientes 18 años, Carlos pasa de ser el mejor técnico a ser el hombre que sostiene el tinglado entero.</p>
+<p>Porque una cosa es saber montar una piscina tú solo con tus dos manos...</p>
+<p>Y otra muy distinta es hacer que, por ejemplo:</p>
+<ul><li>42 tíos remen en la misma dirección sin que la obra se convierta en un circo.</li><li>Gestionar permisos con el ayuntamiento para meter una grúa de 40 toneladas por una calle estrecha sin reventar la acera del vecino.</li><li>O coordinar camiones de hormigón que tienen que entrar al minuto exacto, porque si el material cuaja antes de tiempo, has tirado 10.000€ a la basura.</li></ul>
+<p>Y así, obra a obra, empresa a empresa, aprende a domar el caos.</p>
+<p>Pasa de ser un «fichaje galáctico» a llevar como jefe de obra civil e instalaciones hasta 30 obras en paralelo.</p>
+<p>No 1.</p>
+<p>No 10.</p>
+<p>No 20.</p>
+<p>30 obras al mismo tiempo.</p>
+<p>18 años para dominar el oficio.</p>
+<p>18 para que ninguna obra, por complicada que sea, se le vaya de las manos.</p>
+<p>Hoy, 36 años y más de 2.300 piscinas después, hemos puesto todo ese bagaje detrás de un nombre.</p>
+<p class="em-brand">APEX PISCINAS.</p>
+<p>Carlos al frente de la ingeniería y la técnica.</p>
+<p>David, recién vuelto de Estados Unidos, al mando de la estrategia empresarial.</p>
+<p>Y los dos al servicio de quien busca —y puede permitirse— una piscina de verdad.</p>
+<p>Porque contratar a APEX no es solo contratarnos a nosotros.</p>
+<p>Es contratar la agenda que Carlos ha filtrado durante 36 años en el barro.</p>
+<p>A tu obra no va a venir un subcontratado al azar que pasaba por allí.</p>
+<p>Vendrán los mejores de cada gremio.</p>
+<p>Gente con la que Carlos lleva trabajando codo a codo casi cuatro décadas.</p>
+<p>Pones de tu parte la fuerza y el oficio de los mayores especialistas del sector...</p>
+<p>Blindados bajo el ojo clínico de quien ha visto cometer todos los errores posibles.</p>
+<p>Por eso te lo digo sin rodeos:</p>
+<p>Si buscas la piscina más barata de Cataluña, te deseo toda la suerte del mundo.</p>
+<p>No somos nosotros.</p>
+<p>Vete con cuidado, eso sí.</p>
+<p>Si no lo haces con nosotros, hazlo con otro, pero asegúrate de que sea un piscinero de verdad.</p>
+<p>Porque si vas a lo loco buscando precio, vas a dar con un pirata con corbata.</p>
+<p>Te saldrá el tiro por la culata.</p>
+<p>Y luego pagamos justos por pecadores cuando te quedas tirado, sin dinero y con el jardín reventado.</p>
+<p>Lo bueno se paga.</p>
+<p>No cobramos lo mismo que los demás porque no entregamos lo mismo que los demás.</p>
+<p>Si lo que buscas es dormir tranquilo...</p>
+<p>Sabiendo que la ingeniería que queda enterrada bajo el hormigón la vigila el mismo tipo que levantó las piscinas de un Mundial...</p>
+<p>Entonces tenemos que hablar.</p>
+<div class="em-cta">
+<a class="b" href="Contacto.dc.html" style="align-self: flex-start">De acuerdo, hablemos.</a>
+</div>
+</details>
+</article>
+</div>
+</div>
+</section>
+
+<section id="proyectos" class="sec">
+<div class="w" style="display: flex; flex-direction: column; gap: 40px">
+<div class="em-hd"><span class="em-n">02</span><div style="display: flex; flex-direction: column; gap: 12px"><span class="kick">Proyectos</span><h2 class="h2">Obras destacadas.</h2><p class="mu" style="margin: 0; max-width: 680px">Fotografía, municipio y año de cada obra.</p></div></div>
+<!-- Pestañas Obras destacadas / Proyectos APEX: ocultas hasta que APEX tenga proyectos propios (datos en P.apex). -->
+<div class="em-pg">
+<sc-for list="{{projs}}" as="p" hint-placeholder-count="3">
+<article class="em-p">
+<div class="em-ph"><sc-if value="{{p.hasImg}}" hint-placeholder-val="{{ false }}"><img src="{{p.img}}" alt="{{p.alt}}"></sc-if><sc-if value="{{p.noImg}}" hint-placeholder-val="{{ true }}"><div class="ph">[Foto de la piscina]</div></sc-if></div>
+<sc-if value="{{p.hasCredit}}" hint-placeholder-val="{{ false }}"><span class="em-cr">{{p.credit}}</span></sc-if>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<h3 class="h3" style="font-size: 26px">{{p.title}}</h3>
+<dl class="em-dl"><dt>Municipio</dt><dd>{{p.muni}}</dd><dt>Año</dt><dd>{{p.year}}</dd></dl>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 72px 0 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px"><img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 96px; width: auto; display: block; align-self: flex-start"><p style="margin: 8px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong></p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES', pt: 'hist' }; }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    const P = {
+      hist: [{"kind": "Obra histórica", "title": "Piscina de competición del Palau Sant Jordi", "muni": "Barcelona", "year": "2003", "y1": "2003", "work": "Montaje de piscina olímpica de competición (50 × 25 × 2 m) y vaso auxiliar efímero en el interior del pabellón para el X Campeonato Mundial de Natación FINA.", "role": "Ensamblaje modular de paneles autoportantes de acero, nivelación milimétrica para homologación FINA y conexión del circuito de filtración ultrarrápida.", "o": "img/bb3c1814cf0d3c819fc36de547312650.jpg", "n": "img/babf13e8e4aefa71d6e4ae88cf4bb604.jpg", "nCap": "2003", "credit": "[Fuente de las fotos]"}, {"kind": "Obra histórica", "title": "Piscina del Servei d'Activitat Física (UAB)", "muni": "Cerdanyola del Vallès (Bellaterra)", "year": "2014", "y1": "2014", "work": "Proyecto piloto de desinfección avanzada: sustitución de ácido por inyección de CO₂ para corrección de pH e implantación pionera de tecnología Neolysis (UV + electrólisis de baja salinidad).", "role": "Montaje hidráulico, calibración de sondas de inyección de anhídrido carbónico e integración del reactor ultravioleta en bancada.", "o": "", "n": "img/c847b06c0a75229b6acacfbf5c5cdd12.jpg", "nCap": "Hoy", "credit": "Foto: SAF UAB"}, {"kind": "Obra histórica", "title": "Piscinas y Zona Wellness del CN Atlètic-Barceloneta", "muni": "Barcelona (Platja de Sant Sebastià)", "year": "2014", "y1": "2014", "work": "Proyecto piloto de desinfección avanzada: sustitución de ácido por inyección de CO₂ para corrección de pH e implantación pionera de tecnología Neolysis (UV + electrólisis de baja salinidad).", "role": "Dirección en la sustitución de colectores principales, valvulería de gran caudal y adaptación de equipos para resistir el ambiente marino salino.", "o": "", "n": "img/5e6c63526d0dd19b89ce5c61cd839c65.jpg", "nCap": "Hoy", "credit": "Foto: CN Atlètic-Barceloneta (cnab.cat)"}, {"kind": "Obra histórica", "title": "Zona Wellness del CE Mediterrani", "muni": "Barcelona (Sants)", "year": "2010", "y1": "2010", "work": "Piscinas interiores (2 spas + piscina) con jacuzzi, aire, burbujas y jets.", "role": "Dirección y ejecución de piscinas interiores (2 spas + piscina) con jacuzzi, aire, burbujas y jets.", "o": "", "n": "img/b9d5a033e0168bdf332abae9669aaab0.jpg", "nCap": "Hoy", "credit": "Foto: CE Mediterrani"}, {"kind": "Obra histórica", "title": "Accuram", "muni": "Barcelona (Gavà Mar)", "year": "2005", "y1": "2005", "work": "Piscina de 25 m × 12,5 m de liner.", "role": "Ejecución de piscina de liner de 25 × 12,5 m.", "o": "", "n": "img/11e9d3161317b61f649fee5fba3954a5.jpg", "nCap": "Hoy", "credit": "Foto: [fuente]"}, {"kind": "Obra histórica", "title": "Metropolitan Balmes", "muni": "Barcelona", "year": "2005", "y1": "2005", "work": "", "role": "", "o": "", "n": "img/b05730bcf48af1a7cd14a7d382e69c54.jpg", "nCap": "Hoy", "credit": "Foto: [fuente]"}, {"kind": "Obra histórica", "title": "Europa International School", "muni": "Sant Cugat del Vallès", "year": "2006", "y1": "2006", "work": "", "role": "", "o": "", "n": "img/42e64363cede1c25b799d0225f7b3a1e.jpg", "nCap": "Hoy", "credit": "Foto: [fuente]"}, {"kind": "Obra histórica", "title": "Centro Wellness y Piscina Climatizada Hotel Canillo", "muni": "Canillo (Andorra)", "year": "2004", "y1": "2004", "work": "Piscina interior con wellness, hot tubs, burbujas de aire, jets, cortinas de masaje, chorros y cañones.", "role": "Piscina interior con wellness, hot tubs, burbujas de aire, jets, cortinas de masaje, chorros y cañones.", "o": "", "n": "img/2ea9c9f59d1ec65cc4b3dda076d1596b.jpg", "nCap": "Hoy", "credit": "Foto: [fuente]"}],
+      apex: [
+        { kind: 'Proyecto APEX', title: '[Nombre del proyecto]', muni: '[Municipio]', year: '[Año]', y1: 'Antes', nCap: 'Después', work: '[Construcción, reforma o reparación]', role: '[Dirección técnica y ejecución]' },
+        { kind: 'Proyecto APEX', title: '[Nombre del proyecto]', muni: '[Municipio]', year: '[Año]', y1: 'Antes', nCap: 'Después', work: '[Construcción, reforma o reparación]', role: '[Dirección técnica y ejecución]' },
+        { kind: 'Proyecto APEX', title: '[Nombre del proyecto]', muni: '[Municipio]', year: '[Año]', y1: 'Antes', nCap: 'Después', work: '[Construcción, reforma o reparación]', role: '[Dirección técnica y ejecución]' }
+      ]
+    };
+    const pt = this.state.pt;
+    const ptabs = [['hist', 'Obras destacadas', 'Trayectoria de Carlos antes de APEX'], ['apex', 'Proyectos APEX', 'Obras propias de la empresa']].map(x => ({ label: x[1], sub: x[2], on: x[0] === pt ? 'true' : 'false', pick: () => this.setState({ pt: x[0] }) }));
+    const projs = P[pt].map(p => { const img = p.o || p.n || ''; return Object.assign({ credit: '' }, p, { img, hasImg: !!img, noImg: !img, alt: p.title + ', ' + p.muni, hasCredit: !!p.credit }); });
+    return { ptabs, projs, menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Diagnóstico de pérdidas de agua</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}</style>
+</helmet>
+<div class="pg">
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html">Construir</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html" class="on">Reparaciones</a><a href="Agua.dc.html">Agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Empresa.dc.html">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto"><a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a><a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a></div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+<dc-import name="FichaBody" fid="diag-perdidas" hint-size="100%,2700px"></dc-import>
+<footer class="ft">
+<div class="w" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; padding: 32px; font-size: 14px">
+<span style="display: flex; flex-wrap: wrap; gap: 8px 22px"><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Zonas.dc.html">Zonas</a><a href="Contacto.dc.html">Contacto</a></span>
+<span style="color: #8FA3B6">© 2026 APEX Piscinas · 711 740 427</span>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES' }; }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    return { menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs };
+  }
+}
+</script>
+</body>
+</html>

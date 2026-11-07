@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Piscinas en el Maresme</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html">Construir</a>
+<a href="Reformas.dc.html">Reformas</a>
+<a href="MiPiscina.dc.html">Reparaciones</a>
+<a href="Agua.dc.html">Agua</a>
+<a href="Mantenimiento.dc.html">Mantenimiento</a>
+<a href="Empresa.dc.html">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="position: relative; overflow: hidden; background: #0A2A47; color: #FFFFFF">
+<img src="img/f8ef379911e927df130cc3fff5d734c8.jpg" alt="Piscina en una casa en ladera entre viñedos con un pueblo blanco y el mar al fondo" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5, 20, 36, 0.9) 0%, rgba(5, 20, 36, 0.6) 50%, rgba(5, 20, 36, 0.1) 100%)"></div>
+<div class="w" style="position: relative; padding-top: 72px; padding-bottom: 104px; display: flex; flex-direction: column; gap: 22px">
+<nav aria-label="Ruta" style="font-size: 14px; color: #B8C5D2"><a href="Main.dc.html" style="color: #B8C5D2">Inicio</a>   /   <a href="Zonas.dc.html" style="color: #B8C5D2">Zonas</a>   /   Maresme</nav>
+<span class="kick" style="color: #D4AE72">Maresme</span>
+<h1 class="h1" style="font-size: clamp(46px, 5.8vw, 86px); max-width: 860px">Piscinas en el Maresme.</h1>
+<p style="margin: 0; font-size: 18px; color: #E6ECF2; max-width: 640px">Construcción, reforma, reparación y mantenimiento de piscinas en Mataró, El Masnou, Premià, Vilassar, Alella, Cabrils, Arenys, Calella y el resto del Maresme. Con dirección técnica de Carlos Martínez.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px"><a class="b" href="Contacto.dc.html">Presupuesto en el Maresme →</a></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="w" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px"><span class="kick">Servicios en el Maresme</span><h2 class="h2">Todo lo que tu piscina necesita, cerca de casa.</h2></div>
+<div class="g3">
+<a class="lnk" href="Construir.dc.html"><div style="padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1"><span class="go">01</span><h3 class="h3">Construcción en el Maresme</h3><p class="mu" style="margin: 0; font-size: 15px">Skimmer, desbordante o efecto infinito. Terreno, accesos y permisos del municipio antes de excavar.</p></div></a>
+<a class="lnk" href="Reformas.dc.html"><div style="padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1"><span class="go">02</span><h3 class="h3">Reformas en el Maresme</h3><p class="mu" style="margin: 0; font-size: 15px">Revestimientos, coronaciones, impermeabilización y renovación de instalaciones.</p></div></a>
+<a class="lnk" href="MiPiscina.dc.html"><div style="padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1"><span class="go">03</span><h3 class="h3">Reparaciones y fugas en el Maresme</h3><p class="mu" style="margin: 0; font-size: 15px">Pérdidas de agua y averías de bombas, filtros, válvulas y electrólisis.</p></div></a>
+<a class="lnk" href="Agua.dc.html"><div style="padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1"><span class="go">04</span><h3 class="h3">Tratamientos de agua en el Maresme</h3><p class="mu" style="margin: 0; font-size: 15px">Agua verde o turbia, puesta en marcha e invernación.</p></div></a>
+<a class="lnk sand" href="Mantenimiento.dc.html" style="border-color: #D4AE72"><div style="padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1"><span class="go" style="color: #0A2A47">05</span><h3 class="h3" style="color: #0A2A47">Mantenimiento en el Maresme</h3><p style="margin: 0; font-size: 15px; color: #2B3340">Semanal, quincenal o mensual, para viviendas, comunidades y alquileres turísticos.</p></div></a>
+<a class="lnk" href="Wellness.dc.html" style="background: #0A2A47; border-color: #0A2A47; color: #FFFFFF"><div style="padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1"><span class="go" style="color: #D4AE72">06</span><h3 class="h3">Wellness y spa en el Maresme</h3><p style="margin: 0; font-size: 15px; color: #B8C5D2">Spa integrado e hidromasaje para casas con vistas al mar.</p></div></a>
+</div>
+</div>
+</section>
+
+<section class="soft sec">
+<div class="w g2" style="align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px"><span class="kick">Conocer la zona</span><h2 class="h2">Qué tener en cuenta en el Maresme.</h2></div>
+<div>
+<div class="row"><strong>Casas en ladera con vistas</strong><span class="mu">Desbordantes y muros de contención: la estructura y la hidráulica tienen que estar tan cuidadas como el acabado.</span></div>
+<div class="row"><strong>Ambiente salino</strong><span class="mu">Cerca del mar, materiales y equipos tienen que resistir la corrosión.</span></div>
+<div class="row" style="border-bottom: 1px solid #E0D8C9"><strong>Segundas residencias</strong><span class="mu">Casas de verano y alquileres turísticos que necesitan la piscina lista sin que el propietario esté.</span></div>
+</div>
+</div>
+</section></div>
+
+
+<section class="sec">
+<div class="w g2" style="align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span class="kick">Municipios</span>
+<h2 class="h2" style="font-size: clamp(32px, 3.6vw, 48px)">Dónde trabajamos en el Maresme.</h2>
+<ul style="list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px">
+<li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Mataró</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">El Masnou</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Premià de Mar</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Vilassar de Mar</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Alella</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Teià</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Cabrils</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Arenys de Mar</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Sant Andreu de Llavaneres</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Calella</li><li style="padding: 8px 16px; border: 1px solid #D2C7B4; border-radius: 999px">Pineda de Mar</li>
+</ul>
+<div class="ph" style="aspect-ratio: 16 / 9; margin-top: 16px">[Trabajos en el Maresme · fotos reales con permiso del cliente]</div>
+</div>
+<div>
+<span class="kick">Preguntas en la zona</span>
+<div style="margin-top: 16px">
+<details class="fq"><summary>¿Trabajáis en todo el Maresme?</summary><p class="mu">Sí, desde El Masnou hasta Pineda de Mar, incluidos los pueblos del interior como Alella, Teià o Cabrils.</p></details>
+<details class="fq"><summary>¿Podéis ocuparos de la piscina si no vivo aquí todo el año?</summary><p class="mu">Sí. Con un plan de mantenimiento la piscina está lista cuando llegas, y te enviamos el registro de cada visita.</p></details>
+<details class="fq"><summary>¿Hacéis visita técnica en el Maresme?</summary><p class="mu">Sí, cuando el caso lo requiere. Con unas fotos y una descripción podemos orientarte primero.</p></details>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 72px 0 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px"><img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 96px; width: auto; display: block; align-self: flex-start"><p style="margin: 8px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong></p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES' }; }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    return { menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs };
+  }
+}
+</script>
+</body>
+</html>

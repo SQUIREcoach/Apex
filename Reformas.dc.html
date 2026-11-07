@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Quiero modernizar o mejorar el estado de mi piscina</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}.rf-wrap{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.rf-wrap{grid-template-columns:minmax(0,1fr)}}
+.rf-v{flex-direction:column;flex-wrap:nowrap;gap:0 !important}
+.rf-v li{padding:12px 0;border-bottom:1px solid #EFE7D8}
+.rf-v li:last-child{border-bottom:0}
+.rf-side{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.pv-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.pv-g{grid-template-columns:minmax(0,1fr)}}
+.pv-f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pv-w{grid-column:1 / -1}
+.pv-opt{display:inline-block;margin-left:6px;padding:2px 10px;border-radius:999px;border:1px solid rgba(212,174,114,.6);font-size:11px !important;font-weight:600 !important;letter-spacing:.08em;text-transform:uppercase;color:#D4AE72 !important;vertical-align:middle}
+.pv-f label{font-size:13px;font-weight:600;color:#FFFFFF}
+.pv-f label span{font-weight:400;color:#8FA3B6}
+.pv-in{width:100%;min-height:50px;border:1px solid #2A5175;border-radius:12px;padding:10px 14px;font-size:16px;font-family:Montserrat,sans-serif;background:#061E35;color:#FFFFFF;color-scheme:dark}
+.pv-in::placeholder{color:#6F859B}
+.pv-in:focus{border-color:#D4AE72;outline:none;box-shadow:0 0 0 3px rgba(212,174,114,.25)}
+.pv-file{width:100%;padding:14px;border:1px dashed #4A6A88;border-radius:12px;background:rgba(255,255,255,.03);font-family:Montserrat,sans-serif;font-size:14px;color:#B8C5D2;cursor:pointer}
+.pv-file::file-selector-button{margin-right:14px;padding:10px 16px;border:1px solid #D4AE72;border-radius:10px;background:transparent;color:#E3C493;font-family:Montserrat,sans-serif;font-weight:600;font-size:13px;cursor:pointer}
+.pv-file:hover{border-color:#D4AE72}
+</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html">Construir</a>
+<a href="Reformas.dc.html" class="on" aria-current="page">Reformas</a>
+<a href="MiPiscina.dc.html">Reparaciones</a>
+<a href="Agua.dc.html">Agua</a>
+<a href="Mantenimiento.dc.html">Mantenimiento</a>
+<a href="Empresa.dc.html">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="padding: 64px 0 48px">
+<div class="w">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Ruta" class="mu" style="font-size: 15px"><a href="Main.dc.html">Inicio</a>   /   Reformas y rehabilitación</nav>
+<span class="kick">02 · Reformas y rehabilitación</span>
+<h1 class="h1" style="font-size: clamp(46px, 5.8vw, 84px)">Quiero modernizar o mejorar el estado de mi piscina.</h1>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 0 112px">
+<div class="w" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<p class="lead mu">Elige qué te gustaría cambiar. Te contamos qué suele haber detrás y cómo lo abordamos: primero revisamos qué está bien, para no sustituir lo que todavía funciona.</p>
+<div role="group" aria-label="Qué quieres mejorar" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px">
+<sc-for list="{{syms}}" as="s" hint-placeholder-count="8">
+<button type="button" class="sym" aria-pressed="{{s.on}}" style="{{s.st}}" onClick="{{s.pick}}">{{s.label}}</button>
+</sc-for>
+</div>
+</div>
+<div class="dk pad" style="padding: 56px; border-radius: 4px; display: flex; flex-direction: column; gap: 22px; position: sticky; top: 100px">
+<h2 class="h1" style="font-size: clamp(34px, 3.6vw, 50px)">{{cur.label}}</h2>
+<span class="tag">{{cur.kind}}</span>
+<div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 600">Lo que suele haber detrás</h3><p class="mu" style="margin: 0; font-size: 17px; line-height: 1.75">{{cur.behind}}</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 18px; font-weight: 600">Cómo lo abordamos</h3><p class="mu" style="margin: 0; font-size: 17px; line-height: 1.75">{{cur.how}}</p></div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding-top: 24px; border-top: 1px solid #1E4366">
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Fichas relacionadas</h3>
+<sc-for list="{{cur.fichas}}" as="k" hint-placeholder-count="2">
+<a href="{{k.href}}" style="color: #E3C493; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #D4AE72">{{k.t}} →</a>
+</sc-for>
+</div>
+<div id="valorar" style="display: flex; flex-direction: column; gap: 14px">
+<sc-if value="{{v.idle}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><button type="button" class="b" onClick="{{v.start}}">Quiero valorar mi reforma →</button><a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</sc-if>
+<sc-if value="{{v.zona}}" hint-placeholder-val="{{ false }}">
+<div style="border: 1px solid #1E4366; background: rgba(255,255,255,0.05); padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<span class="kick" style="font-size: 11px; color: #D4AE72">Tu caso · {{cur.label}}</span>
+<strong style="font-size: 18px">¿En qué zona está la piscina?</strong>
+<div role="group" aria-label="Zona" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{v.zones}}" as="z" hint-placeholder-count="7"><button type="button" class="chip" style="background: transparent; color: #FFFFFF; border-color: #4A6A88" onClick="{{z.pick}}">{{z.label}}</button></sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{v.fotos}}" hint-placeholder-val="{{ false }}">
+<form style="border: 1px solid #1E4366; background: rgba(255,255,255,0.05); padding: 24px; display: flex; flex-direction: column; gap: 14px" onSubmit="{{v.toDatos}}" novalidate="">
+<span class="kick" style="font-size: 11px; color: #D4AE72">Tu caso · {{cur.label}} · {{v.zone}}</span>
+<strong style="font-size: 18px">¿Nos mandas unas fotos?</strong>
+<p style="margin: -6px 0 0; font-size: 14px; opacity: .8">Con fotos podemos orientarte antes de ir. Si ahora no puedes, déjalo para después.</p>
+<div class="pv-g">
+<div class="pv-f pv-w"><label for="pv-p">Fotos de la piscina, del problema o del cuarto técnico <span class="pv-opt">Opcional</span></label><input class="pv-file" id="pv-p" type="file" accept="image/*" multiple=""></div>
+<div class="pv-f pv-w"><label for="pv-m">Correo electrónico</label><input class="pv-in" id="pv-m" type="email" placeholder="Ej.: marc@gmail.com" autocomplete="email" onInput="{{v.setMail}}"></div>
+</div>
+<sc-if value="{{v.mailErr}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: -4px 0 0; font-size: 13px; color: #F2B8A0">Escribe un correo válido para poder enviarte la valoración.</p></sc-if>
+<button class="b" type="button" style="align-self: flex-start" onClick="{{v.toDatos}}">Siguiente →</button>
+</form>
+</sc-if>
+<sc-if value="{{v.datos}}" hint-placeholder-val="{{ false }}">
+<form style="border: 1px solid #1E4366; background: rgba(255,255,255,0.05); padding: 24px; display: flex; flex-direction: column; gap: 14px" onSubmit="{{v.send}}">
+<span class="kick" style="font-size: 11px; color: #D4AE72">Tu caso · {{cur.label}} · {{v.zone}}</span>
+<strong style="font-size: 18px">¿A qué número te llamamos?</strong>
+<div class="pv-g">
+<div class="pv-f"><label for="pv-n">Nombre</label><input class="pv-in" id="pv-n" type="text" placeholder="Ej.: Marc Rovira" autocomplete="name"></div>
+<div class="pv-f"><label for="pv-t">Teléfono</label><input class="pv-in" id="pv-t" type="tel" inputmode="tel" placeholder="600 000 000" autocomplete="tel"></div>
+</div>
+<label style="display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: #B8C5D2"><input type="checkbox" style="margin-top: 3px; width: 16px; height: 16px; accent-color: #D4AE72"> Acepto que APEX me contacte por esta solicitud.</label>
+<button class="b" type="button" style="align-self: flex-start" onClick="{{v.send}}">Enviar</button>
+</form>
+</sc-if>
+<sc-if value="{{v.mas}}" hint-placeholder-val="{{ false }}">
+<div style="border: 1px solid #1E4366; background: rgba(255,255,255,0.05); padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<strong style="font-size: 18px">¿Algo más que debamos saber?</strong>
+<label for="pv-x" style="font-size: 14px; color: #B8C5D2">¿Algún detallito más que quieras comentar?</label>
+<textarea class="pv-in" id="pv-x" rows="4" style="min-height: 110px; resize: vertical; padding-top: 12px" onInput="{{v.setMore}}"></textarea>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-if value="{{v.mtOff}}" hint-placeholder-val="{{ true }}"><button type="button" class="bo" style="color: #FFFFFF" onClick="{{v.moreNo}}">No, eso es todo</button><button type="button" class="b" disabled="">Sí</button></sc-if>
+<sc-if value="{{v.mtOn}}" hint-placeholder-val="{{ false }}"><button type="button" class="bo" style="color: #FFFFFF" disabled="">No, eso es todo</button><button type="button" class="b" onClick="{{v.moreYes}}">Sí</button></sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{v.ok}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="border: 1px solid #1E4366; background: rgba(255,255,255,0.05); padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<strong style="font-size: 18px">Recibido. Te llamamos en breve.</strong>
+<span style="font-size: 14px; color: #B8C5D2">{{cur.label}} · {{v.zone}}. No tendrás que volver a contárnoslo.</span>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<section class="soft" style="padding: 112px 0">
+<div class="w" style="display: flex; flex-direction: column; gap: 40px">
+<div class="g2" style="gap: 24px 56px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 16px"><span class="kick">Todo lo que reformamos</span><h2 class="h2">Si ya sabes qué quieres cambiar, ve directo a su ficha.</h2></div>
+</div>
+<div class="rf-wrap">
+<article class="card" style="padding: 36px; gap: 18px">
+<span class="kick">Reformas y rehabilitación</span>
+<h3 class="h3" style="font-size: 28px">Recuperar o transformar una piscina.</h3>
+<ul class="lst rf-v">
+<li>Reformas integrales</li>
+<li><a class="fk" href="Ficha-gresite.dc.html">Reposición de gresite</a></li>
+<li>Juntas y boradas</li>
+<li><a class="fk" href="Ficha-revestimiento.dc.html">Renovación de revestimiento</a></li>
+<li>Impermeabilización</li>
+<li>Reparación de grietas</li>
+<li><a class="fk" href="Ficha-coronacion.dc.html">Renovación de coronación</a></li>
+<li>Modificación de escaleras</li>
+<li>Bancos y zonas de estar</li>
+<li><a class="fk" href="Ficha-cuarto.dc.html">Renovación del cuarto técnico</a></li>
+<li>Modernización de la filtración</li>
+<li><a class="fk" href="Ficha-electrolisis.dc.html">Electrólisis salina</a></li>
+<li>Iluminación LED</li>
+</ul>
+</article>
+<div class="rf-side">
+<a class="card" href="MiPiscina.dc.html" style="text-decoration: none; color: #16191F; padding: 28px"><span class="kick" style="font-size: 11px">¿Es una avería?</span><span class="h3">A mi piscina le pasa algo →</span></a>
+<a class="card" href="Wellness.dc.html" style="text-decoration: none; color: #FFFFFF; padding: 28px; background: #0A2A47; border-color: #0A2A47"><span class="kick" style="font-size: 11px; color: #D4AE72">Ya que reformas</span><span class="h3">Añadir hidromasaje o spa →</span></a>
+<a class="card sand" href="Mantenimiento.dc.html" style="text-decoration: none; color: #0A2A47; padding: 28px; border-color: #D4AE72"><span class="kick" style="font-size: 11px; color: #0A2A47">Mayor comodidad</span><span class="h3">Quiero olvidarme del mantenimiento →</span></a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="dk" style="padding: 96px 0">
+<div class="w" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px"><span class="kick">Siguiente paso</span><h2 class="h2" style="font-size: clamp(36px, 4vw, 54px)">Mándanos fotos y te decimos qué conservar.</h2></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="b" href="Contacto.dc.html#agendar">Agendar visita</a><a class="bo" href="tel:+34711740427">Llamar al 711 740 427</a></div>
+</div>
+</section>
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 72px 0 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px"><img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 96px; width: auto; display: block; align-self: flex-start"><p style="margin: 8px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong></p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES', s: 'gres' }; }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    const M = {'Diagnóstico de pérdidas de agua': 'Ficha-diag-perdidas.dc.html', 'Reparación de pérdidas accesibles': 'Ficha-perdidas-accesibles.dc.html', 'Cambio de bomba': 'Ficha-bomba.dc.html', 'Sustitución de filtro': 'Ficha-filtro.dc.html', 'Cambio de arena por vidrio': 'Ficha-arena-vidrio.dc.html', 'Sustitución de válvula selectora': 'Ficha-Selectora.dc.html', 'Válvulas y uniones': 'Ficha-valvulas.dc.html', 'Sustitución de célula salina': 'Ficha-celula.dc.html', 'Sondas de pH y cloro': 'Ficha-sondas.dc.html', 'Sustitución de foco': 'Ficha-foco.dc.html', 'Accesorios del skimmer': 'Ficha-accesorios.dc.html', 'Fallos eléctricos': 'Ficha-electricos.dc.html', 'Diagnóstico del sistema de filtración': 'Ficha-diag-filtracion.dc.html', 'Reposición de gresite': 'Ficha-gresite.dc.html', 'Renovación de revestimiento': 'Ficha-revestimiento.dc.html', 'Renovación de coronación': 'Ficha-coronacion.dc.html', 'Renovación del cuarto técnico': 'Ficha-cuarto.dc.html', 'Electrólisis salina': 'Ficha-electrolisis.dc.html', 'Recuperación de agua verde': 'Ficha-agua-verde.dc.html'};
+    const F = (t, href) => ({ t: t, href: M[t] || href || 'Contacto.dc.html' });
+    const D = [
+      { id: 'gres', label: 'Gresite o juntas en mal estado', kind: 'Reforma', behind: 'Desgaste por el paso del tiempo, movimientos del vaso, agua agresiva o una ejecución deficiente del revestimiento original.', how: 'Valoramos si basta una reparación localizada o conviene renovar el revestimiento, y si hay algo debajo que deba resolverse antes.', fichas: [F('Reposición de gresite'), F('Renovación de revestimiento')] },
+      { id: 'grieta', label: 'Grietas o humedades', kind: 'Rehabilitación', behind: 'Fisuras superficiales del revestimiento o problemas de impermeabilización o estructura del vaso. No se tratan igual.', how: 'Determinamos el origen antes de cubrir nada. Tapar una grieta sin entenderla suele significar volver a repararla.', fichas: [F('Renovación de revestimiento')] },
+      { id: 'coro', label: 'El borde está suelto o gastado', kind: 'Reforma', behind: 'Piezas de coronación despegadas, juntas abiertas o un material que se ha vuelto resbaladizo o quema al sol.', how: 'Revisamos el soporte antes de cambiar piezas y te proponemos materiales según uso, sol y mantenimiento.', fichas: [F('Renovación de coronación')] },
+      { id: 'moder', label: 'Quiero modernizarla', kind: 'Reforma', behind: 'Equipos antiguos, filtración con arena, desinfección manual, iluminación obsoleta, escaleras incómodas o falta de zonas de estar.', how: 'Proponemos qué actualizar y en qué orden, según lo que más aporte a tu uso. No todo hay que hacerlo a la vez.', fichas: [F('Renovación del cuarto técnico'), F('Cambio de arena por vidrio', 'MiPiscina.dc.html')] },
+      { id: 'esc', label: 'Escaleras o bancos incómodos', kind: 'Reforma', behind: 'Escaleras metálicas que estorban, peldaños estrechos o una piscina sin zona donde sentarse dentro del agua.', how: 'Estudiamos la estructura del vaso para integrar escaleras de obra, bancos o playas sin comprometer la estanqueidad.', fichas: [F('Consultar mi caso')] },
+      { id: 'cuarto', label: 'El cuarto técnico está anticuado', kind: 'Reforma', behind: 'Equipos de distintas épocas, tuberías con parches, cuadro eléctrico sin protecciones actuales o poco espacio para trabajar.', how: 'Rediseñamos la sala: equipos bien dimensionados, hidráulica ordenada y una instalación eléctrica segura.', fichas: [F('Renovación del cuarto técnico')] },
+      { id: 'sal', label: 'Quiero pasarme a la sal', kind: 'Modernización', behind: 'Cansancio de añadir cloro a mano, olor o irritación, o ganas de un agua más estable con menos intervención.', how: 'Dimensionamos la electrólisis salina para tu volumen y, si hace falta, la acompañamos de regulación de pH.', fichas: [F('Electrólisis salina')] },
+      { id: 'luz', label: 'Quiero cambiar la iluminación', kind: 'Modernización', behind: 'Focos antiguos que consumen mucho, se funden a menudo o no dan el ambiente que buscas.', how: 'Revisamos nichos y transformadores y proponemos focos compatibles, con la parte eléctrica en regla.', fichas: [F('Sustitución de foco', 'MiPiscina.dc.html')] }
+    ];
+    const ask = this.state.ask || 'idle';
+    const v = { idle: ask === 'idle', zona: ask === 'zona', datos: ask === 'datos', ok: ask === 'ok', fotos: ask === 'fotos', zone: this.state.zone || '',
+      start: () => this.setState({ ask: 'zona' }),
+      zones: ['Barcelonès', 'Vallès Occidental', 'Vallès Oriental', 'Maresme', 'Baix Llobregat', 'Garraf · Sitges', 'Otra zona'].map(k => ({ label: k, pick: () => this.setState({ zone: k, ask: 'fotos' }) })),
+      toDatos: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        let mail = this.mailTyped || '';
+        try { const root = e && e.target ? (e.target.closest ? e.target.closest('form') : null) : null; const inp = root ? root.querySelector('input[type=email]') : null; if (inp && inp.value) mail = inp.value.trim(); } catch (x) {}
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { this.setState({ mailErr: true }); return; }
+        this.mail = mail; this.setState({ ask: 'datos', mailErr: false });
+      },
+      mailErr: !!this.state.mailErr,
+      setMail: (e) => { this.mailTyped = e && e.target ? String(e.target.value || '').trim() : ''; },
+      send: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ ask: 'mas', mt: false }); },
+      mas: ask === 'mas', mtOn: !!this.state.mt, mtOff: !this.state.mt,
+      setMore: (e) => { this.more = String(e.target.value || ''); const h = /(?:[A-Za-zÀ-ÿ0-9]{2,})/.test(this.more); if (h !== !!this.state.mt) this.setState({ mt: h }); },
+      moreNo: () => { if (this.state.mt) return; this.setState({ ask: 'ok' }); },
+      moreYes: () => { if (!this.state.mt) return; this.masInfo = this.more.trim(); this.setState({ ask: 'ok' }); } };
+    const s = this.state.s;
+    const syms = D.map(d => ({ label: d.label, on: d.id === s ? 'true' : 'false',
+      st: d.id === s ? 'background:#0A2A47;color:#FFFFFF;border-color:#0A2A47' : 'background:#FFFFFF;color:#16191F',
+      pick: () => this.setState({ s: d.id, ask: 'idle' }) }));
+    return { menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs, syms, cur: D.find(d => d.id === s), v };
+  }
+}
+</script>
+</body>
+</html>

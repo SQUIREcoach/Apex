@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>APEX Piscinas · Maestría APEX</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="apex.css">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap">
+<style>body{margin:0;background:#FFFFFF}
+.hot{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;border:1.5px solid #E3C493;font-family:Montserrat,sans-serif;font-weight:600;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.hot:hover{transform:scale(1.12)}
+.gl-mini{position:relative;container-type:inline-size;margin-top:49%;display:flex;flex-direction:column;gap:0;padding:8% 6% 5%;justify-content:flex-start;background:#0A2A47;border:1px solid rgba(212,174,114,.45);border-radius:18px;box-shadow:0 24px 48px -28px rgba(10,42,71,.6)}
+.gl-mini .kick{color:#F5D99A !important;background:rgba(227,196,147,.14) !important;border-color:rgba(245,217,154,.6) !important;text-shadow:0 0 12px rgba(245,217,154,.55)}
+.gl-mini h2{max-width:none !important;font-size:7.4cqw !important;line-height:1.05;margin:0;white-space:nowrap}
+.gl-mini p{max-width:56%;font-size:max(13px,2.8cqw) !important;line-height:1.45;margin-top:3.5cqw !important}
+.gl-mini .b{align-self:stretch !important;justify-content:center;text-align:center;margin-top:2cqw;position:relative;z-index:1}
+.gl-carlos{position:absolute;right:2.5%;top:0;width:45%;height:auto;transform:translateY(-63.7%);pointer-events:none;z-index:2}
+.gw-box{display:flex;flex-direction:column;gap:16px;padding:26px;border:1px solid #1E4366;border-radius:16px;background:rgba(255,255,255,.03);max-width:520px}
+.gw-f{display:flex;flex-direction:column;gap:6px}
+.gw-l{font-size:14px;font-weight:600;color:#E3C493}
+.gw-in{width:100%;min-height:52px;border:1px solid #2A5175;border-radius:12px;padding:10px 16px;font-size:16px;font-family:Montserrat,sans-serif;background:#061E35;color:#FFFFFF;color-scheme:dark}
+.gw-in:focus{outline:2px solid #D4AE72;outline-offset:1px}
+.gw-err{font-size:14px;color:#F2B8A8}
+.gw-s{font-size:12px;color:#8FA3B6}
+.gw-wow{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;line-height:1.15;color:#FFFFFF}
+textarea.gw-in{min-height:140px;resize:vertical;line-height:1.5;padding-top:14px}
+.gw-box.gq{margin-top:32px;max-width:680px;background:#F7F4EE;border-color:#E9D8B4}
+.gq .gw-l{color:#8A6A36}
+.gq .gw-in{background:#FFFFFF;color:#0A2A47;border-color:#D9CDB8;color-scheme:light}
+.gq .gw-err{color:#B4432E}
+.gq .gw-s{color:#6B7380}
+.gq .gw-wow{color:#0A2A47}
+.gq-t{margin:0;color:#2B3340;font-size:16px;line-height:1.6}
+</style>
+</helmet>
+<div class="pg">
+
+<div class="tb">
+<div class="w" style="display: flex; justify-content: space-between; align-items: center; gap: 8px 24px; flex-wrap: wrap; min-height: 40px">
+<span class="tbx">Barcelona y toda Cataluña · Garraf, Maresme, Vallès, Baix Llobregat, Barcelonès</span>
+<div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+<a href="Criterio.dc.html" class="tbx" style="color: #FFFFFF">Maestría APEX</a>
+<a href="Profesionales.dc.html" class="tbx">Comunidades y profesionales</a>
+<a href="tel:+34711740427" style="color: #D4AE72">711 740 427</a>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; border-left: 1px solid #1E4366; padding-left: 12px">
+<sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+<button type="button" class="lng" aria-pressed="{{l.on}}" style="{{l.st}}" onClick="{{l.pick}}">{{l.code}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<header class="hd">
+<div class="w" style="display: flex; align-items: center; gap: 28px; min-height: 76px">
+<a href="Main.dc.html" aria-label="APEX Piscinas, inicio" style="display: flex"><img src="img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas" style="height: 42px; width: auto; display: block"></a>
+<nav class="nv" aria-label="Principal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; flex: 1">
+<a href="Construir.dc.html">Construir</a>
+<a href="Reformas.dc.html">Reformas</a>
+<a href="MiPiscina.dc.html">Reparaciones</a>
+<a href="Agua.dc.html">Agua</a>
+<a href="Mantenimiento.dc.html">Mantenimiento</a>
+<a href="Empresa.dc.html">Empresa</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 10px; margin-left: auto">
+<a class="bo" href="Contacto.dc.html#agendar">Agendar visita</a>
+<a class="wa-min" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="Escribir por WhatsApp" title="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a>
+</div>
+<button type="button" class="burger" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" onClick="{{menuToggle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 H21 M3 12 H21 M3 17 H21" stroke="#FFFFFF" stroke-width="1.6" fill="none"></path></svg></button>
+</div>
+</header>
+<sc-if value="{{menuShow}}" hint-placeholder-val="{{ false }}">
+<nav class="mnav" aria-label="Menú">
+<button type="button" class="x" aria-label="Cerrar menú" onClick="{{menuToggle}}">×</button>
+<a href="Main.dc.html">Inicio</a><a href="Construir.dc.html">Quiero hacerme una piscina</a><a href="Reformas.dc.html">Quiero modernizar o mejorar el estado de mi piscina</a><a href="MiPiscina.dc.html">A mi piscina le pasa algo</a><a href="Agua.dc.html">El agua de mi piscina está rara</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a><a href="Empresa.dc.html">Empresa</a>
+<div style="display: flex; flex-direction: column; margin-top: 20px"><a class="sm" href="Criterio.dc.html">Maestría APEX</a><a class="sm" href="Profesionales.dc.html">Comunidades y profesionales</a><a class="sm" href="Contacto.dc.html">Contacto</a><a class="sm" href="tel:+34711740427" style="color: #D4AE72">711 740 427</a></div>
+</nav>
+</sc-if>
+
+<section style="padding: 72px 0 56px">
+<div class="w g2" style="align-items: end; gap: 32px 56px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Ruta" class="mu" style="font-size: 15px"><a href="Main.dc.html">Inicio</a>   /   Maestría APEX</nav>
+<span class="kick">Maestría APEX · Guía técnica y lecciones</span>
+<h1 class="h1" style="font-size: clamp(42px, 5vw, 72px)">El criterio técnico que la mayoría de empresas prefieren que no conozcas.</h1>
+<p class="lead mu">Aquí no hay artículos de relleno ni consejos vacíos. En Maestría APEX compartimos tres décadas de experiencia real en Cataluña: cómo se diseña una piscina para que dure toda la vida, cómo detectar averías antes de que revienten tu bolsillo y por qué la ingeniería sin milongas es el único camino.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div class="gl-mini">
+<img class="gl-carlos" src="img/d1e0066199b9128a418cf2c898ff2ca0.png" alt="Carlos Martínez, director técnico de APEX, sentado sobre el panel del glosario">
+<h2 class="h2" style="font-size: clamp(36px, 3.4vw, 48px); color: #FFFFFF; max-width: calc(100% - 210px)">Glosario mínimo</h2>
+<p style="margin: 0; font-size: 16px; color: #C6D1DC">Las palabras que vas a oír en cualquier presupuesto. Si las entiendes, puedes preguntar mejor.</p>
+<a class="b" href="#glosario" style="align-self: flex-start">Quiero conocer el vocabulario técnico ↓</a>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 0 72px">
+<div class="w">
+<div class="dk pad" style="padding: 48px; border-radius: 6px; display: flex; flex-direction: column; gap: 28px">
+<div class="g2" style="gap: 16px 48px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 12px"><span class="kick">Guía interactiva</span><h2 class="h2" style="font-size: clamp(32px, 3.6vw, 48px)">Tu piscina por dentro.</h2></div>
+<p class="mu" style="margin: 0">Pulsa cada número para ver qué es, para qué sirve y qué suele fallar. Lo que no se ve también se construye.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="position: relative; flex: 2 1 560px; aspect-ratio: 1000 / 460; min-width: 0">
+<svg viewBox="0 0 1000 460" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<path d="M0 120 H1000" stroke="#1E4366" stroke-width="2"></path>
+<path d="M60 140 H620 V120 M60 140 L60 330 L320 400 L620 400 L620 140" fill="#123A5E" stroke="#C6D1DC" stroke-width="2"></path>
+<path d="M60 140 H620" stroke="#7FB3D5" stroke-width="2"></path>
+<path d="M90 160 q14 -6 28 0 t28 0 t28 0 M420 160 q14 -6 28 0 t28 0 t28 0" fill="none" stroke="#7FB3D5" stroke-width="1.2" opacity=".7"></path>
+<rect x="30" y="110" width="40" height="12" fill="#D4AE72"></rect>
+<rect x="610" y="110" width="40" height="12" fill="#D4AE72"></rect>
+<rect x="602" y="132" width="18" height="28" fill="none" stroke="#E3C493" stroke-width="2"></rect>
+<circle cx="66" cy="200" r="6" fill="none" stroke="#E3C493" stroke-width="2"></circle>
+<circle cx="612" cy="262" r="9" fill="#E3C493" opacity=".8"></circle>
+<rect x="462" y="394" width="36" height="8" fill="none" stroke="#E3C493" stroke-width="2"></rect>
+<path d="M80 336 L300 396" stroke="#E3C493" stroke-width="3" stroke-dasharray="6 5"></path>
+<rect x="720" y="160" width="250" height="250" fill="none" stroke="#4A6A88" stroke-dasharray="6 6"></rect>
+<text x="732" y="182" fill="#8FA3B6" font-family="Montserrat, sans-serif" font-size="13">Cuarto técnico</text>
+<path d="M620 146 H690 V340 H758" fill="none" stroke="#8FA3B6" stroke-width="3"></path>
+<path d="M480 402 V425 H690 V340" fill="none" stroke="#8FA3B6" stroke-width="3"></path>
+<circle cx="780" cy="340" r="22" fill="#0A2A47" stroke="#C6D1DC" stroke-width="2"></circle>
+<path d="M802 340 H840" stroke="#8FA3B6" stroke-width="3"></path>
+<rect x="840" y="225" width="58" height="140" rx="22" fill="#0A2A47" stroke="#C6D1DC" stroke-width="2"></rect>
+<rect x="856" y="204" width="26" height="22" fill="#0A2A47" stroke="#E3C493" stroke-width="2"></rect>
+<path d="M882 214 H937 V250" fill="none" stroke="#8FA3B6" stroke-width="3"></path>
+<rect x="925" y="250" width="24" height="54" rx="6" fill="#0A2A47" stroke="#C6D1DC" stroke-width="2"></rect>
+<path d="M937 304 V440 H40 V200 H60" fill="none" stroke="#8FA3B6" stroke-width="3" stroke-dasharray="2 0"></path>
+</svg>
+<sc-for list="{{pts}}" as="p" hint-placeholder-count="9">
+<button type="button" class="hot" aria-pressed="{{p.on}}" aria-label="{{p.aria}}" style="{{p.st}}" onClick="{{p.pick}}">{{p.n}}</button>
+</sc-for>
+</div>
+<div style="flex: 1 1 280px; background: rgba(255, 255, 255, 0.06); border: 1px solid #1E4366; padding: 28px; display: flex; flex-direction: column; gap: 12px; min-height: 220px">
+<span class="num">Punto {{pc.n}} de 9</span>
+<h3 class="h3" style="font-size: 30px">{{pc.t}}</h3>
+<p class="mu" style="margin: 0">{{pc.d}}</p>
+<a href="{{pc.href}}" style="color: #E3C493; font-weight: 600; margin-top: auto">{{pc.cta}} →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="blog" style="padding: 0 0 104px">
+<div class="w" style="display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 12px"><h2 class="h1" style="font-size: clamp(48px, 6vw, 88px); color: #0A2A47">Lecciones de Maestría</h2><p class="mu" style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.25">Aprende lo que nadie te explica.</p></div>
+<div role="group" aria-label="Filtrar por tema" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+<button type="button" class="chip" aria-pressed="{{c.on}}" style="{{c.st}}" onClick="{{c.pick}}">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<div class="g3">
+<sc-for list="{{arts}}" as="a" hint-placeholder-count="6">
+<a class="lnk" href="{{a.href}}"><img src="{{a.img}}" alt="{{a.alt}}"><div style="padding: 24px; display: flex; flex-direction: column; gap: 8px"><span class="go">{{a.lab}}</span><h3 class="h3" style="font-size: 24px">{{a.title}}</h3><p class="mu" style="margin: 0; font-size: 15px">{{a.sum}}</p></div></a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="glosario" class="dk sec">
+<div class="w g2">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h2 class="h2">Glosario mínimo</h2>
+<p class="mu" style="margin: 0">Las palabras que vas a oír en cualquier presupuesto. Si las entiendes, puedes preguntar mejor.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-if value="{{gw.s0}}" hint-placeholder-val="{{ true }}"><button type="button" class="b" onClick="{{gw.open}}">Quiero añadir una palabra que no entiendo</button></sc-if>
+<a class="b" href="Contacto.dc.html" style="align-self: flex-start">Tengo un presupuesto y no lo entiendo →</a>
+</div>
+<sc-if value="{{gw.s1}}" hint-placeholder-val="{{ false }}">
+<div class="gw-box">
+<div class="gw-f"><label class="gw-l" for="gw-word">¿Qué palabra no entiendes?</label><input class="gw-in" id="gw-word" type="text" placeholder="Ej.: pozo de bombeo" onInput="{{gw.setWord}}"></div>
+<div class="gw-f"><label class="gw-l" for="gw-mail">Tu correo electrónico</label><input class="gw-in" id="gw-mail" type="email" autocomplete="email" placeholder="Ej.: marc@gmail.com" onInput="{{gw.setMail}}"></div>
+<sc-if value="{{gw.err}}" hint-placeholder-val="{{ false }}"><span class="gw-err">{{gw.errTxt}}</span></sc-if>
+<button type="button" class="b" style="align-self: flex-start" onClick="{{gw.send1}}">Enviar</button>
+<span class="gw-s">Al enviar aceptas la política de privacidad de APEX Piscinas.</span>
+</div>
+</sc-if>
+<sc-if value="{{gw.s2}}" hint-placeholder-val="{{ false }}">
+<div class="gw-box">
+<p class="gw-wow">WOW... En APEX nos encantan las personas con tu actitud.</p>
+<div class="gw-f"><label class="gw-l" for="gw-name">¿Cuál es tu nombre?</label><input class="gw-in" id="gw-name" type="text" autocomplete="given-name" placeholder="Ej.: Marc" onInput="{{gw.setName}}"></div>
+<sc-if value="{{gw.err}}" hint-placeholder-val="{{ false }}"><span class="gw-err">{{gw.errTxt}}</span></sc-if>
+<button type="button" class="b" style="align-self: flex-start" onClick="{{gw.send2}}">Enviar</button>
+</div>
+</sc-if>
+<sc-if value="{{gw.s3}}" hint-placeholder-val="{{ false }}">
+<div class="gw-box">
+<p class="gw-wow">Un placer, {{gw.name}}.</p>
+<p style="margin: 0; color: #C6D1DC; font-size: 16px; line-height: 1.6">Acaba de llegar a tu correo electrónico un regalo para premiar tu curiosidad y ganas de aprender.</p>
+</div>
+</sc-if>
+</div>
+<div>
+<div class="row"><strong>Vaso</strong><span class="mu">La estructura que contiene el agua: paredes y fondo.</span></div>
+<div class="row"><strong>Skimmer</strong><span class="mu">Pieza en la pared que aspira el agua superficial hacia la depuración.</span></div>
+<div class="row"><strong>Sumidero</strong><span class="mu">Toma de aspiración en el punto más bajo del fondo.</span></div>
+<div class="row"><strong>Boquilla de retorno</strong><span class="mu">Por donde vuelve a la piscina el agua ya filtrada.</span></div>
+<div class="row"><strong>Vaso de compensación</strong><span class="mu">Depósito que recoge el agua desbordada en piscinas desbordantes.</span></div>
+<div class="row"><strong>Electrólisis salina</strong><span class="mu">Sistema que genera cloro a partir de la sal disuelta en el agua.</span></div>
+<div class="row"><strong>Gresite</strong><span class="mu">Revestimiento de pequeñas teselas vítreas habitual en piscinas de obra.</span></div>
+<div class="row" style="border-bottom: 1px solid #1E4366"><strong>Coronación</strong><span class="mu">Remate perimetral del borde de la piscina.</span></div>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="w" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px"><span class="kick">¿No encuentras tu caso?</span><h2 class="h2" style="font-size: clamp(34px, 3.8vw, 50px)">Pregúntanos. Puede ser la próxima lección.</h2></div>
+<sc-if value="{{gq.s0}}" hint-placeholder-val="{{ true }}"><button type="button" class="b" onClick="{{gq.open}}">Hacer mi pregunta a Carlos →</button></sc-if>
+</div>
+<sc-if value="{{gq.s1}}" hint-placeholder-val="{{ false }}">
+<div class="w"><div class="gw-box gq">
+<div class="gw-f"><label class="gw-l" for="gq-text">¿Cuál es tu pregunta?</label><textarea class="gw-in" id="gq-text" rows="5" placeholder="Ej.: Mi piscina pierde unos 2 cm a la semana y solo cuando la depuradora está en marcha. ¿Puede ser una fuga en el retorno?" onInput="{{gq.setText}}"></textarea></div>
+<div class="gw-f"><label class="gw-l" for="gq-mail">Tu correo electrónico</label><input class="gw-in" id="gq-mail" type="email" autocomplete="email" placeholder="Ej.: marc@gmail.com" onInput="{{gq.setMail}}"></div>
+<sc-if value="{{gq.err}}" hint-placeholder-val="{{ false }}"><span class="gw-err">{{gq.errTxt}}</span></sc-if>
+<button type="button" class="b" style="align-self: flex-start" onClick="{{gq.send1}}">Enviar</button>
+<span class="gw-s">Al enviar aceptas la política de privacidad de APEX Piscinas.</span>
+</div></div>
+</sc-if>
+<sc-if value="{{gq.s2}}" hint-placeholder-val="{{ false }}">
+<div class="w"><div class="gw-box gq">
+<p class="gw-wow">WOW... En APEX nos encantan las personas con tu actitud.</p>
+<div class="gw-f"><label class="gw-l" for="gq-name">¿Cuál es tu nombre?</label><input class="gw-in" id="gq-name" type="text" autocomplete="given-name" placeholder="Ej.: Marc" onInput="{{gq.setName}}"></div>
+<sc-if value="{{gq.err}}" hint-placeholder-val="{{ false }}"><span class="gw-err">{{gq.errTxt}}</span></sc-if>
+<button type="button" class="b" style="align-self: flex-start" onClick="{{gq.send2}}">Enviar</button>
+</div></div>
+</sc-if>
+<sc-if value="{{gq.s3}}" hint-placeholder-val="{{ false }}">
+<div class="w"><div class="gw-box gq">
+<p class="gw-wow">Un placer, {{gq.name}}.</p>
+<p class="gq-t">Acaba de llegar a tu correo electrónico un regalo para premiar tu curiosidad y ganas de aprender.</p>
+</div></div>
+</sc-if>
+</section>
+
+<footer class="ft">
+<div class="w">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; padding: 72px 0 48px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 280px"><img src="img/64eb5892b44d939fffa1921eccc858d6.png" alt="APEX Piscinas" style="height: 96px; width: auto; display: block; align-self: flex-start"><p style="margin: 8px 0 0"><strong style="color: #FFFFFF">Tu piscina. Nuestra responsabilidad.</strong></p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Servicios</span><a href="Construir.dc.html">Construcción</a><a href="Reformas.dc.html">Reformas</a><a href="MiPiscina.dc.html">Reparaciones</a><a href="Agua.dc.html">Tratamientos de agua</a><a href="Mantenimiento.dc.html">Mantenimiento</a><a href="Wellness.dc.html">Wellness y spa</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">APEX</span><a href="Empresa.dc.html">Empresa y equipo</a><a href="Criterio.dc.html">Maestría APEX</a><a href="Zonas.dc.html">Zonas</a><a href="Profesionales.dc.html">Comunidades y profesionales</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="fh">Contacto</span><a href="tel:+34711740427">711 740 427</a><a href="https://wa.me/34711740427">WhatsApp</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a><a href="Contacto.dc.html#agendar">Agendar visita</a></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 24px 0 32px; font-size: 13px; color: #8FA3B6; border-top: 1px solid #173C5E"><span>© 2026 APEX Piscinas · apexpiscinas.com</span><span>Aviso legal · Privacidad · Cookies</span></div>
+</div>
+</footer>
+<nav class="mbar" aria-label="Acciones rápidas"><a class="wa" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"></path></svg></a><a class="tel" href="tel:+34711740427">Llamar</a><a class="ag" href="Contacto.dc.html#agendar">Agendar visita</a></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { menu: false, lang: 'ES', p: 7, c: 'Todos', gs: 0, ge: '', qs: 0, qe: '' }; this.gv = { word: '', mail: '', name: '' }; this.qv = { text: '', mail: '', name: '' }; }
+  // HubSpot (en producción): gqSave() igual que gwSave(), formulario "Maestría · pregunta" con la propiedad pregunta_maestria.
+  gqSave(step, data) { this.gqLead = Object.assign({}, this.gqLead || {}, data, { pasoCompletado: step, origen: 'Pregunta Maestría APEX' }); }
+  // HubSpot (en producción): gwSave() envía cada paso al formulario "Glosario · palabra nueva" (Forms API + cookie hutk).
+  // Paso 1 crea/actualiza el contacto con email y la propiedad palabra_glosario; paso 2 añade el nombre (firstname).
+  // Un workflow de HubSpot disparado por ese formulario envía el correo con el regalo.
+  gwSave(step, data) { this.gwLead = Object.assign({}, this.gwLead || {}, data, { pasoCompletado: step, origen: 'Glosario Maestría APEX' }); }
+  renderVals() {
+    const langs = ['ES', 'CA', 'EN'].map(c => ({ code: c, on: c === this.state.lang ? 'true' : 'false',
+      st: c === this.state.lang ? 'color:#FFFFFF;box-shadow:inset 0 -2px 0 #D4AE72' : '',
+      pick: () => this.setState({ lang: c }) }));
+    const P = [
+      { x: 5, y: 25, t: 'Coronación', d: 'Remate perimetral del borde. Si se suelta o se agrieta, el agua puede entrar por detrás del revestimiento.', href: 'Ficha-coronacion.dc.html', cta: 'Ficha: renovación de coronación' },
+      { x: 61, y: 31.7, t: 'Skimmer', d: 'Aspira el agua superficial hacia la depuración. Sus cestas, tapas y compuertas se desgastan con el sol y el cloro.', href: 'Ficha-accesorios.dc.html', cta: 'Ficha: accesorios del skimmer' },
+      { x: 6.6, y: 43.5, t: 'Boquilla de retorno', d: 'Por donde vuelve el agua ya filtrada. Bien orientadas, mueven el agua y evitan zonas muertas.', href: 'MiPiscina.dc.html', cta: 'Reparaciones' },
+      { x: 61.2, y: 57, t: 'Foco', d: 'Nicho, lámpara y cable estanco. Un foco que se funde a menudo suele avisar de humedad en el nicho.', href: 'Ficha-foco.dc.html', cta: 'Ficha: sustitución de foco' },
+      { x: 48, y: 86.5, t: 'Sumidero', d: 'Toma de aspiración en el punto más bajo. Una de las piezas empotradas que se revisan cuando la piscina pierde agua.', href: 'Articulo-Fugas.dc.html', cta: '¿Evaporación o fuga?' },
+      { x: 19, y: 79, t: 'Revestimiento', d: 'Gresite, porcelánico o lámina: es lo que ves. Detrás está la impermeabilización, que es lo que de verdad retiene el agua.', href: 'Ficha-revestimiento.dc.html', cta: 'Ficha: renovación de revestimiento' },
+      { x: 78, y: 74, t: 'Bomba', d: 'Mueve el agua por todo el circuito. Ruidos, burbujas o que no cebe suelen tener solución sin cambiarla.', href: 'Ficha-bomba.dc.html', cta: 'Ficha: cambio de bomba' },
+      { x: 86.9, y: 46.5, t: 'Filtro y válvula selectora', d: 'El filtro retiene la suciedad; la válvula decide si filtra, lava, enjuaga o vacía. Si pierde agua por el desagüe, suele ser ella.', href: 'Ficha-Selectora.dc.html', cta: 'Ficha: sustitución de válvula selectora' },
+      { x: 93.7, y: 60, t: 'Electrólisis salina', d: 'Genera cloro a partir de la sal disuelta. No sustituye el control del pH ni el mantenimiento.', href: 'Ficha-celula.dc.html', cta: 'Ficha: sustitución de célula salina' }
+    ];
+    const pi = this.state.p;
+    const pts = P.map((x, i) => ({ n: String(i + 1), aria: (i + 1) + '. ' + x.t, on: i === pi ? 'true' : 'false',
+      st: 'left:' + x.x + '%;top:' + x.y + '%;' + (i === pi ? 'background:#D4AE72;color:#0A2A47;transform:scale(1.15)' : 'background:#0A2A47;color:#E3C493'),
+      pick: () => this.setState({ p: i }) }));
+    const A = [
+      { cat: 'Equipos', title: 'Por qué una bomba barata te saldrá el doble de cara a los dos veranos', sum: 'Caudal mal dimensionado, consumo, ruido y averías: lo que no aparece en el precio de la etiqueta.', href: 'Ficha-bomba.dc.html', img: 'img/a9566adcbcd97db559adb63acbc8418a.jpg', alt: 'Bomba en el cuarto técnico de una piscina' },
+      { cat: 'Construcción', title: 'Gresite vs. porcelánico: la verdad técnica sobre la estanqueidad y el paso del tiempo', sum: 'Ninguno de los dos impermeabiliza: lo que retiene el agua está detrás. Qué cambia en juntas, mantenimiento y duración.', href: 'Ficha-revestimiento.dc.html', img: 'img/9fa1fe101e3f7eba31d9db378773aa20.jpg', alt: 'Revestimiento de gresite en una piscina' },
+      { cat: 'Agua', title: 'La tira reactiva no basta: cómo la química del agua destruye en silencio la bomba de tu piscina', sum: 'pH, dureza y cloro fuera de rango corroen juntas, cierres mecánicos y metales. Qué medir de verdad y cada cuánto.', href: 'Ficha-sondas.dc.html', img: 'img/3376ab80701d5d2ba4c145304bbc7fb4.jpg', alt: 'Técnico midiendo la química del agua' },
+      { cat: 'Pérdidas de agua', title: '¿Evaporación o fuga? La prueba que puedes hacer tú', sum: 'Antes de pensar en una fuga, conviene saber cuánto pierde tu piscina por causas normales. Para eso basta un cubo.', href: 'Articulo-Fugas.dc.html', img: 'img/378ff0fadfc8ef7a13b0fc0f3b6e9849.jpg', alt: 'Agua de piscina vista desde dentro' },
+      { cat: 'Pérdidas de agua', title: 'Dónde suelen estar las fugas de una piscina', sum: 'Piezas empotradas, juntas, tuberías y revestimiento: por qué se revisan en ese orden.', href: 'Articulo-Fugas.dc.html', img: 'img/378ff0fadfc8ef7a13b0fc0f3b6e9849.jpg', alt: 'Piscina en el Garraf' },
+      { cat: 'Agua', title: 'Agua verde: por qué aparece y por qué vuelve', sum: 'Recuperar el agua es la mitad del trabajo. La otra mitad es entender qué falló.', href: 'Agua.dc.html', img: 'img/977ea388031f84939f7b483a64bc6a47.jpg', alt: 'Agua verde en una piscina' },
+      { cat: 'Equipos', title: 'Arena o vidrio filtrante: qué cambia realmente', sum: 'Cuándo tiene sentido sustituir el medio filtrante y qué conviene revisar a la vez.', href: 'Ficha-arena-vidrio.dc.html', img: 'img/a9566adcbcd97db559adb63acbc8418a.jpg', alt: 'Cuarto técnico de una piscina' },
+      { cat: 'Equipos', title: 'Electrólisis salina: qué hace y qué no hace', sum: 'Genera cloro, pero no sustituye el control del agua ni el mantenimiento.', href: 'Ficha-electrolisis.dc.html', img: 'img/1b4a23ec9db8d304ea44df3bcadad3d2.jpg', alt: 'Técnico en la sala de depuración' },
+      { cat: 'Construcción', title: 'Skimmer o desbordante: lo que cambia por debajo', sum: 'Canal perimetral, vaso de compensación y lo que implica cada sistema en obra y en uso.', href: 'Construir.dc.html', img: 'img/d563ad6dcf7d6d7f0c5c379d62c2db4d.jpg', alt: 'Vaso de una piscina en construcción' },
+      { cat: 'Presupuestos', title: 'Cómo comparar dos presupuestos de reforma', sum: 'Qué partidas deberían aparecer y qué preguntar cuando una de ellas falta.', href: 'Reformas.dc.html', img: 'img/e560d7838b18965d07fe04d47f2b3039.jpg', alt: 'Renovación de revestimiento' },
+      { cat: 'Construcción', title: 'Antes de excavar: terreno, accesos y permisos', sum: 'Los condicionantes que conviene conocer antes de pedir un presupuesto.', href: 'Construir.dc.html', img: 'img/694ea44bd5256f16a5621d5e855ea255.jpg', alt: 'Vivienda con piscina', min: 5 },
+      { cat: 'Presupuestos', title: 'Por qué un diagnóstico se paga aparte', sum: 'Separar localizar de reparar protege tu dinero y te deja decidir con información.', href: 'MiPiscina.dc.html', img: 'img/a2dd1f068a6ff689188406679df9b7de.jpg', alt: 'Válvula selectora', min: 3 },
+      { cat: 'Mantenimiento', title: 'Invernar o no invernar la piscina', sum: 'Qué implica cada opción para el agua, los equipos y la siguiente puesta en marcha.', href: 'Mantenimiento.dc.html', img: 'img/3376ab80701d5d2ba4c145304bbc7fb4.jpg', alt: 'Revisión del agua', min: 4 }
+    ];
+    const C = ['Todos', 'Pérdidas de agua', 'Agua', 'Equipos', 'Construcción', 'Presupuestos', 'Mantenimiento'];
+    A.forEach((x, i) => { x.lab = 'Lección ' + String(i + 1).padStart(2, '0') + ' · ' + x.cat; });
+    const c = this.state.c;
+    const cats = C.map(k => ({ label: k, on: k === c ? 'true' : 'false',
+      st: k === c ? 'background:#0A2A47;color:#FFFFFF;border-color:#0A2A47' : 'background:#FFFFFF;color:#0A2A47',
+      pick: () => this.setState({ c: k }) }));
+    const gs = this.state.gs, gv = this.gv;
+    const gw = { s0: gs === 0, s1: gs === 1, s2: gs === 2, s3: gs === 3, err: !!this.state.ge, errTxt: this.state.ge, name: gv.name,
+      open: () => this.setState({ gs: 1, ge: '' }),
+      setWord: (e) => { gv.word = String(e.target.value || '').trim(); },
+      setMail: (e) => { gv.mail = String(e.target.value || '').trim(); },
+      setName: (e) => { gv.name = String(e.target.value || '').trim(); },
+      send1: () => {
+        if (!gv.word) return this.setState({ ge: 'Escribe la palabra que no entiendes.' });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(gv.mail)) return this.setState({ ge: 'Revisa el correo electrónico.' });
+        this.gwSave(1, { palabra: gv.word, email: gv.mail }); this.setState({ gs: 2, ge: '' });
+      },
+      send2: () => {
+        if (!gv.name) return this.setState({ ge: 'Escribe tu nombre.' });
+        this.gwSave(2, { nombre: gv.name }); this.setState({ gs: 3, ge: '' });
+      } };
+    const qs = this.state.qs, qv = this.qv;
+    const gq = { s0: qs === 0, s1: qs === 1, s2: qs === 2, s3: qs === 3, err: !!this.state.qe, errTxt: this.state.qe, name: qv.name,
+      open: () => this.setState({ qs: 1, qe: '' }),
+      setText: (e) => { qv.text = String(e.target.value || '').trim(); },
+      setMail: (e) => { qv.mail = String(e.target.value || '').trim(); },
+      setName: (e) => { qv.name = String(e.target.value || '').trim(); },
+      send1: () => {
+        if (!qv.text) return this.setState({ qe: 'Escribe tu pregunta.' });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(qv.mail)) return this.setState({ qe: 'Revisa el correo electrónico.' });
+        this.gqSave(1, { pregunta: qv.text, email: qv.mail }); this.setState({ qs: 2, qe: '' });
+      },
+      send2: () => {
+        if (!qv.name) return this.setState({ qe: 'Escribe tu nombre.' });
+        this.gqSave(2, { nombre: qv.name }); this.setState({ qs: 3, qe: '' });
+      } };
+    return { gw, gq, menuOpen: this.state.menu ? 'true' : 'false', menuShow: !!this.state.menu, menuToggle: () => this.setState({ menu: !this.state.menu }),  langs, pts, pc: Object.assign({ n: pi + 1 }, P[pi]), cats, arts: c === 'Todos' ? A : A.filter(a => a.cat === c) };
+  }
+}
+</script>
+</body>
+</html>
