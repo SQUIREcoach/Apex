@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>APEX Piscinas · Proyectos</title>
+<meta name="description" content="Proyectos APEX Piscinas. Construcción, reformas, servicio técnico y mantenimiento de piscinas en Barcelona y Cataluña.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A2A47; --navy2:#061E35; --gold:#D4AE72; --gold2:#E3C493;
+  --cream:#F7F4EE; --white:#fff; --muted:#B8C5D2; --ice:#78D9E8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--navy2)}
+body{margin:0;font-family:Montserrat,system-ui,sans-serif;background:var(--navy2);color:#fff}
+a{text-decoration:none;color:inherit}
+.page{max-width:680px;margin:0 auto;min-height:100vh;background:var(--navy);overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.25)}
+.hero{position:relative;min-height:510px;padding:26px 24px 28px;background:
+linear-gradient(180deg,rgba(6,30,53,.18),rgba(6,30,53,.12) 38%,rgba(6,30,53,.70) 78%,#0A2A47 100%),
+url("../img/3bb0f2e486baad4f216e6776f088127c.jpg") center/cover no-repeat}
+.hero::after{content:"";position:absolute;left:-12%;right:-12%;top:108px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),transparent);transform:rotate(-1.5deg);opacity:.95}
+.brand{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;margin-bottom:54px}
+.brand img{width:min(330px,68vw);height:auto;display:block;filter:drop-shadow(0 5px 18px rgba(0,0,0,.25))}
+.hero-copy{position:relative;z-index:2;max-width:560px}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;margin:0}
+h1{font-size:clamp(54px,12vw,84px);line-height:.88;letter-spacing:-.025em;text-shadow:0 4px 18px rgba(0,0,0,.36)}
+.hero-line{width:76px;height:4px;background:var(--gold);margin:18px 0 12px}
+.hero p{margin:0;font-size:clamp(19px,4.7vw,27px);line-height:1.25;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero p+ p{margin-top:11px;font-size:clamp(17px,4vw,22px);font-style:italic}
+.gallery{padding:18px 18px 22px;background:var(--navy)}
+.carousel{position:relative;border-radius:26px;overflow:hidden;background:#f7f7f7;border:2px solid rgba(255,255,255,.85);box-shadow:0 18px 36px rgba(0,0,0,.20)}
+.slide{display:none;min-height:430px;flex-direction:column;background:#fbfbfb;color:#1b2b3b}
+.slide.active{display:flex}
+.placeholder{flex:1;display:flex;align-items:center;justify-content:center;min-height:350px;background:
+linear-gradient(135deg,#fff,#f4f5f7 55%,#e9edf1);color:#a5abb1;text-align:center;padding:32px}
+.placeholder-inner{display:flex;flex-direction:column;align-items:center;gap:12px}
+.ph-icon{width:104px;height:82px;border:7px solid #a5abb1;border-radius:8px;position:relative}
+.ph-icon:before{content:"";position:absolute;width:50px;height:50px;left:20px;bottom:8px;border-left:7px solid #a5abb1;border-top:7px solid #a5abb1;transform:rotate(45deg)}
+.ph-icon:after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;right:12px;top:10px;background:#a5abb1}
+.placeholder strong{font-size:28px;letter-spacing:.04em}
+.caption{display:flex;gap:15px;align-items:center;padding:15px 18px 16px;background:linear-gradient(90deg,#38566f,#8ba1b1);color:white}
+.cap-bar{width:5px;height:58px;border-radius:999px;background:#f0b21c;flex:none}
+.caption strong{display:block;font-size:23px;line-height:1.05}
+.caption span{display:block;font-size:16px;margin-top:4px;color:#eef4f8}
+.navbtn{position:absolute;top:42%;width:52px;height:52px;border-radius:50%;border:0;background:rgba(6,30,53,.95);color:white;font-size:34px;display:flex;align-items:center;justify-content:center;z-index:5;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.22)}
+.navbtn.prev{left:-3px}.navbtn.next{right:-3px}
+.dots{display:flex;justify-content:center;gap:10px;margin:16px 0 13px}
+.dot{width:12px;height:12px;border-radius:50%;border:2px solid white;background:transparent;padding:0;cursor:pointer}
+.dot.active{background:#F0B21C;border-color:#F0B21C}
+.numbers{display:grid;grid-template-columns:repeat(10,1fr);gap:7px}
+.num{border:1px solid rgba(255,255,255,.7);background:var(--cream);color:#5e6369;border-radius:8px;min-height:44px;font-weight:700;font-size:14px;cursor:pointer}
+.num.active{border:3px solid #F0B21C;color:var(--navy);box-shadow:0 0 0 1px rgba(240,178,28,.2)}
+.experience{display:grid;grid-template-columns:145px 1fr;gap:22px;align-items:center;background:var(--cream);color:var(--navy);padding:26px 22px}
+.badge{display:flex;align-items:center;justify-content:center;min-height:118px;border-right:2px solid var(--gold)}
+.badge strong{font-size:44px;line-height:.8;text-align:center}.badge small{font-size:17px;display:block;margin-top:8px}
+.experience h2{font-family:Montserrat,sans-serif;font-size:24px;line-height:1.05}
+.experience p{font-size:16px;line-height:1.35;margin:8px 0 0;font-style:italic}
+.cta{position:relative;text-align:center;padding:36px 20px 28px;background:
+linear-gradient(180deg,rgba(0,32,54,.2),rgba(0,32,54,.88)),
+radial-gradient(circle at 40% 10%,#11bce1 0,#087ea5 28%,#064567 60%,#062a45 100%)}
+.cta h2{font-size:44px;line-height:.95}.cta p{font-size:18px;margin:10px 0 20px}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;min-height:64px;border-radius:999px;font-size:18px;font-weight:800;letter-spacing:.01em;margin:10px auto;max-width:580px}
+.wa{background:linear-gradient(90deg,#d59e35,#f1c66d,#d89d2e);color:#071d33}
+.call{border:2px solid white;background:rgba(6,30,53,.52);color:white}
+.wa svg,.call svg{width:29px;height:29px}
+.services{font-size:14px;margin-top:24px;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;color:white}
+.services b{color:#f0b21c}
+@media (max-width:520px){
+  .hero{min-height:485px;padding:20px 18px 24px}
+  .brand{justify-content:flex-start;margin-bottom:48px}.brand img{width:230px}
+  h1{font-size:56px}
+  .gallery{padding:16px 12px 20px}
+  .carousel{border-radius:22px}.slide{min-height:420px}.placeholder{min-height:340px}
+  .caption strong{font-size:20px}.caption span{font-size:14px}
+  .numbers{gap:4px}.num{min-height:39px;font-size:12px;border-radius:7px}
+  .experience{grid-template-columns:112px 1fr;gap:16px;padding:22px 16px}.badge strong{font-size:36px}
+  .experience h2{font-size:20px}.experience p{font-size:14px}
+  .cta h2{font-size:38px}.btn{font-size:17px;min-height:61px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero">
+    <div class="brand"><img src="../img/661ba5bb1141912e9dd777eb6dd68cb5.png" alt="APEX Piscinas"></div>
+    <div class="hero-copy">
+      <h1>Proyectos que<br>hablan por<br>nosotros.</h1>
+      <div class="hero-line"></div>
+      <p>Construcción, reforma y soluciones técnicas en piscinas.</p>
+      <p>Mira algunos trabajos. Después hablamos de la tuya.</p>
+    </div>
+  </section>
+
+  <section class="gallery" aria-label="Galería de proyectos">
+    <div class="carousel" id="carousel">
+      <button class="navbtn prev" type="button" aria-label="Proyecto anterior">‹</button>
+      <button class="navbtn next" type="button" aria-label="Proyecto siguiente">›</button>
+      
+      <article class="slide active" data-slide="0">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 01</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="1">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 02</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="2">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 03</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="3">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 04</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="4">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 05</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="5">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 06</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="6">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 07</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="7">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 08</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="8">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 09</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+      <article class="slide " data-slide="9">
+        <div class="placeholder">
+          <div class="placeholder-inner">
+            <div class="ph-icon" aria-hidden="true"></div>
+            <strong>IMAGEN 10</strong>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="cap-bar"></div>
+          <div><strong>Título del proyecto</strong><span>Ubicación / tipo de trabajo</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="dots" aria-label="Posición del carrusel">
+      <button class="dot active" type="button" data-go="0" aria-label="Ir al proyecto 1"></button><button class="dot " type="button" data-go="1" aria-label="Ir al proyecto 2"></button><button class="dot " type="button" data-go="2" aria-label="Ir al proyecto 3"></button><button class="dot " type="button" data-go="3" aria-label="Ir al proyecto 4"></button><button class="dot " type="button" data-go="4" aria-label="Ir al proyecto 5"></button><button class="dot " type="button" data-go="5" aria-label="Ir al proyecto 6"></button><button class="dot " type="button" data-go="6" aria-label="Ir al proyecto 7"></button><button class="dot " type="button" data-go="7" aria-label="Ir al proyecto 8"></button><button class="dot " type="button" data-go="8" aria-label="Ir al proyecto 9"></button><button class="dot " type="button" data-go="9" aria-label="Ir al proyecto 10"></button>
+    </div>
+    <div class="numbers" aria-label="Seleccionar proyecto">
+      <button class="num active" type="button" data-go="0">01</button><button class="num " type="button" data-go="1">02</button><button class="num " type="button" data-go="2">03</button><button class="num " type="button" data-go="3">04</button><button class="num " type="button" data-go="4">05</button><button class="num " type="button" data-go="5">06</button><button class="num " type="button" data-go="6">07</button><button class="num " type="button" data-go="7">08</button><button class="num " type="button" data-go="8">09</button><button class="num " type="button" data-go="9">10</button>
+    </div>
+  </section>
+
+  <section class="experience">
+    <div class="badge"><strong>+35<small>AÑOS</small></strong></div>
+    <div><h2>Más de 35 años de experiencia técnica en piscinas.</h2><p>No enseñamos renders. Enseñamos trabajos y soluciones reales.</p></div>
+  </section>
+
+  <section class="cta">
+    <h2>¿Quieres que veamos la tuya?</h2>
+    <p>Cuéntanos qué necesitas y te orientamos.</p>
+    <a class="btn wa" href="https://wa.me/34711740427?text=Hola%20David%2C%20vengo%20de%20una%20tarjeta%20de%20APEX%20PISCINAS%20y%20quer%C3%ADa%20consultarte%20sobre%20una%20piscina." target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+      HABLAR POR WHATSAPP
+    </a>
+    <a class="btn call" href="tel:+34711740427" aria-label="Llamar ahora">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.2 2.2z"/></svg>
+      LLAMAR AHORA
+    </a>
+    <div class="services"><span>Construcción</span><b>•</b><span>Reformas</span><b>•</b><span>Servicio técnico</span><b>•</b><span>Mantenimiento</span></div>
+  </section>
+</main>
+<script>
+(() => {
+  const slides=[...document.querySelectorAll('.slide')];
+  const dots=[...document.querySelectorAll('.dot')];
+  const nums=[...document.querySelectorAll('.num')];
+  let index=0;
+  const show=i=>{
+    index=(i+slides.length)%slides.length;
+    slides.forEach((s,n)=>s.classList.toggle('active',n===index));
+    dots.forEach((s,n)=>s.classList.toggle('active',n===index));
+    nums.forEach((s,n)=>s.classList.toggle('active',n===index));
+  };
+  document.querySelector('.prev').addEventListener('click',()=>show(index-1));
+  document.querySelector('.next').addEventListener('click',()=>show(index+1));
+  document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(+b.dataset.go)));
+  let startX=0;
+  const c=document.getElementById('carousel');
+  c.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX},{passive:true});
+  c.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)>45) show(index+(dx<0?1:-1));
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
