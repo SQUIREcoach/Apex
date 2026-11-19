@@ -365,7 +365,7 @@ void main(){
   vec4 mv = viewMatrix * vec4(position, 1.0);
   float dist = -mv.z;
   vLife = aLife;
-  gl_PointSize = aSize * uPx / max(dist, 0.3);
+  gl_PointSize = min(aSize * uPx / max(dist, 0.3), 110.0);
   gl_Position = projectionMatrix * mv;
 }
 `;
@@ -380,6 +380,55 @@ void main(){
   float hi = smoothstep(0.28, 0.0, length(c - vec2(-0.16, 0.16)));
   float a = (rim * 0.55 + hi * 0.9 + 0.04) * clamp(vLife * 3.0, 0.0, 1.0);
   gl_FragColor = vec4(vec3(0.80, 0.90, 0.95) * a * 0.6, 1.0);
+}
+`;
+
+// ---------------------------------------------------------------------------
+// Windows of light suspended in the water: the options, showing the worlds
+// (conceptual renders) seen through the water, with caustics playing on them.
+const WIN_VERT = /* glsl */ `
+varying vec2 vUv;
+varying vec3 vWorld;
+void main(){
+  vUv = uv;
+  vec4 w = modelMatrix * vec4(position, 1.0);
+  vWorld = w.xyz;
+  gl_Position = projectionMatrix * viewMatrix * w;
+}
+`;
+const WIN_FRAG = /* glsl */ `
+precision highp float;
+${COMMON}
+uniform sampler2D tImg;
+uniform vec3 uCam;
+uniform float uTime;
+uniform float uFog;
+uniform float uAlpha;
+uniform float uSeed;
+uniform float uAspect;
+uniform float uHover;
+varying vec2 vUv;
+varying vec3 vWorld;
+vec3 underFog(vec3 d){
+  vec3 deep = vec3(0.0008, 0.0050, 0.0140);
+  vec3 mid = vec3(0.0030, 0.0190, 0.0420);
+  vec3 up = vec3(0.012, 0.058, 0.092);
+  return d.y < 0.0 ? mix(mid, deep, clamp(-d.y * 1.6, 0.0, 1.0)) : mix(mid, up, pow(clamp(d.y, 0.0, 1.0), 0.8));
+}
+void main(){
+  vec2 w = vec2(vnoise(vUv * 5.0 + uTime * 0.45 + uSeed), vnoise(vUv * 5.0 + 3.7 - uTime * 0.4)) - 0.5;
+  vec2 uv = vUv + w * (0.014 - uHover * 0.008);
+  vec3 img = texture2D(tImg, uv).rgb;
+  // seen through water: a little absorption of red, caustic light dancing on it
+  img *= vec3(0.80, 0.94, 1.0);
+  float c = caustics(vWorld.xy * 1.3 + uSeed, uTime * 0.6);
+  img *= 0.78 + c * 0.42;
+  vec2 e = min(vUv, 1.0 - vUv) * vec2(uAspect, 1.0);
+  float edge = 1.0 - smoothstep(0.0, 0.010 + uHover * 0.006, min(e.x, e.y));
+  vec3 col = mix(img, CHAMPAGNE * (2.0 + uHover * 2.0), edge * 0.85);
+  float dist = length(vWorld - uCam);
+  col = mix(underFog(normalize(vWorld - uCam)), col, exp(-dist * uFog * 0.9));
+  gl_FragColor = vec4(col, uAlpha);
 }
 `;
 
@@ -539,7 +588,7 @@ export class PoolScene {
     }
 
     // bubbles
-    this.bubbleMax = 220;
+    this.bubbleMax = 460;
     this.bubbles = [];
     const bGeo = new THREE.BufferGeometry();
     bGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(this.bubbleMax * 3), 3));
@@ -562,6 +611,158 @@ export class PoolScene {
 
     this._tmpV = new THREE.Vector3();
     this._look = new THREE.Vector3();
+    this.windows = [];
+    this.winEmerge = 0;
+    this.winPass = 0;
+    this.winRects = [];
+  }
+
+  /** Builds the option windows from image URLs (the renders). */
+  setWindowImages(urls) {
+    if (this.windows.length) return;
+    const loader = new THREE.TextureLoader();
+    const geo = new THREE.PlaneGeometry(1, 1);
+    urls.forEach((url, i) => {
+      const tex = loader.load(url);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = 4;
+      const u = {
+        ...this.uniforms,
+        tImg: { value: tex },
+        uAlpha: { value: 0 },
+        uSeed: { value: i * 3.17 },
+        uAspect: { value: 16 / 9 },
+        uHover: { value: 0 },
+      };
+      const m = new THREE.Mesh(
+        geo,
+        new THREE.ShaderMaterial({
+          vertexShader: WIN_VERT,
+          fragmentShader: WIN_FRAG,
+          uniforms: u,
+          transparent: true,
+          depthWrite: false,
+          side: THREE.DoubleSide,
+        }),
+      );
+      m.renderOrder = 3;
+      m.visible = false;
+      m.frustumCulled = false;
+      this.scene.add(m);
+      this.windows.push({ mesh: m, u, hover: 0, hoverTarget: 0 });
+    });
+  }
+
+  setWindows(w) {
+    this.winEmerge = w ? w.emerge : 0;
+    this.winPass = w ? w.pass : 0;
+  }
+
+  hoverWindow(i, on) {
+    const w = this.windows[i];
+    if (!w) return;
+    w.hoverTarget = on ? 1 : 0;
+    if (on) {
+      const p = w.mesh.position;
+      for (let k = 0; k < 14; k++) {
+        this.emitBubbles(new THREE.Vector3(p.x + (Math.random() - 0.5) * w.mesh.scale.x, p.y - w.mesh.scale.y * 0.5, p.z), 1);
+      }
+    }
+  }
+
+  _layoutWindows(dt) {
+    const n = this.windows.length;
+    if (!n) return;
+    const wide = this.camera.aspect >= 1;
+    const e = this.winEmerge;
+    const pass = this.winPass;
+    const ease = (t) => t * t * (3 - 2 * t);
+    // size the arrangement to the visible width at the windows' distance
+    const tanV = Math.tan(THREE.MathUtils.degToRad(this.baseFov || 42) / 2);
+    const halfW = tanV * this.camera.aspect * 3.4;
+    // portrait: a column kept between the line at the top and the links below
+    const colW = Math.min(halfW * 1.25, 1.2, ((tanV * 3.4 * 2 * 0.56) / 3 - 0.12) * (16 / 9));
+    const colStep = colW / (16 / 9) + 0.12;
+    for (let i = 0; i < n; i++) {
+      const W = this.windows[i];
+      const m = W.mesh;
+      const ei = ease(Math.min(1, Math.max(0, e * 1.7 - i * 0.35)));
+      const k = 1 - ei;
+      const base = wide
+        ? { x: (i - 1) * halfW * 0.66, y: -1.1, z: -3.0, w: halfW * 0.56 }
+        : { x: 0, y: -1.15 + (1 - i) * colStep, z: -3.0, w: colW };
+      W.hover += (W.hoverTarget - W.hover) * Math.min(1, dt * 6);
+      const bob = Math.sin(this.time * 0.6 + i * 2.1) * 0.035;
+      m.position.set(base.x * (1 + pass * 1.7), base.y - k * 0.8 + bob, base.z - k * k * 11 + pass * 4.4);
+      const s = base.w * (1 + W.hover * 0.04);
+      m.scale.set(s, s / (16 / 9), 1);
+      m.lookAt(base.x * 0.35, -1.25, 2.2);
+      const alpha = Math.pow(ei, 1.4) * (1 - Math.min(1, Math.max(0, (pass - 0.55) / 0.45)));
+      W.u.uAlpha.value = alpha;
+      W.u.uHover.value = W.hover;
+      m.visible = alpha > 0.003;
+      // rising bubbles while a window surfaces from the depth
+      if (ei > 0.05 && ei < 0.95 && Math.random() < 0.25) {
+        this.emitBubbles(new THREE.Vector3(m.position.x + (Math.random() - 0.5) * s, m.position.y - s * 0.28, m.position.z), 1);
+      }
+      W.alpha = alpha;
+    }
+  }
+
+  /** Screen rectangles of the windows (CSS px), for the clickable labels. */
+  computeWindowRects(w, h) {
+    const out = [];
+    const v = this._tmpV;
+    for (const W of this.windows) {
+      if (!this.under || !W.mesh.visible) {
+        out.push(null);
+        continue;
+      }
+      let x0 = Infinity,
+        y0 = Infinity,
+        x1 = -Infinity,
+        y1 = -Infinity,
+        behind = false;
+      for (const [cx, cy] of [[-0.5, -0.5], [0.5, -0.5], [0.5, 0.5], [-0.5, 0.5]]) {
+        v.set(cx, cy, 0).applyMatrix4(W.mesh.matrixWorld).project(this.camera);
+        if (v.z > 1) behind = true;
+        const sx = ((v.x + 1) / 2) * w;
+        const sy = ((1 - v.y) / 2) * h;
+        x0 = Math.min(x0, sx);
+        x1 = Math.max(x1, sx);
+        y0 = Math.min(y0, sy);
+        y1 = Math.max(y1, sy);
+      }
+      out.push(behind ? null : { x: x0, y: y0, w: x1 - x0, h: y1 - y0, a: W.alpha });
+    }
+    this.winRects = out;
+    return out;
+  }
+
+  /** The moment of impact: a crown of ripples and a cloud of bubbles. */
+  plungeSplash() {
+    const c = this.camera.position;
+    if (this.sim) {
+      this.sim.dropAt(c.x, c.z - 0.5, 1.1, 0.09);
+      for (let k = 0; k < 7; k++) {
+        this.sim.dropAt(c.x + (Math.random() - 0.5) * 1.8, c.z - 0.5 + (Math.random() - 0.5) * 1.8, 0.4, 0.03);
+      }
+    }
+    for (let i = 0; i < 300; i++) {
+      if (this.bubbles.length >= this.bubbleMax) this.bubbles.shift();
+      // a column of air dragged down by the body, kept clear of the lens
+      const ang = Math.random() * Math.PI * 2;
+      const rad = 0.45 + Math.pow(Math.random(), 0.7) * 1.6;
+      this.bubbles.push({
+        x: c.x + Math.cos(ang) * rad,
+        y: -0.15 - Math.random() * 2.0,
+        z: c.z - 0.9 + Math.sin(ang) * rad - Math.random() * 1.4,
+        vy: 0.5 + Math.random() * 1.5,
+        size: 0.004 + Math.pow(Math.random(), 3) * 0.028,
+        ph: Math.random() * 6.28,
+        life: 1,
+      });
+    }
   }
 
   resize(w, h, pxScale) {
@@ -583,6 +784,7 @@ export class PoolScene {
     }
     c.up.set(0, 1, 0);
     c.lookAt(this._look);
+    if (pose.roll) c.rotateZ(pose.roll);
     const fov = (pose.fov || 0) + this.baseFov;
     if (Math.abs(c.fov - fov) > 0.01) {
       c.fov = fov;
@@ -660,6 +862,7 @@ export class PoolScene {
       U.tSim.value = this.sim.texture;
     }
 
+    this._layoutWindows(dt);
     this._updateBubbles(dt);
   }
 
@@ -729,6 +932,7 @@ export class PoolScene {
     if (this.shafts) this.shafts.visible = under;
     if (this.dust) this.dust.visible = under;
     this.bubblePoints.visible = under && this.bubbles.length > 0;
+    for (const W of this.windows) W.mesh.visible = under && (W.alpha || 0) > 0.003;
     // projection scale in pixels per metre at 1 m, for point sprites
     const proj = (this.viewH || 800) / (2 * Math.tan(THREE.MathUtils.degToRad(this.camera.fov) / 2));
     if (this.dustUniforms) this.dustUniforms.uPx.value = proj;

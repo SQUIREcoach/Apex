@@ -22,6 +22,10 @@ uniform float uBloom;
 uniform float uGrain;
 uniform float uFade;       // 0..1 fade to deep navy
 uniform float uWet;        // droplets on the lens after surfacing
+uniform float uSplash;     // white water at the moment of impact
+uniform float uFlash;      // the instant of breaking the surface
+uniform float uSpeed;      // radial blur while falling
+uniform float uBlur;       // eyes opening under water
 varying vec2 vUv;
 
 vec3 softClip(vec3 c){
@@ -61,9 +65,23 @@ void main(){
   float d = uv.y - wl;
   float lineVis = step(-0.15, uLine) * step(uLine, 1.15);
   vec3 col;
+  float asp0 = uRes.x / uRes.y;
+  vec2 q0 = (uv - 0.5) * vec2(asp0, 1.0);
+  vec2 suv = uv;
+  if (uSplash > 0.0){
+    vec2 w = vec2(vnoise(q0 * 4.0 + uTime * 1.3), vnoise(q0 * 4.0 + 5.2 - uTime * 1.1)) - 0.5;
+    suv += w * 0.11 * uSplash;
+  }
   if (d >= 0.0){
     vec2 o = vec2(0.0, -exp(-d * 55.0) * 0.025 * lineVis);
-    col = texture2D(tUp, uv + o).rgb;
+    col = texture2D(tUp, suv + o).rgb;
+    if (uSpeed > 0.0){
+      vec3 acc = col;
+      vec2 dir = suv - 0.5;
+      for (int i = 1; i < 8; i++) acc += texture2D(tUp, suv - dir * float(i) * 0.011 * uSpeed).rgb;
+      col = acc / 8.0;
+    }
+    if (uBlur > 0.0) col = mix(col, textureLod(tUp, suv, 3.2).rgb * vec3(0.75, 0.95, 1.08), uBlur * 0.85);
     if (uBloom > 0.0){
       vec3 b = textureLod(tUp, uv, 3.0).rgb * 0.45 + textureLod(tUp, uv, 4.5).rgb * 0.35 + textureLod(tUp, uv, 6.0).rgb * 0.2;
       col += max(b - 0.18, 0.0) * uBloom;
@@ -79,6 +97,28 @@ void main(){
   // meniscus: a thin bright line and a darker lens band beneath it
   col += vec3(0.75, 0.85, 0.9) * exp(-abs(d) * 700.0) * 0.45 * lineVis;
   col *= 1.0 - 0.45 * exp(-abs(d + 0.012) * 90.0) * step(d, 0.0) * lineVis;
+
+  // the impact: churned white water, spray, and a flash of broken light
+  if (uSplash > 0.0){
+    float r = length(q0);
+    // churned water: foam veils torn by the plunge, streaming upwards
+    float n = fbm(q0 * vec2(2.6, 1.6) + vec2(0.0, -uTime * 2.4));
+    float veil = smoothstep(0.62, 0.86, n + uSplash * 0.34 - r * 0.18);
+    // trails of air: thin vertical streaks rushing past the lens
+    float streak = vnoise(q0 * vec2(26.0, 2.2) + vec2(0.0, uTime * 7.0));
+    streak = smoothstep(0.72, 0.95, streak);
+    // spray: small sharp droplets
+    vec2 sg = q0 * 34.0 + vec2(0.0, uTime * 14.0);
+    vec2 sf = fract(sg) - 0.5;
+    float sr = hash12(floor(sg));
+    float spray = step(0.9, sr) * smoothstep(0.2, 0.04, length(sf + (hash22(floor(sg)) - 0.5) * 0.5));
+    float k = clamp(uSplash, 0.0, 1.0);
+    col = mix(col, vec3(0.62, 0.74, 0.80), veil * k * 0.78);
+    col += vec3(0.75, 0.85, 0.9) * (streak * 0.22 + spray * 0.5) * k;
+    // the edge of the crater: darker turbulent water around the bright core
+    col *= 1.0 - 0.25 * k * smoothstep(0.2, 0.8, r);
+  }
+  col += vec3(0.75, 0.85, 0.9) * uFlash * 0.42;
 
   // droplets running down the lens after surfacing
   if (uWet > 0.0){
@@ -117,6 +157,10 @@ export class Composite {
       uGrain: { value: 0.035 },
       uFade: { value: 0 },
       uWet: { value: 0 },
+      uSplash: { value: 0 },
+      uFlash: { value: 0 },
+      uSpeed: { value: 0 },
+      uBlur: { value: 0 },
     };
     this.material = new THREE.ShaderMaterial({
       vertexShader: FULLSCREEN_VERT,

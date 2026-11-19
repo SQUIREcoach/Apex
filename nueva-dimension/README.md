@@ -3,18 +3,24 @@
 Experiencia digital de marca construida desde cero, independiente de la web
 publicada (no comparte código, estructura ni dominio con ella).
 
-**Idea rectora:** el agua no es una imagen, es la interfaz. Toda la web es un
-único descenso: el visitante toca una piscina desbordante al anochecer (la
-superficie responde al cursor con una simulación física real), atraviesa la
-superficie, contempla la piscina desde dentro y emerge en tres mundos
-arquitectónicos, uno por mercado. Cada cambio de escena es un cruce de la
-línea de agua. Un indicador lateral muestra la **cota real de la cámara**
-respecto a la superficie del agua del mundo en que se encuentra.
+**Idea rectora:** el agua no es una imagen, es la interfaz. La visita empieza
+en el borde de una piscina desbordante al anochecer (la superficie responde al
+cursor con una simulación física real). Al desplazarse hacia abajo, **el
+visitante se tira al agua**: la cámara se asoma al borde, cae con aceleración,
+impacta (espuma, estela de aire, sacudida, sonido), atraviesa la superficie y
+se hunde entre burbujas hasta quedar suspendida. **Buceando, las opciones
+emergen del fondo**: tres ventanas de luz con los renders de cada mercado,
+flotando en el agua, con las cáusticas jugando sobre ellas, y los accesos a
+Anatomía, Trayectoria y Contacto. Desde ahí se nada hacia el manifiesto y se
+emerge en tres mundos arquitectónicos 3D. Al volver arriba, se sale a la
+superficie. Un indicador lateral muestra la **cota real de la cámara**
+respecto al agua.
 
 | Capítulo | Escena | Qué comunica |
 |---|---|---|
 | Superficie | Piscina desbordante en tiempo real, interactiva | Quiénes somos |
-| Inmersión | Cruce de la superficie, interior de la piscina | Filosofía: «La calma es una obra de ingeniería» |
+| El salto | Secuencia cinematográfica de 3,6 s: caída, impacto, burbujas | La sensación de entrar en el agua |
+| Inmersión | Opciones emergiendo del fondo (renders en ventanas de luz) y manifiesto | Qué ofrecemos y cómo pensamos |
 | Hoteles y resorts · Residencias · Proyectos extraordinarios | Tres conceptos arquitectónicos 3D (rotulados como concepto) | Mercados estratégicos |
 | Anatomía | Plano técnico interactivo con leyenda numerada | Qué hacemos, capa a capa (sin fichas de servicio) |
 | Trayectoria | Profundidad submarina + narrativa editorial | Autoridad: Carlos Callealta |
@@ -90,15 +96,18 @@ src/ui/*                 contacto, consentimiento, anatomía, indicador, sonido,
   (simulación 128², sombras 1024), 1 equipos modestos (agua procedural),
   0 sin WebGL o ahorro de datos (agua estática en CSS/SVG). La resolución se
   adapta en tiempo real según los fotogramas medidos.
-- `prefers-reduced-motion`: sin scroll suave, sin movimientos de cámara
-  continuos (cortes en lugar de barridos), sin animaciones de texto.
+- `prefers-reduced-motion`: sin scroll suave, el salto se convierte en un
+  fundido breve, sin movimientos de cámara continuos (cortes en lugar de
+  barridos), sin animaciones de texto; las opciones se muestran como lista
+  con imágenes.
 - Todo el contenido es HTML semántico; el lienzo es decorativo (`aria-hidden`).
   Auditoría axe-core sin incidencias en ES, CA y EN.
 
 ## Contenido: hechos y conceptos
 
-- Las **escenas 3D son conceptos** generados en tiempo real y así se indica en
-  cada capítulo y en el pie. No se usan imágenes de obras no ejecutadas.
+- Las **escenas 3D y los renders son conceptos** y así se indica en cada
+  capítulo, junto a las opciones y en el pie. Los renders proceden del material
+  gráfico de la web actual (`public/img/conceptos/`).
 - Los datos de trayectoria (Astral/Fluidra, Mundial de Natación 2003 en el
   Palau Sant Jordi, Piscinas Condal, obra civil, registro de obras 2003‑2014)
   proceden de la documentación de la web actual. **Pendiente de verificación

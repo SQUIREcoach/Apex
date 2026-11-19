@@ -38,20 +38,29 @@ export default {
   hero: {
     title: ['Water.', 'Without limits.'],
     lead: 'Construction, transformation and technical solutions for pools and aquatic facilities. More than thirty-five years of craft.',
-    cue: 'Descend',
+    cue: 'Dive in',
   },
   dive: 'A new dimension of water.',
   immersion: {
+    optionsTitle: "Three ways of inhabiting water",
+    optionsNote: "Conceptual renders. They do not depict executed projects.",
+    more: [
+      ["anatomia", "Anatomy of a pool"],
+      ["trayectoria", "Track record"],
+      ["conversacion", "Let's talk"],
+    ],
     title: 'Calm is a work of engineering.',
     body: 'From the outside, all you see is serenity. Beneath the surface it is held up by structure, hydraulics, chemistry and light, resolved with precision. That is where we work.',
     second:
       'We build, transform and care for pools for hotels, residences and projects that demand more than good construction.',
   },
   markets: {
+    label: 'Strategic markets',
     intro: 'Three ways of inhabiting water',
     items: [
       {
         id: 'hoteles',
+        render: { src: 'img/conceptos/resort.webp', alt: "Conceptual render: resort infinity pool facing the sea" },
         name: 'Hotels and resorts',
         line: 'Facilities that cannot stop.',
         body: 'Large-scale pools, wellness centres and spas for luxury hotels and resorts. We design, build, refurbish, heat and maintain facilities that welcome hundreds of guests every day.',
@@ -65,6 +74,7 @@ export default {
       },
       {
         id: 'residencias',
+        render: { src: 'img/conceptos/villa.webp', alt: "Conceptual render: villa infinity pool among pines above the sea" },
         name: 'High-end residences',
         line: 'A pool that belongs to the house.',
         body: 'Exclusive villas, great estates and singular homes. Every pool is designed to measure from the site, the orientation and the architecture, down to the last detail of the coping.',
@@ -78,6 +88,7 @@ export default {
       },
       {
         id: 'extraordinarios',
+        render: { src: 'img/conceptos/acantilado.webp', alt: "Conceptual render: infinity pool on a cliff at sunset" },
         name: 'Extraordinary projects',
         line: 'When water challenges the structure.',
         body: 'Suspended, panoramic and infinity pools. Technically demanding installations that we develop with architects, engineering firms and developers, from design to commissioning.',
@@ -209,7 +220,7 @@ export default {
   },
   footer: {
     rights: 'All rights reserved.',
-    concepts: 'The three-dimensional scenes on this site are architectural concepts rendered in real time; they do not depict projects executed by APEX.',
+    concepts: 'The three-dimensional scenes and renders on this site are concepts; they do not depict projects executed by APEX.',
     privacy: 'Privacy and cookies',
   },
   noscript: 'This experience uses JavaScript for real-time water. All the content remains available below.',

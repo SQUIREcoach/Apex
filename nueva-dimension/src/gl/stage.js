@@ -175,6 +175,12 @@ export class Stage {
     C.uDownWater.value = f.downWater ? 1 : 0;
     C.uWet.value = f.wet || 0;
     C.uFade.value = f.fade || 0;
+    const fx = f.fx || {};
+    C.uSplash.value = fx.splash || 0;
+    C.uFlash.value = fx.flash || 0;
+    C.uSpeed.value = fx.speed || 0;
+    C.uBlur.value = fx.blur || 0;
+    this.scenes.pool.setWindows(f.windows);
 
     // the pool simulation runs whenever the pool is involved
     const usesPool = f.up.scene === 'pool' || (f.down && f.down.scene === 'pool');
@@ -186,6 +192,7 @@ export class Stage {
     if (upScene !== this.scenes.pool) upScene.update(dt);
     upScene.render(this.renderer, this.rtUp);
     C.tUp.value = this.rtUp.texture;
+    this.windowRects = upScene === this.scenes.pool ? upScene.computeWindowRects(this.w, this.h) : null;
 
     const showDown = f.down && f.line > -0.15;
     if (showDown) {

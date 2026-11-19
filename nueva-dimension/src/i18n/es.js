@@ -40,20 +40,29 @@ export default {
   hero: {
     title: ['El agua.', 'Sin límites.'],
     lead: 'Construcción, transformación y soluciones técnicas en piscinas e instalaciones acuáticas. Más de treinta y cinco años de oficio.',
-    cue: 'Descender',
+    cue: 'Sumergirse',
   },
   dive: 'Una nueva dimensión del agua.',
   immersion: {
+    optionsTitle: "Tres maneras de habitar el agua",
+    optionsNote: "Renders conceptuales. No representan obras ejecutadas.",
+    more: [
+      ["anatomia", "Anatomía de una piscina"],
+      ["trayectoria", "Trayectoria"],
+      ["conversacion", "Hablemos"],
+    ],
     title: 'La calma es una obra de ingeniería.',
     body: 'Desde fuera solo se ve serenidad. Bajo la superficie la sostienen la estructura, la hidráulica, la química y la luz, resueltas con precisión. Ahí es donde trabajamos.',
     second:
       'Construimos, transformamos y cuidamos piscinas para hoteles, residencias y proyectos que exigen algo más que una buena obra.',
   },
   markets: {
+    label: 'Mercados estratégicos',
     intro: 'Tres maneras de habitar el agua',
     items: [
       {
         id: 'hoteles',
+        render: { src: 'img/conceptos/resort.webp', alt: "Render conceptual: piscina desbordante de un resort frente al mar" },
         name: 'Hoteles y resorts',
         line: 'Instalaciones que no pueden detenerse.',
         body: 'Piscinas de gran dimensión, centros de bienestar y spas para hoteles de alta categoría y complejos turísticos. Proyectamos, construimos, rehabilitamos, climatizamos y mantenemos instalaciones que reciben a cientos de personas cada día.',
@@ -67,6 +76,7 @@ export default {
       },
       {
         id: 'residencias',
+        render: { src: 'img/conceptos/villa.webp', alt: "Render conceptual: piscina infinita de una villa entre pinos sobre el mar" },
         name: 'Residencias de alto nivel',
         line: 'Una piscina que pertenece a la casa.',
         body: 'Villas exclusivas, grandes patrimonios y residencias singulares. Cada piscina se diseña a medida a partir del terreno, la orientación y la arquitectura, hasta el último detalle de la coronación.',
@@ -80,6 +90,7 @@ export default {
       },
       {
         id: 'extraordinarios',
+        render: { src: 'img/conceptos/acantilado.webp', alt: "Render conceptual: piscina desbordante sobre un acantilado al atardecer" },
         name: 'Proyectos extraordinarios',
         line: 'Cuando el agua desafía a la estructura.',
         body: 'Piscinas suspendidas, panorámicas y desbordantes. Instalaciones de elevada complejidad técnica que desarrollamos junto a arquitectos, ingenierías y promotoras, desde el proyecto hasta la puesta en marcha.',
@@ -211,7 +222,7 @@ export default {
   },
   footer: {
     rights: 'Todos los derechos reservados.',
-    concepts: 'Las escenas tridimensionales de esta web son conceptos arquitectónicos generados en tiempo real; no representan obras ejecutadas por APEX.',
+    concepts: 'Las escenas tridimensionales y los renders de esta web son conceptos; no representan obras ejecutadas por APEX.',
     privacy: 'Privacidad y cookies',
   },
   noscript: 'Esta experiencia utiliza JavaScript para el agua en tiempo real. Todo el contenido sigue disponible a continuación.',

@@ -24,49 +24,32 @@ export function initMotion(quality) {
 
   if (R) {
     root.classList.add('motion-off');
-    return { intro() {}, firstTouch() {} };
+    return {
+      intro() {},
+      firstTouch() {},
+      plungeOut() {},
+      plungeLanded() {},
+      heroIn() {},
+    };
   }
 
   gsap.set('.hero__line > span', { yPercent: 115 });
   gsap.set(['.hero__lead', '.hero__cue', '.hero__hint', '.hdr', '.gauge'], { autoAlpha: 0 });
 
-  // ---- dive: the line appears as the surface is crossed --------------------
-  const diveLine = q('.dive__line');
-  const dive = q('.dive');
-  if (diveLine && dive) {
-    // positions expressed in the story's own progress (sticky range)
-    const at = (p) => () => `top+=${Math.round(p * Math.max(dive.offsetHeight - innerHeight, innerHeight))}`;
-    gsap.fromTo(
-      diveLine,
-      { opacity: 0, letterSpacing: '0.16em', filter: 'blur(8px)' },
-      {
-        opacity: 1,
-        letterSpacing: '0.01em',
-        filter: 'blur(0px)',
-        ease: 'none',
-        scrollTrigger: { trigger: dive, start: at(0.46), end: at(0.7), scrub: true },
-      },
-    );
-    gsap.to(diveLine, {
-      opacity: 0,
-      y: -40,
-      ease: 'none',
-      immediateRender: false,
-      scrollTrigger: { trigger: dive, start: at(0.86), end: at(1.0), scrub: true },
-    });
-  }
-
-  // ---- immersion: reading at the speed of descent --------------------------
+  // ---- immersion: the options float, then the manifesto as we swim on -----
   const imm = q('.immersion');
   if (imm) {
     const words = splitWords(q('[data-words]', imm));
     const tl = gsap.timeline({
       scrollTrigger: { trigger: imm, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
     });
-    tl.fromTo('.immersion__title', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.12 }, 0)
-      .fromTo(words, { opacity: 0.12 }, { opacity: 1, stagger: 0.5 / words.length, duration: 0.05 }, 0.1)
-      .fromTo('.immersion__second', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.12 }, 0.66)
-      .to(imm.querySelector('.immersion__sticky'), { opacity: 0, y: -30, duration: 0.1 }, 0.9)
+    tl.fromTo('.immersion__tag', { opacity: 1, y: 0 }, { opacity: 0, y: -30, duration: 0.05 }, 0.0)
+      .fromTo(['.options__title', '.options__note', '.options__more'], { opacity: 1, y: 0 }, { opacity: 0, y: -20, duration: 0.08 }, 0.07)
+      .fromTo('.manifesto', { opacity: 0 }, { opacity: 1, duration: 0.03 }, 0.27)
+      .fromTo('.immersion__title', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.08 }, 0.3)
+      .fromTo(words, { opacity: 0.12 }, { opacity: 1, stagger: 0.32 / words.length, duration: 0.04 }, 0.36)
+      .fromTo('.immersion__second', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.08 }, 0.74)
+      .to('.manifesto', { opacity: 0, y: -30, duration: 0.06 }, 0.93)
       .set({}, {}, 1);
   }
 
@@ -154,14 +137,6 @@ export function initMotion(quality) {
       .set({}, {}, 1);
   }
 
-  // ---- hero leaves as the descent begins -----------------------------------
-  gsap.to('.hero__inner, .hero__cue, .hero__hint', {
-    opacity: 0,
-    y: -60,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: '70% top', scrub: true },
-  });
-
   let touched = false;
   return {
     intro() {
@@ -177,6 +152,27 @@ export function initMotion(quality) {
       if (touched) return;
       touched = true;
       gsap.to('.hero__hint', { autoAlpha: 0, duration: 1.2, delay: 1.5 });
+    },
+    // the title is the first thing the water takes
+    plungeOut(dur) {
+      gsap.killTweensOf(['.hero__inner', '.hero__cue', '.hero__hint', '.plunge-tag']);
+      gsap.to('.hero__inner', { opacity: 0, y: 70, filter: 'blur(10px)', duration: dur * 0.3, ease: 'power2.in' });
+      gsap.to(['.hero__cue', '.hero__hint'], { opacity: 0, duration: dur * 0.15 });
+      gsap.fromTo(
+        '.plunge-tag',
+        { opacity: 0, letterSpacing: '0.16em', filter: 'blur(10px)' },
+        { opacity: 1, letterSpacing: '0.01em', filter: 'blur(0px)', duration: dur * 0.3, delay: dur * 0.5, ease: 'power2.out' },
+      );
+    },
+    plungeLanded() {
+      // the overlay hands over to the same line inside the section
+      gsap.set('.plunge-tag', { opacity: 0 });
+    },
+    heroIn() {
+      gsap.killTweensOf(['.hero__inner', '.hero__cue', '.hero__hint', '.plunge-tag']);
+      gsap.set('.plunge-tag', { opacity: 0 });
+      gsap.fromTo('.hero__inner', { opacity: 0, y: -30, filter: 'blur(8px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.4, ease: 'power3.out' });
+      gsap.to('.hero__cue', { opacity: 1, duration: 1, delay: 0.6 });
     },
   };
 }

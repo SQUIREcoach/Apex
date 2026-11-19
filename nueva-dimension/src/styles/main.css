@@ -546,38 +546,119 @@ html:not(.webgl) .hero__hint {
   }
 }
 
-/* ------------------------------------------------------------------- dive */
-.dive {
-  position: relative;
-  height: 170vh;
+/* ----------------------------------------------------------- the plunge */
+html.is-plunging,
+html.is-plunging body {
+  overflow: hidden;
 }
-.dive__sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  height: 100svh;
-  display: grid;
-  place-items: center;
-  padding: 0 var(--pad);
+.plunge-tag {
+  position: fixed;
+  z-index: 2;
+  left: var(--pad);
+  right: var(--pad);
+  top: calc(var(--hdr) + 5vh);
+  opacity: 0;
+  pointer-events: none;
 }
-.dive__line {
+.plunge-tag,
+.immersion__tag {
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 4.2vw, 4.4rem);
+  font-size: clamp(1.7rem, 3.4vw, 3.4rem);
   line-height: 1.05;
   text-align: center;
-  max-width: 16ch;
+  text-wrap: balance;
 }
 
 /* -------------------------------------------------------------- immersion */
 .immersion {
   position: relative;
-  height: 280vh;
+  height: 420vh;
 }
 .immersion__sticky {
   position: sticky;
   top: 0;
   height: 100vh;
   height: 100svh;
+  overflow: hidden;
+}
+.immersion__tag {
+  position: absolute;
+  left: var(--pad);
+  right: var(--pad);
+  top: calc(var(--hdr) + 5vh);
+}
+.options {
+  position: absolute;
+  inset: 0;
+}
+.options__title {
+  position: absolute;
+  left: var(--pad);
+  bottom: clamp(74px, 12vh, 124px);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+}
+.option {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(10px, 1.1vw, 18px);
+  visibility: hidden;
+  opacity: 0;
+  background: linear-gradient(0deg, rgba(6, 24, 42, 0.72), rgba(6, 24, 42, 0) 58%);
+  will-change: transform, opacity;
+}
+.option img {
+  display: none;
+}
+.option__name {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.85rem);
+  line-height: 1.05;
+  text-shadow: 0 1px 18px rgba(6, 24, 42, 0.6);
+}
+.option:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.options__note {
+  position: absolute;
+  right: var(--pad);
+  bottom: clamp(74px, 12vh, 124px);
+  max-width: 30ch;
+  display: flex;
+  gap: 10px;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--on-navy-2);
+}
+.options__more {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(26px, 5vh, 52px);
+  transform: translateX(-50%);
+  display: flex;
+  gap: clamp(18px, 3vw, 46px);
+  white-space: nowrap;
+  font-size: 0.9375rem;
+}
+.options__more a {
+  padding-bottom: 3px;
+  box-shadow: inset 0 -1px 0 var(--line-navy);
+  transition: box-shadow 0.4s;
+}
+.options__more a:hover,
+.options__more a:focus-visible {
+  box-shadow: inset 0 -1px 0 var(--gold);
+}
+.manifesto {
+  position: absolute;
+  inset: 0;
   display: grid;
   align-content: center;
   gap: clamp(22px, 3.4vh, 40px);
@@ -602,6 +683,81 @@ html:not(.webgl) .hero__hint {
   max-width: 40ch;
   margin-left: clamp(0px, 8vw, 160px);
   color: var(--on-navy-2);
+}
+
+/* without WebGL or with reduced motion: the same content, laid out plainly */
+.motion-off .immersion,
+html:not(.webgl) .immersion {
+  height: auto;
+  padding: calc(var(--hdr) + 60px) var(--pad) 110px;
+}
+.motion-off .immersion__sticky,
+html:not(.webgl) .immersion__sticky {
+  position: static;
+  height: auto;
+  overflow: visible;
+  display: grid;
+  gap: 72px;
+}
+.motion-off .immersion__tag,
+html:not(.webgl) .immersion__tag,
+.motion-off .options,
+html:not(.webgl) .options,
+.motion-off .options__title,
+html:not(.webgl) .options__title,
+.motion-off .options__note,
+html:not(.webgl) .options__note,
+.motion-off .options__more,
+html:not(.webgl) .options__more,
+.motion-off .manifesto,
+html:not(.webgl) .manifesto {
+  position: static;
+  transform: none;
+  inset: auto;
+  padding: 0;
+}
+.motion-off .immersion__tag,
+html:not(.webgl) .immersion__tag {
+  text-align: left;
+}
+.motion-off .options,
+html:not(.webgl) .options {
+  display: grid;
+  gap: 22px;
+}
+.motion-off .options__list,
+html:not(.webgl) .options__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+.motion-off .option,
+html:not(.webgl) .option {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  background: none;
+}
+.motion-off .option img,
+html:not(.webgl) .option img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  outline: 1px solid rgba(201, 169, 107, 0.6);
+  outline-offset: -1px;
+}
+.motion-off .options__more,
+html:not(.webgl) .options__more {
+  flex-wrap: wrap;
+}
+.motion-off .plunge-tag,
+html:not(.webgl) .plunge-tag {
+  display: none;
 }
 
 /* ---------------------------------------------------------------- markets */
@@ -1467,7 +1623,9 @@ html:not(.webgl) .hero__hint {
   }
   /* keep content clear of the elevation gauge */
   .anatomy,
-  .trajectory {
+  .trajectory,
+  .motion-off .immersion,
+  html:not(.webgl) .immersion {
     padding-right: calc(var(--pad) + 150px);
   }
 }
@@ -1505,11 +1663,30 @@ html:not(.webgl) .hero__hint {
     padding-left: 0;
   }
   .hero__cue {
-    display: none;
+    bottom: 56px;
+  }
+  .options__title {
+    bottom: 124px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .options__note {
+    left: var(--pad);
+    right: var(--pad);
+    bottom: 92px;
+    max-width: none;
+    justify-content: center;
+  }
+  .options__more {
+    gap: 18px;
+    font-size: 0.875rem;
+    bottom: 48px;
   }
   .hero__hint {
     left: var(--pad);
     transform: none;
+    bottom: 26px;
   }
   .market__sticky {
     align-content: end;
@@ -1592,9 +1769,6 @@ html:not(.webgl) .hero__hint {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-.motion-off .dive {
-  height: 100vh;
 }
 
 /* -------------------------------------------------------- no js */

@@ -99,7 +99,6 @@ export function renderPage(t, cfg, lang) {
     <article class="market" id="${m.id}" data-scene="${['resort', 'villa', 'sky'][i]}" aria-labelledby="${m.id}-t">
       <div class="market__sticky">
         <div class="market__text">
-          ${i === 0 ? `<p class="market__intro">${esc(t.markets.intro)}</p>` : ''}
           <h3 class="market__name" id="${m.id}-t">${esc(m.name)}</h3>
           <p class="market__line">${esc(m.line)}</p>
           <p class="market__body">${esc(m.body)}</p>
@@ -187,6 +186,7 @@ ${L.filter((l) => l.code !== lang).map((l) => `<meta property="og:locale:alterna
 </div>
 
 <canvas class="stage" aria-hidden="true"></canvas>
+<p class="plunge-tag" aria-hidden="true">${esc(t.dive)}</p>
 <div class="still" aria-hidden="true">
   <svg class="still__svg" preserveAspectRatio="none" viewBox="0 0 100 100"><defs>
     <filter id="still-water"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.04" numOctaves="2" seed="3"><animate attributeName="baseFrequency" dur="24s" values="0.012 0.04;0.016 0.05;0.012 0.04" repeatCount="indefinite"/></feTurbulence><feColorMatrix values="0 0 0 0 0.79  0 0 0 0 0.66  0 0 0 0 0.42  0 0 0 9 -5.2"/></filter>
@@ -218,22 +218,36 @@ ${L.filter((l) => l.code !== lang).map((l) => `<meta property="og:locale:alterna
       <p class="hero__lead">${esc(t.hero.lead)}</p>
     </div>
     <p class="hero__hint" aria-hidden="true"><span class="hint-touch">${esc(t.ui.touch)}</span><span class="hint-pointer">${esc(t.ui.pointer)}</span></p>
-    <a class="hero__cue" href="#inmersion"><span>${esc(t.hero.cue)}</span><i aria-hidden="true"></i></a>
+    <a class="hero__cue" href="#inmersion" data-plunge><span>${esc(t.hero.cue)}</span><i aria-hidden="true"></i></a>
   </section>
 
-  <div class="dive" data-scene="dive">
-    <div class="dive__sticky"><p class="dive__line">${esc(t.dive)}</p></div>
-  </div>
-
-  <section id="inmersion" class="immersion" data-scene="immersion" aria-labelledby="imm-title">
+  <section id="inmersion" class="immersion" data-scene="immersion" aria-labelledby="opt-title">
     <div class="immersion__sticky">
-      <h2 class="immersion__title" id="imm-title">${esc(t.immersion.title)}</h2>
-      <p class="immersion__body" data-words>${esc(t.immersion.body)}</p>
-      <p class="immersion__second">${esc(t.immersion.second)}</p>
+      <p class="immersion__tag">${esc(t.dive)}</p>
+      <div class="options">
+        <h2 class="options__title" id="opt-title">${esc(t.immersion.optionsTitle)}</h2>
+        <ul class="options__list">
+          ${t.markets.items
+            .map(
+              (m, i) => `<li><a class="option" href="#${m.id}" data-i="${i}">
+            <img src="${depth}${m.render.src}" alt="${esc(m.render.alt)}" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="option__name">${esc(m.name)}</span>
+          </a></li>`,
+            )
+            .join('')}
+        </ul>
+        <p class="options__note"><span class="concept-note__dot" aria-hidden="true"></span>${esc(t.immersion.optionsNote)}</p>
+        <ul class="options__more">${t.immersion.more.map(([id, l]) => `<li><a href="#${id}">${esc(l)}</a></li>`).join('')}</ul>
+      </div>
+      <div class="manifesto">
+        <h2 class="immersion__title" id="imm-title">${esc(t.immersion.title)}</h2>
+        <p class="immersion__body" data-words>${esc(t.immersion.body)}</p>
+        <p class="immersion__second">${esc(t.immersion.second)}</p>
+      </div>
     </div>
   </section>
 
-  <section class="markets" aria-label="${esc(t.markets.intro)}">${markets}
+  <section class="markets" aria-label="${esc(t.markets.label)}">${markets}
   </section>
 
   <section id="anatomia" class="anatomy" data-scene="anatomy" aria-labelledby="anat-title">

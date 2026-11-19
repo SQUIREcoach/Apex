@@ -64,17 +64,12 @@ export function initConsent(cfg) {
   if (!choice) {
     // appears once the visitor has begun to explore, never over the opening
     const show = () => {
-      if (window.scrollY < innerHeight * 0.9) return;
+      // after the dive and the options, never over them
+      if (window.scrollY < innerHeight * 2.6) return;
       bar.hidden = false;
       window.removeEventListener('scroll', show);
     };
     window.addEventListener('scroll', show, { passive: true });
-    setTimeout(() => {
-      if (bar.hidden && !read()) {
-        window.removeEventListener('scroll', show);
-        bar.hidden = false;
-      }
-    }, 25000);
   }
 
   bar.addEventListener('click', (e) => {

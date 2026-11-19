@@ -5,7 +5,7 @@ export function initSound(cfg) {
   const btn = document.querySelector('.sound');
   const AC = window.AudioContext || window.webkitAudioContext;
   const T = cfg.t?.ui || {};
-  if (!btn || !AC) return { setUnder() {}, unlock() {} };
+  if (!btn || !AC) return { setUnder() {}, unlock() {}, splash() {} };
   btn.hidden = false;
 
   let ctx = null;
@@ -52,8 +52,42 @@ export function initSound(cfg) {
     lfo.start();
   };
 
+  // the plunge: a burst of white water, then the muffled thump of the body
+  const splash = () => {
+    if (!ctx || !on) return;
+    const t = ctx.currentTime;
+    const len = Math.floor(ctx.sampleRate * 1.2);
+    const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2);
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const bp = ctx.createBiquadFilter();
+    bp.type = 'bandpass';
+    bp.Q.value = 0.8;
+    bp.frequency.setValueAtTime(3200, t);
+    bp.frequency.exponentialRampToValueAtTime(260, t + 0.9);
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.7, t + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.1);
+    src.connect(bp).connect(g).connect(master);
+    src.start(t);
+    const o = ctx.createOscillator();
+    const og = ctx.createGain();
+    o.frequency.setValueAtTime(90, t + 0.05);
+    o.frequency.exponentialRampToValueAtTime(38, t + 0.45);
+    og.gain.setValueAtTime(0.0001, t);
+    og.gain.exponentialRampToValueAtTime(0.5, t + 0.07);
+    og.gain.exponentialRampToValueAtTime(0.0001, t + 0.6);
+    o.connect(og).connect(master);
+    o.start(t);
+    o.stop(t + 0.7);
+    for (let k = 0; k < 14; k++) setTimeout(bubble, 200 + Math.random() * 1600);
+  };
+
   const bubble = () => {
-    if (!ctx || !on || !under) return;
+    if (!ctx || !on) return;
     const t = ctx.currentTime;
     const o = ctx.createOscillator();
     const g = ctx.createGain();
@@ -95,5 +129,6 @@ export function initSound(cfg) {
     unlock() {
       if (ctx && ctx.state === 'suspended') ctx.resume();
     },
+    splash,
   };
 }

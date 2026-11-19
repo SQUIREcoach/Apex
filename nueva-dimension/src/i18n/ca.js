@@ -38,20 +38,29 @@ export default {
   hero: {
     title: ["L'aigua.", 'Sense límits.'],
     lead: "Construcció, transformació i solucions tècniques en piscines i instal·lacions aquàtiques. Més de trenta-cinc anys d'ofici.",
-    cue: 'Descendir',
+    cue: 'Submergir-se',
   },
   dive: "Una nova dimensió de l'aigua.",
   immersion: {
+    optionsTitle: "Tres maneres d'habitar l'aigua",
+    optionsNote: "Renders conceptuals. No representen obres executades.",
+    more: [
+      ["anatomia", "Anatomia d'una piscina"],
+      ["trayectoria", "Trajectòria"],
+      ["conversacion", "Parlem"],
+    ],
     title: "La calma és una obra d'enginyeria.",
     body: "Des de fora només es veu serenitat. Sota la superfície la sostenen l'estructura, la hidràulica, la química i la llum, resoltes amb precisió. És aquí on treballem.",
     second:
       'Construïm, transformem i cuidem piscines per a hotels, residències i projectes que exigeixen alguna cosa més que una bona obra.',
   },
   markets: {
+    label: 'Mercats estratègics',
     intro: "Tres maneres d'habitar l'aigua",
     items: [
       {
         id: 'hoteles',
+        render: { src: 'img/conceptos/resort.webp', alt: "Render conceptual: piscina desbordant d'un resort davant del mar" },
         name: 'Hotels i resorts',
         line: 'Instal·lacions que no es poden aturar.',
         body: "Piscines de gran dimensió, centres de benestar i spas per a hotels d'alta categoria i complexos turístics. Projectem, construïm, rehabilitem, climatitzem i mantenim instal·lacions que reben centenars de persones cada dia.",
@@ -65,6 +74,7 @@ export default {
       },
       {
         id: 'residencias',
+        render: { src: 'img/conceptos/villa.webp', alt: "Render conceptual: piscina infinita d'una vila entre pins sobre el mar" },
         name: "Residències d'alt nivell",
         line: 'Una piscina que pertany a la casa.',
         body: "Viles exclusives, grans patrimonis i residències singulars. Cada piscina es dissenya a mida a partir del terreny, l'orientació i l'arquitectura, fins a l'últim detall de la coronació.",
@@ -78,6 +88,7 @@ export default {
       },
       {
         id: 'extraordinarios',
+        render: { src: 'img/conceptos/acantilado.webp', alt: "Render conceptual: piscina desbordant sobre un penya-segat al capvespre" },
         name: 'Projectes extraordinaris',
         line: "Quan l'aigua desafia l'estructura.",
         body: "Piscines suspeses, panoràmiques i desbordants. Instal·lacions d'elevada complexitat tècnica que desenvolupem amb arquitectes, enginyeries i promotores, des del projecte fins a la posada en marxa.",
@@ -209,7 +220,7 @@ export default {
   },
   footer: {
     rights: 'Tots els drets reservats.',
-    concepts: "Les escenes tridimensionals d'aquest web són conceptes arquitectònics generats en temps real; no representen obres executades per APEX.",
+    concepts: "Les escenes tridimensionals i els renders d'aquest web són conceptes; no representen obres executades per APEX.",
     privacy: 'Privacitat i galetes',
   },
   noscript: "Aquesta experiència utilitza JavaScript per a l'aigua en temps real. Tot el contingut continua disponible a continuació.",
