@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>APEX Piscinas · Construcción, reforma y reparación de piscinas en Cataluña</title>
+<meta name="description" content="Construimos, reformamos, reparamos y mantenemos piscinas en Barcelona y toda Cataluña. 36 años de oficio y un único responsable técnico en cada obra.">
+<!-- ENTORNO DE PRUEBAS: quitar noindex al publicar en producción -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://apexpiscinas.com/">
+<meta name="theme-color" content="#0A2239">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="APEX Piscinas">
+<meta property="og:title" content="APEX Piscinas · Una piscina es para toda la vida">
+<meta property="og:description" content="Construcción, reforma, reparación y mantenimiento de piscinas en Barcelona y toda Cataluña.">
+<meta property="og:image" content="https://apexpiscinas.com/v2/assets/hero-1920.webp">
+<link rel="icon" href="assets/logo-apex.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="assets/hero-960.webp" media="(max-width: 960px)">
+<link rel="preload" as="image" href="assets/hero-1920.webp" media="(min-width: 961px)">
+<link rel="stylesheet" href="v2.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "APEX Piscinas",
+  "url": "https://apexpiscinas.com/",
+  "telephone": "+34711740427",
+  "email": "apex@apexpiscinas.com",
+  "areaServed": {"@type": "AdministrativeArea", "name": "Cataluña"},
+  "description": "Construcción, reforma, reparación, tratamiento del agua y mantenimiento de piscinas en Barcelona y toda Cataluña."
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- ============ CABECERA ============ -->
+<header class="hd" id="hd">
+  <a class="hd-logo" href="./" aria-label="APEX Piscinas, inicio"><img src="assets/logo-apex.png" alt="APEX Piscinas" width="160" height="48"></a>
+  <div class="hd-depth" aria-hidden="true"><span class="hd-depth-n" data-depth-out>0,00 m</span><span class="hd-depth-l" data-depth-label>Superficie</span></div>
+  <nav class="hd-quick" aria-label="Accesos rápidos">
+    <a href="tel:+34711740427" class="hd-tel">711 740 427</a>
+    <a href="#contacto" class="btn btn-gold btn-sm">Agendar visita</a>
+  </nav>
+  <button class="hd-menu" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="hd-menu-l">Menú</span><span class="hd-menu-i" aria-hidden="true"><i></i><i></i></span></button>
+</header>
+
+<!-- ============ MENÚ ============ -->
+<div class="menu" id="menu" hidden>
+  <div class="menu-in">
+    <nav aria-label="Principal" class="menu-cols">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <ul class="menu-big">
+          <li><a href="../Construir.dc.html"><span>01</span>Construir</a></li>
+          <li><a href="../Reformas.dc.html"><span>02</span>Reformar</a></li>
+          <li><a href="../MiPiscina.dc.html"><span>03</span>Reparar</a></li>
+          <li><a href="../Agua.dc.html"><span>04</span>Tratar el agua</a></li>
+          <li><a href="../Mantenimiento.dc.html"><span>05</span>Mantenimiento</a></li>
+          <li><a href="../Wellness.dc.html"><span>06</span>Wellness y spa</a></li>
+        </ul>
+      </div>
+      <div class="menu-side">
+        <p class="eyebrow">APEX</p>
+        <ul class="menu-sm">
+          <li><a href="../Empresa.dc.html">Empresa y equipo</a></li>
+          <li><a href="../Criterio.dc.html">Maestría APEX</a></li>
+          <li><a href="../Zonas.dc.html">Zonas de trabajo</a></li>
+          <li><a href="../Profesionales.dc.html">Comunidades y profesionales</a></li>
+          <li><a href="../Contacto.dc.html">Contacto</a></li>
+        </ul>
+        <div class="menu-contact">
+          <a href="tel:+34711740427">711 740 427</a>
+          <a href="https://wa.me/34711740427" rel="noopener" target="_blank">WhatsApp</a>
+          <a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ MEDIDOR DE PROFUNDIDAD (navegación) ============ -->
+<nav class="gauge" aria-label="Secciones de la página">
+  <ol id="gaugeList"></ol>
+  <div class="gauge-rail" aria-hidden="true"><div class="gauge-fill" id="gaugeFill"></div></div>
+</nav>
+
+<main id="contenido">
+
+<!-- ============ 0 · SUPERFICIE ============ -->
+<section class="hero" id="superficie" data-depth="0" data-label="Superficie">
+  <div class="hero-media">
+    <img class="hero-img" src="assets/hero-1920.webp" srcset="assets/hero-960.webp 960w, assets/hero-1920.webp 1672w" sizes="100vw" alt="Piscina desbordante sobre los acantilados con Sitges al fondo al atardecer" fetchpriority="high">
+    <canvas class="hero-gl" id="heroGL" aria-hidden="true"></canvas>
+    <div class="hero-shade" aria-hidden="true"></div>
+  </div>
+  <div class="hero-copy">
+    <p class="eyebrow eyebrow-light">Empresa de piscinas · Barcelona y toda Cataluña</p>
+    <h1 class="hero-h"><span class="line"><span>Una piscina es</span></span><span class="line"><span>para toda la vida.</span></span><span class="line line-it"><span><em>Nuestro compromiso también.</em></span></span></h1>
+    <p class="hero-sub">Construirla, renovarla o conseguir que vuelva a funcionar. Lo importante es saber a quién se la confías.</p>
+    <div class="hero-cta">
+      <a href="#contacto" class="btn btn-gold">Hablemos de tu piscina</a>
+      <a href="#caminos" class="btn btn-line-light">¿En qué punto estás?</a>
+    </div>
+  </div>
+  <div class="hero-water" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path id="surfPath" d="M0,40 C240,20 480,60 720,40 C960,20 1200,60 1440,40 L1440,80 L0,80 Z"/></svg>
+  </div>
+  <p class="hero-scroll" aria-hidden="true"><span>Sumérgete</span></p>
+</section>
+
+<!-- ============ 1 · CAMINOS ============ -->
+<section class="sec sec-warm" id="caminos" data-depth="0.35" data-label="Caminos">
+  <div class="wrap">
+    <header class="sec-h split">
+      <div>
+        <p class="eyebrow">Empieza aquí</p>
+        <h2 class="h2">¿En qué punto<br><em>estás?</em></h2>
+      </div>
+      <p class="lead">Cuatro situaciones distintas, un mismo criterio: entender primero qué necesita tu piscina y después proponer solo lo que tiene sentido.</p>
+    </header>
+
+    <ol class="paths" id="paths">
+      <li class="path" data-img="assets/construir-1100.webp">
+        <a href="../Construir.dc.html">
+          <span class="path-n">01</span>
+          <span class="path-k">Construcción</span>
+          <span class="path-t">Quiero hacerme una piscina</span>
+          <span class="path-d">Terreno, permisos y presupuesto antes que acabados.</span>
+          <span class="path-go" aria-hidden="true">→</span>
+          <img class="path-img" src="assets/construir-700.webp" alt="" loading="lazy" width="700" height="546">
+        </a>
+      </li>
+      <li class="path" data-img="assets/reformar-1100.webp">
+        <a href="../Reformas.dc.html">
+          <span class="path-n">02</span>
+          <span class="path-k">Reformas</span>
+          <span class="path-t">Quiero modernizar mi piscina</span>
+          <span class="path-d">Revestimiento, bordes o equipos. Cambiamos solo lo que hace falta.</span>
+          <span class="path-go" aria-hidden="true">→</span>
+          <img class="path-img" src="assets/reformar-700.webp" alt="" loading="lazy" width="700" height="525">
+        </a>
+      </li>
+      <li class="path" data-img="assets/reparar-1100.webp">
+        <a href="../MiPiscina.dc.html">
+          <span class="path-n">03</span>
+          <span class="path-k">Reparaciones</span>
+          <span class="path-t">A mi piscina le pasa algo</span>
+          <span class="path-d">Pierde agua, la depuradora falla o algo no enciende. Primero, el origen.</span>
+          <span class="path-go" aria-hidden="true">→</span>
+          <img class="path-img" src="assets/reparar-700.webp" alt="" loading="lazy" width="700" height="525">
+        </a>
+      </li>
+      <li class="path" data-img="assets/agua-600.webp">
+        <a href="../Agua.dc.html">
+          <span class="path-n">04</span>
+          <span class="path-k">Tratamiento del agua</span>
+          <span class="path-t">El agua de mi piscina está rara</span>
+          <span class="path-d">Verde, turbia, irrita u huele. Tiene causa y tiene solución.</span>
+          <span class="path-go" aria-hidden="true">→</span>
+          <img class="path-img" src="assets/agua-600.webp" alt="" loading="lazy" width="577" height="518">
+        </a>
+      </li>
+    </ol>
+    <div class="path-preview" id="pathPreview" aria-hidden="true"><img alt=""></div>
+
+    <div class="duo">
+      <a class="duo-card" href="../Mantenimiento.dc.html">
+        <img src="assets/mantenimiento-700.webp" alt="Técnico de APEX revisando el agua de una piscina" loading="lazy" width="700" height="525">
+        <span class="duo-k">Mantenimiento</span>
+        <span class="duo-t">Quiero olvidarme del mantenimiento.</span>
+        <span class="duo-d">Tu piscina lista cuando la quieras usar, con la misma gente que la conoce, visita tras visita.</span>
+      </a>
+      <a class="duo-card" href="../Wellness.dc.html">
+        <img src="assets/wellness-700.webp" alt="Zona de hidromasaje con cascada" loading="lazy" width="700" height="416">
+        <span class="duo-k">Wellness y spa</span>
+        <span class="duo-t">Tu piscina también puede ser tu spa.</span>
+        <span class="duo-d">Hidromasaje, spa en el jardín y agua templada fuera de temporada.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · DIAGNÓSTICO ============ -->
+<section class="sec sec-pale" id="diagnostico" data-depth="0.7" data-label="Diagnóstico">
+  <div class="wrap">
+    <header class="sec-h split">
+      <div>
+        <p class="eyebrow">Diagnóstico orientativo</p>
+        <h2 class="h2">Cuéntanos qué notas.<br><em>Te contamos qué suele haber detrás.</em></h2>
+      </div>
+      <p class="lead">No hace falta saber el nombre técnico. Lo que ves, oyes o notas ya es información útil. Esto es una orientación: el diagnóstico real se hace en tu piscina.</p>
+    </header>
+
+    <div class="dx">
+      <div class="dx-pick">
+        <div class="dx-tabs" role="tablist" aria-label="Tipo de problema">
+          <button role="tab" class="dx-tab" aria-selected="true" data-group="agua" id="tab-agua" aria-controls="dxList">Es el agua</button>
+          <button role="tab" class="dx-tab" aria-selected="false" data-group="inst" id="tab-inst" aria-controls="dxList">Es la instalación</button>
+        </div>
+        <ul class="dx-list" id="dxList" role="tabpanel" aria-labelledby="tab-agua"></ul>
+      </div>
+      <article class="dx-out" id="dxOut" aria-live="polite">
+        <p class="dx-kind" data-k></p>
+        <h3 class="h3" data-t></h3>
+        <div class="dx-cols">
+          <div><p class="dx-lab">Qué suele haber detrás</p><p data-behind></p></div>
+          <div><p class="dx-lab">Cómo lo resolvemos</p><p data-how></p></div>
+        </div>
+        <div class="dx-foot">
+          <div class="dx-fichas" data-fichas></div>
+          <a href="#contacto" class="btn btn-navy" data-dx-cta>Contar mi caso</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · SIMULADOR ============ -->
+<section class="sec sec-navy" id="simulador" data-depth="1.05" data-label="Simulador">
+  <div class="wrap">
+    <header class="sec-h split">
+      <div>
+        <p class="eyebrow eyebrow-gold">Laboratorio de agua</p>
+        <h2 class="h2">El revestimiento<br><em>decide el color del agua.</em></h2>
+      </div>
+      <p class="lead lead-light">El agua no es azul por sí sola: la tiñen el fondo, la profundidad y la luz. Prueba combinaciones antes de elegir y comprueba también cómo cambia cuando el agua se desequilibra.</p>
+    </header>
+
+    <div class="sim">
+      <div class="sim-stage">
+        <canvas id="simGL" role="img" aria-label="Simulación de una piscina vista desde arriba con el revestimiento y la luz elegidos"></canvas>
+        <p class="sim-note">Simulación orientativa. El color real depende de la luz, la profundidad, el entorno y el material concreto.</p>
+        <p class="sim-tip" aria-hidden="true">Toca el agua</p>
+      </div>
+      <div class="sim-ctrl">
+        <fieldset>
+          <legend>Revestimiento</legend>
+          <div class="sw" id="swCoat"></div>
+          <p class="sw-name" id="coatName" aria-live="polite"></p>
+        </fieldset>
+        <fieldset>
+          <legend>Luz</legend>
+          <div class="seg" id="segLight">
+            <button type="button" aria-pressed="true" data-light="0">Mediodía</button>
+            <button type="button" aria-pressed="false" data-light="1">Atardecer</button>
+            <button type="button" aria-pressed="false" data-light="2">Noche con focos</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Estado del agua</legend>
+          <input type="range" id="rgWater" min="0" max="100" value="0" aria-describedby="waterState">
+          <div class="rg-l"><span>Equilibrada</span><span>Turbia</span><span>Verde</span></div>
+          <p class="sw-name" id="waterState" aria-live="polite">Agua equilibrada y bien filtrada.</p>
+        </fieldset>
+        <div class="sim-cta">
+          <a href="../Ficha-revestimiento.dc.html" class="lnk-gold">Renovación de revestimiento →</a>
+          <a href="../Ficha-agua-verde.dc.html" class="lnk-gold">Recuperación de agua verde →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · PROCESO ============ -->
+<section class="sec sec-warm proc" id="proceso" data-depth="1.4" data-label="Proceso">
+  <div class="wrap">
+    <header class="sec-h">
+      <p class="eyebrow">Cómo construimos</p>
+      <h2 class="h2">De la idea al primer baño,<br><em>en cinco fases.</em></h2>
+    </header>
+    <div class="proc-grid">
+      <div class="proc-vis" aria-hidden="true">
+        <div class="proc-sticky">
+          <svg class="xs" id="xs" viewBox="0 0 600 340" data-step="1">
+            <defs>
+              <pattern id="soil" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="1" class="soil-dot"/><circle cx="7" cy="8" r=".8" class="soil-dot"/></pattern>
+              <linearGradient id="wgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FB3C9"/><stop offset="1" stop-color="#1B5E86"/></linearGradient>
+              <clipPath id="vaso"><path d="M120 120 L480 120 L480 250 L380 290 L120 290 Z"/></clipPath>
+            </defs>
+            <!-- terreno -->
+            <rect x="0" y="120" width="600" height="220" fill="url(#soil)" class="xs-soil"/>
+            <line x1="0" y1="120" x2="600" y2="120" class="xs-ground"/>
+            <!-- 1 · idea: trazo a mano -->
+            <path class="xs-idea" d="M128 122 C150 200 140 260 200 282 C280 300 380 296 470 248 C482 200 476 150 474 122"/>
+            <!-- 2 · estudio: cotas y estratos -->
+            <g class="xs-study">
+              <line x1="0" y1="190" x2="600" y2="190" class="xs-strata"/><line x1="0" y1="262" x2="600" y2="262" class="xs-strata"/>
+              <text x="560" y="182" text-anchor="end">relleno</text><text x="560" y="254" text-anchor="end">arcilla</text><text x="560" y="326" text-anchor="end">roca</text>
+              <path d="M40 120 L40 60 M30 70 L40 60 L50 70" class="xs-arrow"/><text x="54" y="74">acceso maquinaria</text>
+              <circle cx="520" cy="60" r="16" class="xs-sun"/><text x="492" y="96" text-anchor="middle">orientación</text>
+            </g>
+            <!-- 3 · diseño: cotas -->
+            <g class="xs-design">
+              <path d="M120 120 L480 120 L480 250 L380 290 L120 290 Z" class="xs-plan"/>
+              <line x1="120" y1="104" x2="480" y2="104" class="xs-dim"/><text x="300" y="98" text-anchor="middle">8,00 m</text>
+              <line x1="104" y1="120" x2="104" y2="290" class="xs-dim"/><text x="96" y="210" text-anchor="end">1,70</text>
+              <line x1="496" y1="120" x2="496" y2="250" class="xs-dim"/><text x="504" y="190">1,20</text>
+            </g>
+            <!-- 4 · obra: vaso, armadura, tuberías -->
+            <g class="xs-build">
+              <path d="M112 120 L112 298 L384 298 L488 256 L488 120 L480 120 L480 250 L380 290 L120 290 L120 120 Z" class="xs-shell"/>
+              <path d="M116 130 L116 294 M116 294 L382 294 L484 253 L484 130" class="xs-rebar"/>
+              <path d="M488 140 L560 140 L560 300 M300 298 L300 320 L560 320" class="xs-pipe"/>
+              <rect x="540" y="296" width="40" height="30" class="xs-equip"/>
+              <rect x="104" y="114" width="24" height="8" class="xs-cope"/><rect x="472" y="114" width="24" height="8" class="xs-cope"/>
+            </g>
+            <!-- 5 · entrega: agua -->
+            <g clip-path="url(#vaso)"><rect x="100" y="300" width="400" height="200" class="xs-water" id="xsWater" fill="url(#wgrad)"/></g>
+            <path class="xs-surf" d="M120 132 Q165 126 210 132 T300 132 T390 132 T480 132"/>
+          </svg>
+          <p class="proc-cap" id="procCap">01 · Escuchamos tu idea</p>
+        </div>
+      </div>
+      <ol class="proc-steps" id="procSteps">
+        <li data-step="1"><span class="proc-d">Día 1 – 2</span><h3 class="h3">Escuchamos tu idea</h3><p>Nos explicas qué piscina tienes en mente, el uso previsto, tu presupuesto y lo que esperáis de ella en casa.</p><ul><li>Entrevista presencial o telemática</li><li>Relax, deporte, niños, diseño: definimos el uso</li><li>Primer asesoramiento sobre tipologías y sistemas</li></ul></li>
+        <li data-step="2"><span class="proc-d">Día 3 – 5</span><h3 class="h3">Estudiamos el espacio</h3><p>Vamos a tu casa a ver el terreno, los accesos y la orientación antes de dibujar nada.</p><ul><li>Medición del espacio y accesos para la maquinaria</li><li>Revisión del terreno y de los servicios enterrados</li><li>Consulta de la normativa de tu municipio</li></ul></li>
+        <li data-step="3"><span class="proc-d">Día 6 – 10</span><h3 class="h3">Diseñamos tu piscina</h3><p>Te presentamos tu piscina en 3D y un presupuesto cerrado por partidas, para que decidas sabiendo exactamente qué incluye.</p><ul><li>Diseño 3D de la piscina en su entorno</li><li>Presupuesto cerrado por partidas</li><li>Calendario de obra y tramitación de la licencia</li></ul></li>
+        <li data-step="4"><span class="proc-d">3 a 5 semanas</span><h3 class="h3">Construimos</h3><p>Ejecutamos la obra con dirección técnica en cada fase y te informamos de cada avance.</p><ul><li>Excavación, armado y estructura del vaso</li><li>Instalación hidráulica y equipos de depuración</li><li>Revestimiento, coronación y acabados</li></ul></li>
+        <li data-step="5"><span class="proc-d">Entrega</span><h3 class="h3">Entregamos la piscina</h3><p>Llenamos la piscina, ponemos en marcha los equipos y te explicamos cómo funciona todo.</p><ul><li>Llenado y arranque de la depuración</li><li>Uso y mantenimiento básico, explicados en tu piscina</li><li>Opción de mantenimiento con el mismo equipo</li></ul><a href="../Construir.dc.html" class="btn btn-navy">Configurar mi piscina</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · CARLOS ============ -->
+<section class="sec sec-deep carlos" id="carlos" data-depth="1.75" data-label="Quién responde">
+  <div class="wrap carlos-grid">
+    <figure class="carlos-fig">
+      <img src="assets/carlos-1200.webp" srcset="assets/carlos-700.webp 700w, assets/carlos-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 45vw" alt="Carlos Martínez, director técnico de APEX Piscinas" loading="lazy" width="1200" height="1208">
+      <figcaption>Carlos Martínez · Director técnico</figcaption>
+    </figure>
+    <div class="carlos-txt">
+      <p class="eyebrow eyebrow-gold">Quién dirige tu obra</p>
+      <h2 class="h2">Detrás de cada piscina hay alguien <em>que responde de ella.</em></h2>
+      <div class="carlos-years" aria-label="36 años de oficio"><span class="cy-n" data-count="36">36</span><span class="cy-l">años construyendo<br>y reparando piscinas</span></div>
+      <p>Hoy dirige todas las obras de APEX. Visita el terreno, decide la solución técnica y la sigue hasta el final. Es la capacidad técnica de la empresa: cuando hablas con nosotros, el criterio es el suyo.</p>
+      <!-- PENDIENTE DE APEX: origen de Carlos en el oficio (1-2 frases) y una cita suya. No se publica hasta tener el texto real. -->
+      <dl class="facts">
+        <div><dt>1</dt><dd>Interlocutor para todo el equipo</dd></div>
+        <div><dt>360°</dt><dd>Diseño, licencias, obra y puesta en marcha</dd></div>
+        <div><dt>1</dt><dd>Responsable técnico en cada obra</dd></div>
+      </dl>
+      <a href="../Empresa.dc.html" class="lnk-gold">Conocer al equipo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · CRITERIO / SOSTENIBILIDAD ============ -->
+<section class="sec sec-warm" id="criterio" data-depth="1.95" data-label="Criterio">
+  <div class="wrap">
+    <header class="sec-h split">
+      <div>
+        <p class="eyebrow">Calidad, diseño y bienestar</p>
+        <h2 class="h2">Piscinas duraderas, eficientes<br><em>y fáciles de mantener.</em></h2>
+      </div>
+      <p class="lead">Materiales de calidad y soluciones actuales en tratamiento del agua, climatización y ahorro energético, para que la piscina se integre en tu casa y no al revés.</p>
+    </header>
+    <ul class="pillars">
+      <li><span class="pl-n">I</span><h3>Ahorro de agua</h3><p>Filtración por vidrio ecológico y recuperación de agua pluvial.</p></li>
+      <li><span class="pl-n">II</span><h3>Eficiencia energética</h3><p>Bombas de velocidad variable que reducen el consumo eléctrico de la depuración.</p></li>
+      <li><span class="pl-n">III</span><h3>Agua suave</h3><p>Electrólisis salina con autorregulación continua del pH.</p></li>
+      <li><span class="pl-n">IV</span><h3>Red profesional</h3><p>En 36 años hemos conocido a los mejores de cada especialidad. Tú tienes un solo interlocutor.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 7 · PREGUNTAS ============ -->
+<section class="sec sec-pale" id="preguntas" data-depth="2.05" data-label="Preguntas">
+  <div class="wrap faq-grid">
+    <header>
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 class="h2">Las dudas,<br><em>sobre la mesa.</em></h2>
+      <p class="lead">¿Tienes una pregunta concreta sobre tu terreno? Mándanos una foto del jardín por WhatsApp.</p>
+      <a class="btn btn-navy" href="https://wa.me/34711740427?text=Hola%2C%20quiero%20hablar%20de%20mi%20piscina." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </header>
+    <div class="faq">
+      <details><summary>¿Qué tipo de piscina es más recomendable para mi jardín?</summary><p>Depende del espacio, el terreno, el presupuesto y tus preferencias estéticas. El hormigón gunitado ofrece total libertad de diseño y máxima durabilidad; el poliéster, rapidez de instalación; las desbordantes o infinitas, protagonismo para las vistas.</p></details>
+      <details><summary>¿Cuánto tiempo se tarda en construir una piscina?</summary><p>Una piscina de obra suele llevar de 3 a 5 semanas de ejecución, a las que se suma el plazo de la licencia municipal. En la propuesta te damos un calendario por fases.</p></details>
+      <details><summary>¿Os encargáis de la licencia de obras?</summary><p>Sí. Revisamos la normativa de tu municipio y tramitamos la licencia o la comunicación de obras que corresponda, antes de empezar.</p></details>
+      <details><summary>¿Por qué cloración salina frente al cloro tradicional?</summary><p>El equipo genera el cloro a partir de la sal disuelta: manipulas menos productos, el agua es más suave para la piel y los ojos y apenas huele a cloro. El pH y el mantenimiento se siguen controlando.</p></details>
+      <details><summary>¿Qué garantía tienen las piscinas que construís?</summary><p>Te la detallamos siempre por escrito en la propuesta, con el alcance de la garantía estructural y de los equipos.</p></details>
+      <details><summary>¿Puedo reformar o reducir la profundidad de mi piscina antigua?</summary><p>Sí. Se puede elevar el fondo, cambiar el revestimiento o renovar los equipos. Primero revisamos el estado real del vaso para no sustituir lo que todavía funciona. <a href="../Reformas.dc.html">Ver reformas →</a></p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 · ZONAS ============ -->
+<section class="sec sec-navy zones" id="zonas" data-depth="2.12" data-label="Zonas">
+  <div class="wrap">
+    <header class="sec-h split">
+      <div>
+        <p class="eyebrow eyebrow-gold">Zonas de trabajo</p>
+        <h2 class="h2">De la costa<br><em>al Montseny.</em></h2>
+      </div>
+      <p class="lead lead-light">Trabajamos en toda Cataluña. Si tu municipio no aparece, escríbelo en el formulario: también vamos.</p>
+    </header>
+    <ul class="zl">
+      <li><a href="../Zona-Barcelones.dc.html"><img src="assets/z-barcelones-900.webp" alt="" loading="lazy" width="900" height="507"><span>Barcelonès</span></a></li>
+      <li><a href="../Zona-Valles-Occidental.dc.html"><img src="assets/z-vallesocc-900.webp" alt="" loading="lazy" width="900" height="507"><span>Vallès Occidental</span></a></li>
+      <li><a href="../Zona-Valles-Oriental.dc.html"><img src="assets/z-vallesori-900.webp" alt="" loading="lazy" width="900" height="507"><span>Vallès Oriental</span></a></li>
+      <li><a href="../Zona-Maresme.dc.html"><img src="assets/z-maresme-900.webp" alt="" loading="lazy" width="900" height="507"><span>Maresme</span></a></li>
+      <li><a href="../Zona-Baix-Llobregat.dc.html"><img src="assets/z-baix-900.webp" alt="" loading="lazy" width="900" height="507"><span>Baix Llobregat</span></a></li>
+      <li><a href="../Zona-Garraf.dc.html"><img src="assets/z-garraf-900.webp" alt="" loading="lazy" width="900" height="507"><span>Garraf · Sitges</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 9 · FONDO · CONTACTO ============ -->
+<section class="sec sec-abyss contact" id="contacto" data-depth="2.2" data-label="Contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <p class="eyebrow eyebrow-gold">Hablemos</p>
+      <h2 class="h2">Tu piscina.<br><em>Nuestra responsabilidad.</em></h2>
+      <p class="lead lead-light">Cinco preguntas cortas. Se guarda cada paso: si lo dejas a medias, no pierdes lo que ya nos has contado.</p>
+      <ul class="contact-alt">
+        <li><a href="tel:+34711740427"><span>Llamar</span>711 740 427</a></li>
+        <li><a href="https://wa.me/34711740427" target="_blank" rel="noopener"><span>Escribir</span>WhatsApp</a></li>
+        <li><a href="https://meetings-eu1.hubspot.com/david374" target="_blank" rel="noopener"><span>Reservar</span>Agendar visita</a></li>
+      </ul>
+    </div>
+
+    <form class="lead-form" id="leadForm" novalidate>
+      <div class="lf-top">
+        <button type="button" class="lf-back" id="lfBack" hidden>← Atrás</button>
+        <div class="lf-prog" aria-hidden="true"><i id="lfBar"></i></div>
+        <span class="lf-count" id="lfCount">1 / 5</span>
+      </div>
+
+      <fieldset class="lf-step" data-s="1">
+        <legend class="lf-q">¿Qué te trae por aquí?</legend>
+        <div class="lf-opts">
+          <label><input type="radio" name="need" value="construir"><span>Quiero hacerme una piscina</span></label>
+          <label><input type="radio" name="need" value="reformar"><span>Quiero modernizar mi piscina</span></label>
+          <label><input type="radio" name="need" value="reparar"><span>A mi piscina le pasa algo</span></label>
+          <label><input type="radio" name="need" value="agua"><span>El agua está rara</span></label>
+          <label><input type="radio" name="need" value="mantenimiento"><span>Mantenimiento</span></label>
+          <label><input type="radio" name="need" value="wellness"><span>Wellness y spa</span></label>
+        </div>
+        <p class="lf-hint">Un clic. Sin compromiso.</p>
+      </fieldset>
+
+      <fieldset class="lf-step" data-s="2" hidden>
+        <legend class="lf-q">¿Dónde está la piscina?</legend>
+        <label class="fld"><span>Municipio</span><input name="muni" autocomplete="address-level2" required></label>
+        <button type="submit" class="btn btn-gold">Siguiente →</button>
+      </fieldset>
+
+      <fieldset class="lf-step" data-s="3" hidden>
+        <legend class="lf-q">¿Nos mandas unas fotos?</legend>
+        <p class="lf-hint">Con fotos podemos orientarte antes de ir. Si ahora no puedes, déjalo para después.</p>
+        <label class="fld fld-file"><span>Fotos de la piscina, del problema o del cuarto técnico <em>· opcional</em></span><input type="file" name="fotos" accept="image/*" multiple></label>
+        <label class="fld"><span>Correo electrónico</span><input type="email" name="mail" autocomplete="email" required></label>
+        <p class="fld-err" data-err="mail" hidden>Escribe un correo válido para poder enviarte la valoración.</p>
+        <button type="submit" class="btn btn-gold">Siguiente →</button>
+      </fieldset>
+
+      <fieldset class="lf-step" data-s="4" hidden>
+        <legend class="lf-q">¿A qué número te llamamos?</legend>
+        <label class="fld"><span>Nombre</span><input name="name" autocomplete="given-name" required></label>
+        <label class="fld"><span>Teléfono</span><input type="tel" name="tel" autocomplete="tel" inputmode="tel" required></label>
+        <label class="chk"><input type="checkbox" name="ok" required><span>Acepto que APEX me contacte para atender esta solicitud. <a href="../Contacto.dc.html">Información sobre tus datos</a></span></label>
+        <p class="fld-err" data-err="s4" hidden>Necesitamos tu nombre, un teléfono válido y tu conformidad.</p>
+        <button type="submit" class="btn btn-gold">Quiero que me llaméis →</button>
+      </fieldset>
+
+      <fieldset class="lf-step" data-s="5" hidden>
+        <legend class="lf-q">¿Algo más que debamos saber?</legend>
+        <label class="fld"><span>Opcional</span><textarea name="extra" rows="3"></textarea></label>
+        <button type="submit" class="btn btn-gold">Enviar</button>
+      </fieldset>
+
+      <div class="lf-done" data-s="6" hidden tabindex="-1">
+        <p class="lf-q">Hecho.</p>
+        <p class="lead-light">Te llamamos para confirmar la visita.</p>
+      </div>
+      <input type="hidden" name="sintoma">
+      <p class="lf-saved" id="lfSaved" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <footer class="ft">
+    <div class="wrap ft-grid">
+      <img src="assets/logo-apex.png" alt="APEX Piscinas" width="140" height="42" loading="lazy">
+      <nav aria-label="Servicios"><p class="eyebrow eyebrow-gold">Servicios</p><a href="../Construir.dc.html">Construcción</a><a href="../Reformas.dc.html">Reformas</a><a href="../MiPiscina.dc.html">Reparaciones</a><a href="../Agua.dc.html">Tratamientos de agua</a><a href="../Mantenimiento.dc.html">Mantenimiento</a><a href="../Wellness.dc.html">Wellness y spa</a></nav>
+      <nav aria-label="APEX"><p class="eyebrow eyebrow-gold">APEX</p><a href="../Empresa.dc.html">Empresa y equipo</a><a href="../Criterio.dc.html">Maestría APEX</a><a href="../Zonas.dc.html">Zonas</a><a href="../Profesionales.dc.html">Comunidades y profesionales</a><a href="../Contacto.dc.html">Contacto</a></nav>
+      <div><p class="eyebrow eyebrow-gold">Contacto</p><a href="tel:+34711740427">711 740 427</a><a href="mailto:apex@apexpiscinas.com">apex@apexpiscinas.com</a></div>
+    </div>
+    <p class="wrap ft-legal">© 2026 APEX Piscinas · Aviso legal · Privacidad · Cookies</p>
+  </footer>
+</section>
+</main>
+
+<!-- Barra fija móvil -->
+<div class="mbar" aria-label="Contacto rápido">
+  <a href="tel:+34711740427">Llamar</a>
+  <a href="#contacto" class="mbar-gold">Agendar visita</a>
+</div>
+
+<script src="v2.js" defer></script>
+</body>
+</html>
